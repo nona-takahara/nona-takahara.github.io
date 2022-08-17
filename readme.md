@@ -1,4 +1,6 @@
 # こーげんやさい
+[![Build and Deploy Page](https://github.com/nona-takahara/nona-takahara.github.io/actions/workflows/pages.yml/badge.svg)](https://github.com/nona-takahara/nona-takahara.github.io/actions/workflows/pages.yml)
+
 高原のな(Nona Takahara)のWebサイトです
 
 `npm run build`でビルドできます。
