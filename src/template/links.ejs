@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>こーげんやさい | リンク集</title>
+  <link rel="stylesheet" href="/common.css" />
+</head>
+
+<body>
+  <header>
+    <div class="content flex">
+      <h1>
+        <a href="/">
+          <img src="/image/logotype.svg" alt="こーげんやさい" />
+        </a>
+      </h1>
+      <nav>
+        <ul>
+          <li><a href="/blog/index.html">ブログ</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <div class="content">
+      <section>
+        <h2>相互リンク</h2>
+        <%_ for(let k of data) { if (k.inter) { _%>
+        <div class="floatbox">
+        <h3><a href="<%= k.url %>"><%= k.title %></a></h3>
+        <%_ if (k.banner && k.banner_alive) { %><a href="<%= k.url %>"><img src="<%= k.banner %>" class="banner float-l"/></a><%_ } else { %>
+        <div class="banner float-l"></div><%_ } %>
+        <p><%= k.short %></p>
+        </div>
+        <%_ } } %>
+      </section>
+      <!--
+      <section>
+        <h2>その他のリンク</h2>
+        <%_ for(let k of data) { if (k.inter === false) { _%>
+        <div class="floatbox">
+        <h3><a href="<%= k.url %>"><%= k.title %></a></h3>
+        <%_ if (k.banner && k.banner_alive) { %><a href="<%= k.url %>"><img src="<%= k.banner %>" class="banner float-l"/></a><%_ } else { %>
+        <div class="banner float-l"></div><%_ } %>
+        <p><%= k.short %></p>
+        </div>
+        <%_ } } %>
+      </section>
+      -->
+      <section>
+        <h2>リンクについて</h2>
+        <p>この「こーげんやさい」はリンクフリーです。</p>
+        <p>また、バナーが <a href="https://nona-takahara.github.io/image/banner_234x60.png">https://nona-takahara.github.io/image/banner_234x60.png</a> にありますので、必要な方はご利用ください。気まぐれに更新するため、直リンやそれに準ずる方法を推奨しています。</p>
+        <img src="/image/banner_234x60.png" alt="こーげんやさい バナー" />
+        <p><a href="/">[トップに戻る]</a></p>
+      </section>
+    </div>
+  </main>
+  <footer>
+    <div class="content">
+      <p>&copy;2022 Nona Takahara</p>
+    </div>
+  </footer>
+</body>
+
+</html>

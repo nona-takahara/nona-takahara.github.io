@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>こーげんやさいブログ</title>
+  <link rel="stylesheet" href="/common.css" />
+</head>
+
+<body>
+  <header>
+    <div class="content flex">
+      <h1>
+        <a href="/">
+          <img src="/image/logotype.svg" alt="こーげんやさい" />
+        </a>
+      </h1>
+
+      <nav>
+        <ul>
+            <li><a href="/blog/">ブログ</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <div class="content">
+      <section>
+        <h2>こーげんやさいブログ 記事一覧</h2>
+        <%_ for (let k of entries) { %>
+          <h3><a href="/blog/<%= k.fileName %>"><%= k.title %></a></h3>
+          <p><%= k?.short %></p>
+        <%_ } %>
+      </section>
+    </div>
+  </main>
+  <footer>
+    <div class="content">
+      <p>&copy;2022 Nona Takahara</p>
+    </div>
+  </footer>
+</body>
+
+</html>

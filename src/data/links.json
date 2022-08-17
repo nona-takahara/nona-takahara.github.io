@@ -1,0 +1,34 @@
+[
+    {
+        "url": "https://exout.net/~kirby3ds/",
+        "title": "カービィ★KIRBYの家",
+        "short": "「オリジナルキャラクターやイラスト、プログラムまで多彩なコンテンツをお届けします！」",
+        "banner": "https://exout.net/~kirby3ds/link/bnr/bnr_234x60.png",
+        "banner_alive": false,
+        "inter": true
+    },
+    {
+        "url": "https://koronyan888.github.io/",
+        "title": "ころにゃんのホームページ",
+        "short": "（現在リンク切れとなっています）",
+        "banner": "https://koronyan888.github.io/img/bana.png",
+        "banner_alive": false,
+        "inter": true
+    },
+    {
+        "url": "https://yude.jp/",
+        "title": "yude.jp",
+        "short": "",
+        "banner": "https://yude.jp/images/banner_new.png",
+        "banner_alive": true,
+        "inter": true
+    },
+    {
+        "url": "https://arkw.net/",
+        "title": "Arakawa Laboratory",
+        "short": "",
+        "banner": "./image/arkw_net_logo.png",
+        "banner_alive": true,
+        "inter": true
+    }
+]
