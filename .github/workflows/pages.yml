@@ -1,5 +1,4 @@
-# Sample workflow for building and deploying a Jekyll site to GitHub Pages
-name: Deploy Jekyll with GitHub Pages dependencies preinstalled
+name: Build and Deploy Page
 
 on:
   # Runs on pushes targeting the default branch
@@ -34,7 +33,7 @@ jobs:
         with:
           node-version: 16.x
       - name: Install NPM packages
-        run: npm ci
+        run: npm install
       - name: Build website
         run: npm run build
       - name: Upload artifact
