@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>こーげんやさい</title>
+  <link rel="stylesheet" href="/common.css" />
+  <script src="/index.js" defer></script>
+</head>
+
+<body>
+  <header>
+    <div class="content flex">
+      <h1>
+        <a href="#">
+          <img src="/image/logotype.svg" alt="こーげんやさい" />
+        </a>
+      </h1>
+
+      <nav>
+        <ul>
+          <li><a href="/blog/index.html">ブログ</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <div class="content">
+      <section class="hideable landing">
+        <h2>「こーげんやさい」へようこそ</h2>
+        <p>高原のなの制作物、公開物へのリンク置き場です。ライセンスとか守ってもらって、あとはご自由にどうぞ</p>
+        <p><a href="/blog/">簡素なブログ</a>も用意しました</p>
+      </section>
+      <section id="list-of-content" class="hideable landing">
+        <h2>公開中のもの</h2>
+        <p>
+          各制作物のタイトルをクリックすると、紹介ページに飛びます
+        </p>
+        <%_ for(let k of data) { _%>
+        <h3><a href="#<%= k.id %>"><%= k.title %></a></h3>
+        <p><%= k.short %></p>
+        <%_ } %>
+      </section>
+
+      <section class="hideable landing floatbox">
+        <h2>自己紹介</h2>
+        <img src="image/nona-takahara.png" alt="高原のな プロフィール画像" class="profile-icon float-r">
+        <p><b><ruby><rb>高原</rb><rp>（</rp><rt>たかはら</rt><rp>）</rp></ruby>のな</b>といいます。草も生えないプログラマ。ゲームを作っていたり、動画を作っていたりしたらしい。</p>
+        <ul class="link clickable">
+          <li><a target="_blank" href="https://twitter.com/nona_takahara">Twitter（@nona_takahara)</a></li>
+          <li><a target="_blank" href="https://github.com/nona-takahara">GitHub（@nona-takahara)</a></li>
+          <li><a target="_blank" href="https://www.nicovideo.jp/user/58564668">ニコニコ動画（ユーザーページ）</a></li>
+          <li><a target="_blank" href="https://peing.net/ja/nona_takahara">Peing -質問箱-</a></li>
+        </ul>
+      </section>
+      <section class="hideable landing">
+        <h2>リンク集</h2>
+        <p><a href="links.html">リンク集はこちら</a>。相互リンクなども対応します。</p>
+      </section>
+      <section class="hideable landing">
+        <h2>ライセンス</h2>
+        <p>当サイトでは多数のOSS成果物を使用しています。</p>
+        <p><a href="https://github.com/necolas/normalize.css/">Normalize.css</a>を利用しています。ライセンス表記はビルドされたCSSファイル内の記載に代えさせていただきます。</p>
+      </section>
+
+      <hr class="hideable"/>
+
+      <%_ for(let k of data) { _%>
+      <section id="<%= k.id %>" class="hideable">
+        <h2><%= k.title %></h2>
+        <%_ if(k.category) { _%>
+          <ul class="float-l category">
+            <%_ for(let ct of k.category) { _%>
+              <li><%= ct %></li>
+            <%_ } %>
+          </ul>
+        <%_ } %>
+        <%_ if(k.latest) { _%>
+          <p class="float-r no-margin"><small>
+            <%= k.latest.version %>
+            <%_ if(k.latest.dateiso) { _%>
+            （最終更新：<time datetime="<%= k.latest.dateiso %>"><%= k.latest.date %></time>）
+            <%_ } _%>
+          </small></p>
+        <%_ } _%>
+        <%_ if(k.links) { _%>
+        <nav class="float-clear table-of-links">
+          <ul class="link clickable">
+            <%_ for(let v of k.links) { _%>
+              <li><a href="<%- v.url -%>"><%= v.text %></a></li>
+            <%_ } %>
+          </ul>
+        </nav>
+        <%_ } _%>
+        <%- k.html -%>
+        <p class="float-clear "><a href="#" class="jsshow">[戻る]</a></p>
+      </section>
+
+      <%_ } %>
+    </div>
+  </main>
+  <footer>
+    <div class="content">
+      <p>&copy;2022 Nona Takahara</p>
+    </div>
+  </footer>
+</body>
+
+</html>
