@@ -30,9 +30,9 @@
         <%_ for(let k of data) { if (k.inter) { _%>
         <div class="floatbox">
         <h3><a href="<%= k.url %>"><%= k.title %></a></h3>
-        <%_ if (k.banner && k.banner_alive) { %><a href="<%= k.url %>"><img src="<%= k.banner %>" class="banner float-l"/></a><%_ } else { %>
+        <%_ if (k.banner) { %><a href="<%= k.url %>"><img src="<%= k.banner %>" class="banner float-l"/></a><%_ } else { %>
         <div class="banner float-l"></div><%_ } %>
-        <p><%= k.short %></p>
+        <p><%= k.short ?? "" %></p>
         </div>
         <%_ } } %>
       </section>
@@ -42,7 +42,7 @@
         <%_ for(let k of data) { if (k.inter === false) { _%>
         <div class="floatbox">
         <h3><a href="<%= k.url %>"><%= k.title %></a></h3>
-        <%_ if (k.banner && k.banner_alive) { %><a href="<%= k.url %>"><img src="<%= k.banner %>" class="banner float-l"/></a><%_ } else { %>
+        <%_ if (k.banner) { %><a href="<%= k.url %>"><img src="<%= k.banner %>" class="banner float-l"/></a><%_ } else { %>
         <div class="banner float-l"></div><%_ } %>
         <p><%= k.short %></p>
         </div>

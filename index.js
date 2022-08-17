@@ -141,7 +141,7 @@ async function makeIndexHtml() {
 }
 
 async function makeLinksHtml() {
-  ejs.renderFile('src/template/links.ejs', { data: JSON.parse(await fs.readFile('src/data/links.json')) }, {}, (err, str) => {
+  ejs.renderFile('src/template/links.ejs', { data: yaml.parse((await fs.readFile('src/data/links.yaml')).toString()) }, {}, (err, str) => {
     fs.writeFile('build/links.html', str);
   })
 }
