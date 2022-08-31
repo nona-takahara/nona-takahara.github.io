@@ -70,6 +70,7 @@ function remarkGfm(options = {}) {
 
 const sanitizeSchema = {
   ...defaultSchema,
+  tagNames: [...defaultSchema.tagNames, 'u'],
   attributes: {
     ...defaultSchema.attributes,
     div: [
@@ -95,6 +96,7 @@ const kogenStyleParser = unified()
   })
   .use(remarkGfm)
   .use(remarkMath)
+  .use(underLine)
   .use(MDNblock)
   .use(remarkRehype)
   .use(rehypeSanitize, sanitizeSchema)
@@ -208,6 +210,17 @@ async function findFirstAndLatestTimeStamp(fileName) {
   }
 
   return { first_commit: first, latest_commit: latest };
+}
+
+function underLine() {
+  return (tree, file) => {
+    visit(tree, 'strong', (node) => {
+      const startCode = node.children[0].position.start.offset - 2;
+      if (file.toString().substring(startCode, startCode + 2) === '__') {
+        node.data = { hName: 'u' };
+      }
+    });
+  }
 }
 
 function MDNblock() {
