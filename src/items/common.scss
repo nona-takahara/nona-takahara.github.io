@@ -328,3 +328,21 @@ table {
         }
     }
 }
+
+pre, code {
+    background-color: rgb(240, 240, 240);
+    border-radius: 0.4em;
+
+    @media (prefers-color-scheme: dark) {
+        background-color: rgb(40, 40, 40);
+    }
+}
+
+p code {
+    padding: 0 0.2em;
+}
+
+pre {
+    overflow-x: auto;
+    padding: 1em;
+}
