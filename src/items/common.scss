@@ -131,8 +131,10 @@ main {
     h4,
     h5,
     h6 {
+        line-height: 110%;
         margin-bottom: 0;
         padding: 0;
+        padding-bottom: 4px;
     }
 
     p {
@@ -169,10 +171,6 @@ footer {
 
 *.flex {
     display: flex;
-}
-
-h1, h2, h3, h4, h5, h6 {
-    line-height: 110%;
 }
 
 p {
