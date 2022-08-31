@@ -148,7 +148,7 @@ async function makeLinksHtml() {
 
 async function makeBlog() {
   const files = await glob('src/data/blog/entry*.md', {});
-  const template = ejs.compile(String(await fs.readFile('src/template/blog.ejs')), {});
+  const template = ejs.compile(String(await fs.readFile('src/template/blog.ejs')), { filename: 'src/template/blog.ejs' });
   const datas = await Promise.all(files.map(async function (v) {
     const d = await kogenStyleParse(await fs.readFile(v));
     const srcPath = path.format(
@@ -168,7 +168,7 @@ async function makeBlog() {
     d.data.fileName = path.basename(srcPath);
 
     await fs.mkdir('build/blog', { recursive: true });
-    await fs.writeFile(srcPath, template({ data: { ...d.data, html: String(d) }}));
+    await fs.writeFile(srcPath, await template({ data: { ...d.data, html: String(d) }}));
     return d.data;
   }));
 

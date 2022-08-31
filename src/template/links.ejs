@@ -1,28 +1,7 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>こーげんやさい | リンク集</title>
-  <link rel="stylesheet" href="/common.css" />
-</head>
-
-<body>
-  <header>
-    <div class="content flex">
-      <h1>
-        <a href="/">
-          <img src="/image/logotype.svg" alt="こーげんやさい" />
-        </a>
-      </h1>
-      <nav>
-        <ul>
-          <li><a href="/blog/index.html">ブログ</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+<%_
+page = {}
+page.title = 'こーげんやさい | リンク集';
+_%><%- include('page-head.ejs') %>
   <main>
     <div class="content">
       <section>
@@ -57,12 +36,4 @@
         <p><a href="/">[トップに戻る]</a></p>
       </section>
     </div>
-  </main>
-  <footer>
-    <div class="content">
-      <p>&copy;2022 Nona Takahara</p>
-    </div>
-  </footer>
-</body>
-
-</html>
+  </main><%- include('page-foot.ejs') %>
