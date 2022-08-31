@@ -1,30 +1,8 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>こーげんやさい</title>
-  <link rel="stylesheet" href="/common.css" />
-  <script src="/index.js" defer></script>
-</head>
-
-<body>
-  <header>
-    <div class="content flex">
-      <h1>
-        <a href="#">
-          <img src="/image/logotype.svg" alt="こーげんやさい" />
-        </a>
-      </h1>
-
-      <nav>
-        <ul>
-          <li><a href="/blog/index.html">ブログ</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+<%_
+page = {}
+page.title = 'こーげんやさい';
+page.indexjs = true;
+_%><%- include('page-head.ejs') %>
   <main>
     <div class="content">
       <section class="hideable landing">
@@ -99,12 +77,4 @@
 
       <%_ } %>
     </div>
-  </main>
-  <footer>
-    <div class="content">
-      <p>&copy;2022 Nona Takahara</p>
-    </div>
-  </footer>
-</body>
-
-</html>
+  </main><%- include('page-foot.ejs') %>
