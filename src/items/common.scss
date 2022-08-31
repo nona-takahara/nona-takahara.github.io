@@ -3,7 +3,7 @@
 $base-font-size: 16px;
 $base-line-height: 23px;
 $base-unit: 'em';
-$base-font-family: none;
+$base-font-family: sans-serif;
 $indent-amount: 2em;
 
 @include normalize();
