@@ -94,7 +94,7 @@ header {
 }
 
 main {
-    padding-top: calc($header-space - 0.5em);
+    padding-top: $header-space;
     flex: 1;
 
     h1,
