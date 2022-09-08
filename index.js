@@ -6,6 +6,7 @@
  * The other parts are CC0
  */
 
+import { createHash } from 'crypto';
 import fs from 'fs/promises';
 import 'date-utils';
 import ejs from 'ejs';
@@ -170,7 +171,7 @@ async function makeBlog() {
     d.data.fileName = path.basename(srcPath);
 
     await fs.mkdir('build/blog', { recursive: true });
-    await fs.writeFile(srcPath, await template({ data: { ...d.data, html: String(d) }}));
+    await fs.writeFile(srcPath, await template({ data: { ...d.data, html: String(d), hash: createHash('md5').update(d.data.orignalTitle || d.data.title).digest('hex') }}));
     return d.data;
   }));
 
