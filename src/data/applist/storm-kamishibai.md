@@ -8,7 +8,7 @@ category:
     - Web
 latest:
     dateiso: 2022-09-10
-    version: v0.5.1
+    version: v0.5.2
 links:
     - text: Storm Kamishibai (Webアプリ利用の際はこちらから)
       url: https://nona-takahara.github.io/storm-kamishibai/
