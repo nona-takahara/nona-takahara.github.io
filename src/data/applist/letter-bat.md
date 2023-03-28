@@ -11,7 +11,9 @@ latest:
     dateiso: 2018-01-26
 links:
     - url: http://wiki.hosiken.jp/petc3gou/?Toukou%2FSmileBasic2weeks%20%C5%EA%B9%C6%BA%EE%C9%CA%BD%B8
-      text: SmileBasic2weeks 投稿作品集（プチコン3号＆BIGまとめWiki）
+      text: SmileBasic2weeks 投稿作品集（プチコン3号＆BIGまとめWiki）リンク切れ
+    - url: https://smilebasic.kurun96.com/work/44PVN3N4/
+      text: 『おてがみコウモリさん リターンズ』 SmileBASIC4 作品一覧のハコ
 ---
 > **Key:**(プチコン3号・BIG公開キー) KDNNS384
 
@@ -19,4 +21,7 @@ links:
 
 一度くらいコンテストに作品を出してみようと思い立って制作した作品です。
 
-お題「タッチパネル」のとおり、タッチパネルでコウモリさんに手紙を集めてもらうようにします。
+タッチパネルの左をタッチすると左に、右をタッチすると右にコウモリさんが移動するので、お手紙を回収し、長く飛び続けましょう。
+
+![おてがみコウモリさん オリジナル 3DS/WiiU版 上画面](image/letbat_up.jpg)  
+![おてがみコウモリさん オリジナル 3DS/WiiU版 下画面](image/letbat_down.jpg)
