@@ -13,6 +13,7 @@ $neutral-700: #505258;
 $neutral-500: #828488;
 $neutral-250: #eeecea;
 $neutral-100: #f6f4f2;
+$neutral-000: #ffffff;
 
 $neutral-100-dark: #f8f8f8;
 
@@ -46,7 +47,7 @@ body {
     display: flex;
     flex-direction: column;
 
-    background-color: $neutral-100;
+    background-color: $neutral-000;
     @media (prefers-color-scheme: dark) {
         background-color: $neutral-900;
         color: $neutral-100-dark;
