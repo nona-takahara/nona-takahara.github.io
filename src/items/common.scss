@@ -60,15 +60,18 @@ header {
     width: 100%;
     height: $header-space - $header-border;
 
-    background-color: $neutral-250;
-
-    /*@media (prefers-color-scheme: dark) {
-        background-color: rgb(240, 240, 240);
-    }*/
+    background-color: $neutral-100;
 
     border-bottom: $header-border solid $mygradient-alter;
     border-image: $mygradient 1;
 
+    @media (prefers-color-scheme: dark) {
+        background-color: $neutral-500;
+        border-bottom: $header-border solid $mygradient-dark-alter;
+        border-image: $mygradient-dark 1;
+    }
+
+    
     h1 {
         display: flex;
         flex: auto;
@@ -143,6 +146,10 @@ main {
     h6,
     hr {
         border-image: $mygradient 1;
+        @media (prefers-color-scheme: dark) {
+            border-bottom-color: $mygradient-dark-alter;
+            border-image: $mygradient-dark 1;
+        }
     }
 
     h1,
@@ -168,11 +175,11 @@ main {
 }
 
 footer {
-    background-color: $neutral-700;
+    background-color: $neutral-900;
     color: $neutral-100-dark;
 
     @media (prefers-color-scheme: dark) {
-        background-color: $neutral-900;
+        background-color: $neutral-700;
     }
 
     p {
