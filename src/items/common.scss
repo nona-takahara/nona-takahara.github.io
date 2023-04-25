@@ -8,11 +8,30 @@ $indent-amount: 2em;
 
 @include normalize();
 
-$mygradient-alter: rgb(40, 200, 175);
-$mygradient: linear-gradient(to right, rgb(60, 200, 210), rgb(20, 200, 140));
+$neutral-900: #141820;
+$neutral-700: #505258;
+$neutral-500: #828488;
+$neutral-250: #eeecea;
+$neutral-100: #f6f4f2;
 
-$mygradient-dark-alter: rgb(40, 140, 110);
-$mygradient-dark: linear-gradient(to right, rgb(50, 140, 150), rgb(30, 140, 70));
+$neutral-100-dark: #f8f8f8;
+
+$primary-g-700: #2d9070;
+$primary-g-300: #50e8b8;
+
+$primary-b-700: #309ab4;
+$primary-b-300: #72daf2;
+
+$link: #1880f8;
+$link-dark: #50a8f8;
+$link-visited: #704090;
+$link-visited-dark: #b068d8;
+
+$mygradient-alter: $primary-g-300;
+$mygradient: linear-gradient(to right, $primary-b-300, $primary-g-300);
+
+$mygradient-dark-alter: $primary-g-700;
+$mygradient-dark: linear-gradient(to right, $primary-b-700, $primary-g-700);
 
 $header-space: 64px;
 $header-border: 4px;
@@ -29,8 +48,8 @@ body {
     flex-direction: column;
 
     @media (prefers-color-scheme: dark) {
-        background-color: black;
-        color: rgb(224, 224, 224);
+        background-color: $neutral-900;
+        color: $neutral-100-dark;
     }
 }
 
@@ -40,11 +59,11 @@ header {
     width: 100%;
     height: $header-space - $header-border;
 
-    background-color: rgb(244, 244, 244);
+    background-color: $neutral-250;
 
-    @media (prefers-color-scheme: dark) {
+    /*@media (prefers-color-scheme: dark) {
         background-color: rgb(240, 240, 240);
-    }
+    }*/
 
     border-bottom: $header-border solid $mygradient-alter;
     border-image: $mygradient 1;
@@ -148,11 +167,11 @@ main {
 }
 
 footer {
-    background-color: black;
-    color: white;
+    background-color: $neutral-700;
+    color: $neutral-100-dark;
 
     @media (prefers-color-scheme: dark) {
-        background-color: rgb(64, 64, 64);
+        background-color: $neutral-900;
     }
 
     p {
@@ -189,14 +208,22 @@ a {
     &:active {
         text-decoration: underline;
     }
+    
+    &:visited {
+        color: $link-visited;
+    }
+
+    &:link {
+        color: $link;
+    }
 
     @media (prefers-color-scheme: dark) {
         &:visited {
-            color: rgb(224, 64, 240);
+            color: $link-visited-dark;
         }
 
         &:link {
-            color: rgb(16, 160, 255);
+            color: $link-dark;
         }
     }
 }
@@ -228,7 +255,7 @@ ul.link {
 
 ul.category {
     display: block;
-    color: rgb(128, 128, 128);
+    color: $neutral-500;
     padding: 0;
     li {
         display: inline-block;
@@ -290,7 +317,7 @@ div.petitcom-key {
     display: inline-flex;
     background-color: $mygradient-dark-alter;
     background-image: $mygradient-dark;
-    color: white;
+    color: $neutral-100;
     border-radius: 10px;
     align-items: center;
     margin: 2px;
@@ -299,8 +326,8 @@ div.petitcom-key {
         margin: 4px;
         align-items: center;
         &.key {
-            background-color: white;
-            color: black;
+            background-color: $neutral-100;
+            color: $neutral-900;
             border-radius: 8px;
             padding: 4px 8px;
         }
@@ -320,19 +347,19 @@ table {
     border-collapse: collapse;
     tr {
         td, th {
-            border: solid 1px black;
+            border: solid 1px $neutral-900;
             padding: 4px 8px;
             @media (prefers-color-scheme: dark) {
-                border-color: rgb(240, 240, 240);
+                border-color: $neutral-100-dark;
             }
         }
     }
 }
 
 pre, code {
-    background-color: rgb(240, 240, 240);
+    background-color: $neutral-100;
     @media (prefers-color-scheme: dark) {
-        background-color: rgb(40, 40, 40);
+        background-color: $neutral-900;
     }
 }
 
