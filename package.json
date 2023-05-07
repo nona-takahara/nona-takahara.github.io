@@ -26,7 +26,7 @@
     "unified": "^10.1.2",
     "unist-util-is": "^5.1.1",
     "unist-util-visit": "^4.1.0",
-    "yaml": "^2.1.1"
+    "yaml": "^2.2.2"
   },
   "engines": {
     "node": ">=14.16"
