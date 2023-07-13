@@ -5,7 +5,7 @@
     "date-utils": "^1.2.21",
     "ejs": "^3.1.8",
     "glob": "^8.0.3",
-    "glob-promise": "^5.0.0",
+    "glob-promise": "^5.0.1",
     "mdast-util-gfm-strikethrough": "^1.0.1",
     "mdast-util-gfm-table": "^1.0.4",
     "micromark-extension-gfm-strikethrough": "^1.0.4",
