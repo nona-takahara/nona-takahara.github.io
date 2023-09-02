@@ -1,0 +1,311 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+//const pageTitle = "こーげんやさい";
+---
+<BaseLayout>
+  <div class="content">
+    <section class="hideable landing">
+      <h2>「こーげんやさい」へようこそ</h2>
+      <p>
+        高原のなの制作物、公開物へのリンク置き場です。ライセンスとか守ってもらって、あとはご自由にどうぞ
+      </p>
+      <p><a href="/blog/">簡素なブログ</a>も用意しました</p>
+    </section>
+    <section id="list-of-content" class="hideable landing">
+      <h2>公開中のもの</h2>
+      <p>各制作物のタイトルをクリックすると、紹介ページに飛びます</p>
+      <h3><a href="#kogen-yasai">こーげんやさい</a></h3>
+      <p>このWebページとブログを含めた、Webサイト全体のこと</p>
+      <h3><a href="#storm-kamishibai">Storm Kamishibai</a></h3>
+      <p>Stormworks用のモニタ描画Luaプログラムジェネレータ</p>
+      <h3><a href="#letter-bat">おてがみコウモリさん</a></h3>
+      <p>第3回SB2Weeksに向けて制作したタッチオンリーで遊べるゲーム</p>
+      <h3><a href="#console-shooter">コンソールシューティング</a></h3>
+      <p>
+        プチコン3号のコンソール画面だけを使って多重スクロールすることを試みたシューティングゲーム
+      </p>
+    </section>
+
+    <section class="hideable landing floatbox">
+      <h2>自己紹介</h2>
+      <img
+        src="image/nona-takahara.png"
+        alt="高原のな プロフィール画像"
+        class="profile-icon float-r"
+        width="100"
+        height="100"
+        decoding="async"
+        loading="lazy"
+      />
+      <p>
+        <b><ruby>高原<rp>（</rp><rt>たかはら</rt><rp>）</rp></ruby>のな</b
+        >といいます。ゲームを作っていたり、動画を作っていたりしたらしい。
+      </p>
+      <ul class="link clickable">
+        <li>
+          <a target="_blank" href="mailto:nona_t_2612@yahoo.co.jp"
+            >メール（&#x6e;o&#x6e;&#x61;&#x5f;&#x74;&#x5f;&#x32;&#x36;&#x31;&#x32;@&#x79;&#x61;&#x68;&#x6f;&#x6f;&#x2e;&#x63;&#x6f;&#x2e;&#x6a;&#x70;）</a>
+        </li>
+        <li>
+          <a target="_blank" href="https://github.com/nona-takahara"
+            >GitHub（@nona-takahara）</a>
+        </li>
+        <li>
+          <a target="_blank" href="https://www.nicovideo.jp/user/58564668"
+            >ニコニコ動画（ユーザーページ）</a>
+        </li>
+        <li>
+          <a target="_blank" href="https://twitter.com/nona_takahara"
+            >Twitter（@nona_takahara）</a>
+        </li>
+      </ul>
+    </section>
+    <section class="hideable landing">
+      <h2>リンク集</h2>
+      <p>
+        <a href="links.html">リンク集はこちら</a
+        >。相互リンクなども対応します。
+      </p>
+    </section>
+    <section class="hideable landing">
+      <h2>ライセンス</h2>
+      <p>当サイトでは多数のOSS成果物を使用しています。</p>
+      <p>
+        特に<a href="https://github.com/JohnAlbin/normalize-scss"
+          >normalize-scss</a
+        >を利用しています。ライセンス表記はビルドされたCSSファイル内の記載に代えさせていただきます。
+      </p>
+    </section>
+
+    <hr class="hideable" />
+
+    <section id="kogen-yasai" class="hideable">
+      <h2>こーげんやさい</h2>
+      <ul class="float-l category">
+        <li>Web</li>
+      </ul>
+
+      <p class="float-r no-margin">
+        <small>
+          2022バージョン （最終更新：<time datetime="2023-07-04"
+            >2023年7月4日</time
+          >）
+        </small>
+      </p>
+      <nav class="float-clear table-of-links" role="contentinfo">
+        <ul class="link clickable">
+          <li>
+            <a
+              href="https://github.com/nona-takahara/nona-takahara.github.io"
+              >GitHub リポジトリ</a>
+          </li>
+          <li>
+            <a href="https://nona-takahara.github.io/blog/"
+              >こーげんやさいブログ</a>
+          </li>
+        </ul>
+      </nav>
+      <p>
+        Markdown、GitHub
+        Actionsなどを活用し、保守管理をかなり簡略化させた、n代目の（数えていない）高原のなウェブサイトです。
+      </p>
+      <p class="float-clear"><a href="#" class="jsshow">[戻る]</a></p>
+    </section>
+
+    <section id="storm-kamishibai" class="hideable">
+      <h2>Storm Kamishibai</h2>
+      <ul class="float-l category">
+        <li>Stormworks</li>
+        <li>Web</li>
+      </ul>
+
+      <p class="float-r no-margin">
+        <small>
+          v0.5.2 （最終更新：<time datetime="2022-09-10">2022年9月10日</time
+          >）
+        </small>
+      </p>
+      <nav class="float-clear table-of-links">
+        <ul class="link clickable">
+          <li>
+            <a href="https://nona-takahara.github.io/storm-kamishibai/"
+              >Storm Kamishibai (Webアプリ利用の際はこちらから)</a>
+          </li>
+          <li>
+            <a href="https://github.com/nona-takahara/storm-kamishibai"
+              >GitHub リポジトリ</a>
+          </li>
+        </ul>
+      </nav>
+      <p>
+        Stormworksで、大量の画像コマから1つ選んで画像を表示するような、モニタ用Luaコードを自動生成するツールです。
+        <strong
+          >コマ数や色数が少ない場合や、Luaコードを自分で書きたい方は他のツールの利用が便利です</strong
+        >
+        （Luaコードを自分で書ける方には 土間いたち さんによる <a
+          href="https://doma-itachi.github.io/Stormworks-PixelTracer/"
+          >Stormworks-PixelTracer</a
+        > を、単純に画像を変換するだけの場合には Mr Lennyn 氏による <a
+          href="https://mrlennyn.github.io/imagetolua/imagetolua.html"
+          >Image Lua Converter</a
+        > を推奨しています）。
+      </p>
+      <p>
+        1枚のPNGまたはGIF画像に複数コマを含めておいて、変換を実施すると大量のLuaコードが生成されるので、Luaブロックにコピペの上でうまく繋げます。
+      </p>
+      <p>
+        生成されたコードは、Luaブロックに入力されたCompositeの数値チャンネルの値をもとに、画像を1枚表示してくれます。
+      </p>
+      <p class="float-clear"><a href="#" class="jsshow">[戻る]</a></p>
+    </section>
+
+    <section id="letter-bat" class="hideable">
+      <h2>おてがみコウモリさん</h2>
+      <ul class="float-l category">
+        <li>プチコン3号</li>
+        <li>プチコンBIG</li>
+        <li>プチコン4</li>
+      </ul>
+
+      <p class="float-r no-margin">
+        <small>
+          （最終更新：<time datetime="2018-01-26">2018年1月26日</time>）
+        </small>
+      </p>
+      <nav class="float-clear table-of-links">
+        <ul class="link clickable">
+          <li>
+            <a
+              href="http://wiki.hosiken.jp/petc3gou/?Toukou%2FSmileBasic2weeks%20%C5%EA%B9%C6%BA%EE%C9%CA%BD%B8"
+              >SmileBasic2weeks
+              投稿作品集（プチコン3号＆BIGまとめWiki）リンク切れ</a>
+          </li>
+          <li>
+            <a href="https://smilebasic.kurun96.com/work/44PVN3N4/"
+              >『おてがみコウモリさん リターンズ』 SmileBASIC4
+              作品一覧のハコ</a>
+          </li>
+        </ul>
+      </nav>
+      <div class="petitcom-key">
+        <span class="key-target">プチコン3号・BIG公開キー</span><span
+          class="key"
+        >
+          KDNNS384</span>
+      </div>
+      <div class="petitcom-key">
+        <span class="key-target">プチコン4公開キー</span><span class="key">
+          44PVN3N4</span>
+      </div>
+      <p>
+        一度くらいコンテストに作品を出してみようと思い立って制作した作品です。
+      </p>
+      <p>
+        タッチパネルの左をタッチすると左に、右をタッチすると右にコウモリさんが移動するので、お手紙を回収し、長く飛び続けましょう。
+      </p>
+      <p>
+        <img
+          src="image/letbat_up.jpg"
+          alt="おてがみコウモリさん オリジナル 3DS/WiiU版 上画面"
+        /><br />
+        <img
+          src="image/letbat_down.jpg"
+          alt="おてがみコウモリさん オリジナル 3DS/WiiU版 下画面"
+        />
+      </p>
+      <p class="float-clear"><a href="#" class="jsshow">[戻る]</a></p>
+    </section>
+
+    <section id="console-shooter" class="hideable">
+      <h2>コンソールシューティング</h2>
+      <ul class="float-l category">
+        <li>プチコン3号</li>
+        <li>プチコンBIG</li>
+      </ul>
+
+      <p class="float-r no-margin">
+        <small>
+          ver 2.2 （最終更新：<time datetime="2019-03-06">2019年3月6日</time
+          >）
+        </small>
+      </p>
+      <nav class="float-clear table-of-links">
+        <ul class="link clickable">
+          <li>
+            <a
+              href="http://wiki.hosiken.jp/petc3gou/?Toukou%2F%A5%B3%A5%F3%A5%BD%A1%BC%A5%EB%A5%B7%A5%E5%A1%BC%A5%C6%A5%A3%A5%F3%A5%B0"
+              >コンソールシューティング（プチコン3号＆BIGまとめWiki）リンク切れ</a>
+          </li>
+          <li>
+            <a
+              href="https://petc-archive.vercel.app/petc3gou/?Toukou%2F%A5%B3%A5%F3%A5%BD%A1%BC%A5%EB%A5%B7%A5%E5%A1%BC%A5%C6%A5%A3%A5%F3%A5%B0"
+              >コンソールシューティング（プチコンまとめArchive）</a>
+          </li>
+        </ul>
+      </nav>
+      <div class="petitcom-key">
+        <span class="key-target">プチコン3号・BIG公開キー</span><span
+          class="key"
+        >
+          QR83RXZD</span>
+      </div>
+      <p>
+        <img
+          src="image/consh.jpg"
+          alt="コンソールシューティングのゲーム画面"
+        />
+      </p>
+      <p>
+        背景の多重スクロールをコンソールでやってみたいと思い立ったので作った簡単なシューティングゲームです。
+      </p>
+      <h3>ゲームルール</h3>
+      <p>自機を操作して、敵を倒していきます。</p>
+      <p>
+        敵が画面左まで到達するごとに、画面左のハートが一つ減ります。
+        ハートがすべてなくなるとゲームオーバーです。
+        1,000ポイントごとにハートが一つ回復します。
+      </p>
+      <h3>操作方法</h3>
+      <ul>
+        <li><strong>十字キー/スティック系</strong> 自機を移動します。</li>
+        <li><strong>Aボタン</strong> ショットを打ちます。</li>
+      </ul>
+      <h3>更新履歴</h3>
+      <ul>
+        <li>
+          初期バージョン（2017年1月15日公開）
+          <ul>
+            <li>
+              どうやら2時間で作ったらしいという記録がこのページに残ってました。背景の多重スクロールをコンソールでやってみたいという思いから生まれた作品です。
+            </li>
+          </ul>
+        </li>
+        <li>
+          バージョン2.0（2019年3月2日公開）
+          <ul>
+            <li>
+              大変恥ずかしながら、scoreのスペルを誤ったまま約2年にわたって公開していたようです。バージョン2.0にするにあたり、ゲームオーバー画面とタイトル画面を追加し、ハートの減少が上からになりました。
+            </li>
+          </ul>
+        </li>
+        <li>
+          バージョン2.1（2019年3月2日公開）
+          <ul>
+            <li>
+              ゲームオーバー後のスコアの初期化処理を忘れていましたので、追加しました。
+            </li>
+          </ul>
+        </li>
+        <li>
+          バージョン2.2（2019年3月6日公開）
+          <ul>
+            <li>
+              2年越しにスティック系対応です。スティックの方が高得点を出しやすいかもしれません(要検証)。
+            </li>
+          </ul>
+        </li>
+      </ul>
+      <p class="float-clear"><a href="#" class="jsshow">[戻る]</a></p>
+    </section>
+  </div>
+</BaseLayout>

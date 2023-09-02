@@ -1,0 +1,13 @@
+---
+import path from 'path';
+export async function getStaticPaths() {
+  const data = await Astro.glob("../../data/blog/*.md");
+
+  return data.map((post) => {
+    return {
+      params: { post: path.basename(post.file).replace('.md', '.html') },
+      props: post
+    };
+  });
+}
+---

@@ -2,42 +2,16 @@
   "main": "./index.js",
   "type": "module",
   "dependencies": {
-    "date-utils": "^1.2.21",
-    "ejs": "^3.1.8",
-    "glob": "^8.0.3",
-    "glob-promise": "^5.0.1",
-    "mdast-util-gfm-strikethrough": "^1.0.1",
-    "mdast-util-gfm-table": "^1.0.4",
-    "micromark-extension-gfm-strikethrough": "^1.0.4",
-    "micromark-extension-gfm-table": "^1.0.5",
-    "micromark-util-combine-extensions": "^1.0.0",
-    "node-fetch": "^3.2.10",
-    "normalize-scss": "^7.0.1",
-    "npm-run-all": "^4.1.5",
-    "rehype-sanitize": "^5.0.1",
-    "rehype-stringify": "^9.0.3",
-    "remark-extract-frontmatter": "^3.2.0",
-    "remark-frontmatter": "^4.0.1",
-    "remark-math": "^5.1.1",
-    "remark-parse": "^10.0.1",
-    "remark-rehype": "^10.1.0",
-    "rimraf": "^3.0.2",
-    "typescript": "^4.7.4",
-    "unified": "^10.1.2",
-    "unist-util-is": "^5.1.1",
-    "unist-util-visit": "^4.1.0",
-    "yaml": "^2.2.2"
+    "astro": "^2.10.12"
   },
   "engines": {
     "node": ">=14.16"
   },
   "scripts": {
-    "clean": "rimraf build",
-    "compile:typescript": "tsc --build",
-    "compile:scss": "sass --no-source-map --load-path=node_modules src/items/common.scss:build/common.css",
-    "compile:ejs": "node ./index.js",
-    "build": "npm-run-all clean build-main",
-    "build-main": "npm-run-all -p compile:*"
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
   },
   "devDependencies": {
     "sass": "^1.54.0"
