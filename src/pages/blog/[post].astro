@@ -1,4 +1,5 @@
 ---
+import type { MarkdownInstance } from 'astro';
 import path from 'path';
 export async function getStaticPaths() {
   const data = await Astro.glob("../../data/blog/*.md");
@@ -10,4 +11,8 @@ export async function getStaticPaths() {
     };
   });
 }
+
+const content = (Astro.props as MarkdownInstance<Record<string, any>>).compiledContent();
 ---
+<meta charset="utf-8" />
+<div set:html={content}></div>
