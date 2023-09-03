@@ -3,7 +3,6 @@ import WorkDetail from "@components/WorkDetail.astro";
 import WorkItem from "@components/WorkItem.astro";
 import MainOnlyLayout from "@layouts/MainOnlyLayout.astro";
 import contacts from "@data/contacts.json";
-//const pageTitle = "こーげんやさい";
 
 const items = (await Astro.glob("../data/applist/*.md")).sort((a, b) =>
   a.frontmatter.latest.dateiso >= b.frontmatter.latest.dateiso ? -1 : 1

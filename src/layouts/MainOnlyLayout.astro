@@ -1,9 +1,8 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
-
 ---
 
-<BaseLayout>
+<BaseLayout title={Astro.props.title} katex={Astro.props.katex}>
   <main>
     <slot />
   </main>

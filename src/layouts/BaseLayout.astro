@@ -1,15 +1,16 @@
 ---
-import KaTeX from '@components/KaTeX.astro';
-import '@styles/common.scss';
+import KaTeX from "@components/KaTeX.astro";
+import "@styles/common.scss";
 
-const { katex } = Astro.props;
+const { katex, title = "こーげんやさい" } = Astro.props;
 ---
+
 <!DOCTYPE html>
 <html lang="ja">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>こーげんやさい</title>
+    <title>{title}</title>
     {katex && <KaTeX />}
   </head>
 

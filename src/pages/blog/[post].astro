@@ -52,7 +52,10 @@ const filepath = `src/data/blog/${path
 const date = await findFirstAndLatestTimeStamp(filepath);
 ---
 
-<BaseLayout katex={content.frontmatter.katex}>
+<BaseLayout
+  katex={content.frontmatter.katex}
+  title={`こーげんやさいブログ | ${content.frontmatter.title}`}
+>
   <main>
     <ArticleArea
       title={content.frontmatter.title}
@@ -70,9 +73,7 @@ const date = await findFirstAndLatestTimeStamp(filepath);
   <section>
     <div class="content">
       <DisqusArea
-        baseName={path
-          .basename(content.file)
-          .replace(".md", ".html")}
+        baseName={path.basename(content.file).replace(".md", ".html")}
         originalTitle={content.frontmatter.orignalTitle ||
           content.frontmatter.title}
       />
