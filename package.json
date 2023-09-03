@@ -3,7 +3,9 @@
   "type": "module",
   "dependencies": {
     "astro": "^2.10.12",
-    "normalize-scss": "^7.0.1"
+    "normalize-scss": "^7.0.1",
+    "remark-gfm": "^3.0.1",
+    "remark-math": "^5.1.1"
   },
   "engines": {
     "node": ">=14.16"

@@ -1,7 +1,7 @@
 ---
-import MainOnlyLayout from "../layouts/MainOnlyLayout.astro";
-import links from "../data/links.js";
-import LinkItem from "../components/LinkItem.astro";
+import MainOnlyLayout from "@layouts/MainOnlyLayout.astro";
+import links from "@data/links.js";
+import LinkItem from "@components/LinkItem.astro";
 
 const interlink = links.filter((item) => item.inter);
 const otherlink = links.filter((item) => !item.inter);
