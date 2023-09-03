@@ -1,0 +1,23 @@
+---
+import MainOnlyLayout from "@layouts/MainOnlyLayout.astro";
+import path from "path";
+const data = await Astro.glob("../../data/blog/*.md");
+---
+
+<MainOnlyLayout title="こーげんやさいブログ">
+  <div class="content">
+    <ul>
+      {
+        data.map((post) => {
+          return (
+            <li>
+              <a href={path.basename(post.file).replace(".md", ".html")}>
+                {post.frontmatter.title}
+              </a>
+            </li>
+          );
+        })
+      }
+    </ul>
+  </div>
+</MainOnlyLayout>

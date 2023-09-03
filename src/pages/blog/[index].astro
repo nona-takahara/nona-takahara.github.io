@@ -1,28 +1,10 @@
 ---
+import Index from "./index.astro";
+
 // 動的ルーティングを利用して強制的にindex.htmlを生成
 export function getStaticPaths() {
   return [{ params: { index: "index" } }];
 }
-
-import MainOnlyLayout from "@layouts/MainOnlyLayout.astro";
-import path from "path";
-const data = await Astro.glob("../../data/blog/*.md");
 ---
 
-<MainOnlyLayout title="こーげんやさいブログ">
-  <div class="content">
-    <ul>
-      {
-        data.map((post) => {
-          return (
-            <li>
-              <a href={path.basename(post.file).replace(".md", ".html")}>
-                {post.frontmatter.title}
-              </a>
-            </li>
-          );
-        })
-      }
-    </ul>
-  </div>
-</MainOnlyLayout>
+<Index />
