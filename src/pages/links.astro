@@ -1,5 +1,5 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro";
+import MainOnlyLayout from "../layouts/MainOnlyLayout.astro";
 import links from "../data/links.js";
 import LinkItem from "../components/LinkItem.astro";
 
@@ -7,7 +7,7 @@ const interlink = links.filter((item) => item.inter);
 const otherlink = links.filter((item) => !item.inter);
 ---
 
-<BaseLayout>
+<MainOnlyLayout>
   <div class="content">
     {
       interlink.length > 0 && (
@@ -42,4 +42,4 @@ const otherlink = links.filter((item) => !item.inter);
       <p><a href="/">[トップに戻る]</a></p>
     </section>
   </div>
-</BaseLayout>
+</MainOnlyLayout>

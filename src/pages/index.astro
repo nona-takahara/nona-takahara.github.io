@@ -1,7 +1,7 @@
 ---
 import WorkDetail from "../components/WorkDetail.astro";
 import WorkItem from "../components/WorkItem.astro";
-import BaseLayout from "../layouts/BaseLayout.astro";
+import MainOnlyLayout from "../layouts/MainOnlyLayout.astro";
 import contacts from "../data/contacts.json";
 //const pageTitle = "こーげんやさい";
 
@@ -10,7 +10,7 @@ const items = (await Astro.glob("../data/applist/*.md")).sort((a, b) =>
 );
 ---
 
-<BaseLayout>
+<MainOnlyLayout>
   <div class="content">
     <section class="hideable landing">
       <h2>「こーげんやさい」へようこそ</h2>
@@ -84,4 +84,4 @@ const items = (await Astro.glob("../data/applist/*.md")).sort((a, b) =>
       ))
     }
   </div>
-</BaseLayout>
+</MainOnlyLayout>

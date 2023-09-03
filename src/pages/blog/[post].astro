@@ -1,23 +1,45 @@
 ---
-import type { MarkdownInstance } from 'astro';
-import BaseLayout from '../../layouts/BaseLayout.astro';
-import path from 'path';
-import DisqusArea from '../../components/DisqusArea.astro';
+import type { MarkdownInstance } from "astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import path from "path";
+import DisqusArea from "../../components/DisqusArea.astro";
+import ArticleArea from "../../components/ArticleArea.astro";
 export async function getStaticPaths() {
   const data = await Astro.glob("../../data/blog/*.md");
 
   return data.map((post) => {
     return {
-      params: { post: path.basename(post.file).replace('.md', '') },
-      props: post
+      params: { post: path.basename(post.file).replace(".md", "") },
+      props: post,
     };
   });
 }
 
-const content = (Astro.props as MarkdownInstance<Record<string, any>>);
+const content = Astro.props as MarkdownInstance<Record<string, any>>;
 ---
 
 <BaseLayout>
-  <div class="content" set:html={content.compiledContent()}></div>
-  <DisqusArea baseName={Astro.params.post + '.html'} originalTitle={content.frontmatter.orignalTitle || content.frontmatter.title} />
+  <main>
+    <ArticleArea
+      title={content.frontmatter.title}
+      postDate={new Date()}
+      updateDate={new Date()}
+      set:html={content.compiledContent()}
+    />
+  </main>
+  <nav>
+    <div class="content">
+      <p><a href="/blog/">[ブログトップへ]</a></p>
+      <hr />
+    </div>
+  </nav>
+  <section>
+    <div class="content">
+      <DisqusArea
+        baseName={Astro.params.post + ".html"}
+        originalTitle={content.frontmatter.orignalTitle ||
+          content.frontmatter.title}
+      />
+    </div>
+  </section>
 </BaseLayout>
