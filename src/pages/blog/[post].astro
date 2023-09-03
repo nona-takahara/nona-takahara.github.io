@@ -52,7 +52,7 @@ const filepath = `src/data/blog/${path
 const date = await findFirstAndLatestTimeStamp(filepath);
 ---
 
-<BaseLayout>
+<BaseLayout katex={content.frontmatter.katex}>
   <main>
     <ArticleArea
       title={content.frontmatter.title}
