@@ -92,6 +92,7 @@ function petitcomKey(node) {
 
 // https://astro.build/config
 export default defineConfig({
+    site: 'https://nona-takahara.github.io',
     build: {
         format: 'file'
     },

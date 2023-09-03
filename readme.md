@@ -1,7 +1,8 @@
 # こーげんやさい
+
 [![Build and Deploy Page](https://github.com/nona-takahara/nona-takahara.github.io/actions/workflows/pages.yml/badge.svg)](https://github.com/nona-takahara/nona-takahara.github.io/actions/workflows/pages.yml)
 
-高原のな(Nona Takahara)のWebサイトです
+高原のな(Nona Takahara)の Web サイトです
 
 `npm run build`でビルドできます。
 
@@ -14,7 +15,7 @@
 
 なおブログに直接掲載するコード断片は、
 創作性が認められない程度のものであるため、特に断りがなくても
-著作権法による保護に値しない(CC0相当)とみなしてよいことにします。
+著作権法による保護に値しない(CC0 相当)とみなしてよいことにします。
 サンプルコードは自由に持って行ってください。
 
-また、このリポジトリはIFTTT連携により、Nona Takaharaが`Create entry`か`投稿`を含むコミットメッセージでコミットすると、「更新されたかも」ツイートをします。
+また、このリポジトリは IFTTT 連携により、Nona Takahara が`Create entry`か`投稿`を含むコミットメッセージでコミットすると、「更新されたかも」ツイートをします。
