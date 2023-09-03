@@ -20,32 +20,25 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-# Build job
   build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - name: Setup Node.js environment
-        uses: actions/setup-node@v3
+      - name: Install, build, and upload your site
+        uses: withastro/action@v0
         with:
-          node-version: 16.x
-      - name: Install NPM packages
-        run: npm ci
-      - name: Build website
-        run: npm run build
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v1
-        with:
-          path: build
-
+          # path: . # The root location of your Astro project inside the repository. (optional)
+          # node-version: 16 # The specific version of Node that should be used to build your site. Defaults to 16. (optional)
+          package-manager: npm # The Node package manager that should be used to install dependencies and build your site. Automatically detected based on your lockfile. (optional)
   deploy:
     needs: build
+    runs-on: ubuntu-latest
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
-    steps:    
+    steps:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v1

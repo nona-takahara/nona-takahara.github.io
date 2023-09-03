@@ -1,0 +1,46 @@
+---
+import KaTeX from "@components/KaTeX.astro";
+import "@styles/common.scss";
+
+const { katex, title = "こーげんやさい" } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>{title}</title>
+    {katex && <KaTeX />}
+  </head>
+
+  <body>
+    <header>
+      <div class="content flex">
+        <h1>
+          <a href="/">
+            <img
+              src="/image/logotype.svg"
+              alt="こーげんやさい"
+              width="224"
+              height="38"
+              decoding="async"
+            />
+          </a>
+        </h1>
+
+        <nav aria-label="navigation">
+          <ul>
+            <li><a href="/blog/">ブログ</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <slot />
+    <footer>
+      <div class="content">
+        <p>&copy; Nona Takahara</p>
+      </div>
+    </footer>
+  </body>
+</html>

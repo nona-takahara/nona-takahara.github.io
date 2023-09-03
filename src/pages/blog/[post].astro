@@ -1,0 +1,82 @@
+---
+import type { MarkdownInstance } from "astro";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import DisqusArea from "@components/DisqusArea.astro";
+import ArticleArea from "@components/ArticleArea.astro";
+import path from "path";
+
+export async function getStaticPaths() {
+  const data = await Astro.glob("../../data/blog/*.md");
+
+  return data.map((post) => {
+    return {
+      params: { post: path.basename(post.file).replace(".md", "") },
+      props: post,
+    };
+  });
+}
+
+async function findFirstAndLatestTimeStamp(fileName: string) {
+  const res = await fetch(
+    "https://api.github.com/repos/nona-takahara/" +
+      "nona-takahara.github.io/commits" +
+      `?path=${encodeURIComponent(fileName)}`
+  );
+
+  let first = null,
+    latest = null;
+
+  if (res.ok) {
+    const commitData = await res.json();
+    for (const k of commitData) {
+      let d = k?.commit?.committer?.date;
+      if (d) {
+        d = new Date(d);
+        if (first === null || d < first) {
+          first = d;
+        }
+        if (latest === null || d > latest) {
+          latest = d;
+        }
+      }
+    }
+  }
+
+  return { first_commit: first, latest_commit: latest };
+}
+
+const content = Astro.props as MarkdownInstance<Record<string, any>>;
+const filepath = `src/data/blog/${path
+  .basename(content.file)
+  .replace(".html", ".md")}`;
+const date = await findFirstAndLatestTimeStamp(filepath);
+---
+
+<BaseLayout
+  katex={content.frontmatter.katex}
+  title={`${content.frontmatter.title} | こーげんやさいブログ`}
+>
+  <main>
+    <ArticleArea
+      title={content.frontmatter.title}
+      postDate={date.first_commit}
+      updateDate={date.latest_commit}
+      set:html={content.compiledContent()}
+    />
+  </main>
+  <nav>
+    <div class="content">
+      <p><a href="/blog/">[ブログトップへ]</a></p>
+      <hr />
+    </div>
+  </nav>
+  <section>
+    <div class="content">
+      <DisqusArea
+        baseName={path.basename(content.file).replace(".md", ".html")}
+        originalTitle={content.frontmatter.orignalTitle ||
+          content.frontmatter.title}
+      />
+    </div>
+  </section>
+</BaseLayout>

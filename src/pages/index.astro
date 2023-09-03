@@ -1,0 +1,121 @@
+---
+import WorkDetail from "@components/WorkDetail.astro";
+import WorkItem from "@components/WorkItem.astro";
+import MainOnlyLayout from "@layouts/MainOnlyLayout.astro";
+import contacts from "@data/contacts.json";
+
+const items = (await Astro.glob("../data/applist/*.md")).sort((a, b) =>
+  a.frontmatter.latest.dateiso >= b.frontmatter.latest.dateiso ? -1 : 1
+);
+---
+
+<MainOnlyLayout>
+  <script>
+    window.addEventListener("DOMContentLoaded", domContentLoaded);
+    window.addEventListener("hashchange", onHashChange, false);
+
+    function domContentLoaded() {
+      const k = document.querySelectorAll(".jsshow");
+      k.forEach((v) => {
+        v.classList.remove("jsshow");
+      });
+      onHashChange();
+    }
+
+    function onHashChange() {
+      const k = document.querySelectorAll(".hideable");
+      k.forEach((v) => {
+        v.classList.toggle("hide", true);
+      });
+
+      let elem: NodeListOf<Element>;
+      if (!location.hash || location.hash == "#") {
+        elem = document.querySelectorAll(".landing");
+        document.title = "こーげんやさい";
+      } else {
+        elem = document.querySelectorAll(location.hash);
+        document.title =
+          (document.querySelector(location.hash + ">h2") as HTMLHeadingElement)
+            .innerText + " | こーげんやさい";
+      }
+
+      elem.forEach((v) => {
+        v.classList.toggle("hide", false);
+      });
+    }
+  </script>
+  <div class="content">
+    <section class="hideable landing">
+      <h2>「こーげんやさい」へようこそ</h2>
+      <p>
+        高原のなの制作物、公開物へのリンク置き場です。ライセンスとか守ってもらって、あとはご自由にどうぞ
+      </p>
+      <p><a href="/blog/">簡素なブログ</a>も用意しました</p>
+    </section>
+    <section id="list-of-content" class="hideable landing">
+      <h2>公開中のもの</h2>
+      <p>各制作物のタイトルをクリックすると、紹介ページに飛びます</p>
+      {
+        items.map((item) => {
+          return <WorkItem props={item.frontmatter} />;
+        })
+      }
+    </section>
+
+    <section class="hideable landing floatbox">
+      <h2>自己紹介</h2>
+      <img
+        src="image/nona-takahara.png"
+        alt="高原のな プロフィール画像"
+        class="profile-icon float-r"
+        width="100"
+        height="100"
+        decoding="async"
+        loading="lazy"
+      />
+      <p>
+        <b><ruby>高原<rp>（</rp><rt>たかはら</rt><rp>）</rp></ruby>のな</b
+        >といいます。ゲームを作っていたり、動画を作っていたりしたらしい。
+      </p>
+      <ul class="link clickable">
+        {
+          contacts.map((item) => {
+            return (
+              <li>
+                <a target="_blank" href={item.href}>
+                  {item.text}
+                </a>
+              </li>
+            );
+          })
+        }
+      </ul>
+    </section>
+    <section class="hideable landing">
+      <h2>リンク集</h2>
+      <p>
+        <a href="links.html">リンク集はこちら</a>。相互リンクなども対応します。
+      </p>
+    </section>
+    <section class="hideable landing">
+      <h2>ライセンス</h2>
+      <p>当サイトでは多数のOSS成果物を使用しています。</p>
+      <p>
+        特に<a
+          target="_blank"
+          href="https://github.com/JohnAlbin/normalize-scss">normalize-scss</a
+        >を利用しています。ライセンス表記はビルドされたCSSファイル内の記載に代えさせていただきます。
+      </p>
+    </section>
+
+    <hr class="hideable" />
+    {
+      items.map((item) => (
+        <WorkDetail
+          props={item.frontmatter}
+          set:html={item.compiledContent()}
+        />
+      ))
+    }
+  </div>
+</MainOnlyLayout>
