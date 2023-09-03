@@ -1,0 +1,45 @@
+---
+import MainOnlyLayout from "@layouts/MainOnlyLayout.astro";
+import links from "@data/links.js";
+import LinkItem from "@components/LinkItem.astro";
+
+const interlink = links.filter((item) => item.inter);
+const otherlink = links.filter((item) => !item.inter);
+---
+
+<MainOnlyLayout title="リンク集 | こーげんやさい">
+  <div class="content">
+    {
+      interlink.length > 0 && (
+        <section>
+          <h2>相互リンク</h2>
+          {interlink.map((item) => {
+            return <LinkItem props={item} />;
+          })}
+        </section>
+      )
+    }
+    {
+      otherlink.length > 0 && (
+        <section>
+          <h2>その他のリンク</h2>
+          {otherlink.map((item) => {
+            return <LinkItem props={item} />;
+          })}
+        </section>
+      )
+    }
+    <section>
+      <h2>リンクについて</h2>
+      <p>この「こーげんやさい」はリンクフリーです。</p>
+      <p>
+        また、バナーが <a
+          href="https://nona-takahara.github.io/image/banner_234x60.png"
+          >https://nona-takahara.github.io/image/banner_234x60.png</a
+        > にありますので、必要な方はご利用ください。気まぐれに更新するため、直リンやそれに準ずる方法を推奨しています。
+      </p>
+      <img src="/image/banner_234x60.png" alt="こーげんやさい バナー" />
+      <p><a href="/">[トップに戻る]</a></p>
+    </section>
+  </div>
+</MainOnlyLayout>

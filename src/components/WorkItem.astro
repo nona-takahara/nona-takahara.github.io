@@ -1,0 +1,4 @@
+---
+const { props } = Astro.props;
+---
+<h3><a href={`#${props.id}`}>{props.title}</a></h3><p>{props.short}</p>

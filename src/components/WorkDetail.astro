@@ -1,0 +1,39 @@
+---
+const { props } = Astro.props;
+
+const updateDate = ((date: string) => {
+    if (!date) {
+        return undefined
+    }
+    if (date == "today") {
+        return new Date();
+    }
+    return new Date(date);
+})(props.latest.dateiso);
+---
+
+<section id={props.id} class="hideable">
+  <h2>{props.title}</h2>
+  <ul class="float-l category">
+    {(props.category as any[]).map((key) => <li>{key}</li>)}
+  </ul>
+  {
+    updateDate && (
+      <p class="float-r no-margin">
+        <small>
+          {props.latest.version}（最終更新
+          <time datetime={updateDate.toISOString()}>{updateDate.toLocaleDateString("ja-JP")}</time>）
+        </small>
+      </p>
+    )
+  }
+  <nav class="float-clear table-of-links">
+    <ul class="link clickable">
+      {(props.links as any[]).map((item) => {
+        return (<li><a href={item.url}>{item.text}</a></li>);
+      })}
+    </ul>
+  </nav>
+  <slot />
+  <p class="float-clear"><a href="#" class="jsshow">[戻る]</a></p>
+</section>
