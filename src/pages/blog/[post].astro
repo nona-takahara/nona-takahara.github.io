@@ -2,6 +2,7 @@
 import type { MarkdownInstance } from 'astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import path from 'path';
+import DisqusArea from '../../components/DisqusArea.astro';
 export async function getStaticPaths() {
   const data = await Astro.glob("../../data/blog/*.md");
 
@@ -18,4 +19,5 @@ const content = (Astro.props as MarkdownInstance<Record<string, any>>).compiledC
 
 <BaseLayout>
   <div class="content" set:html={content}></div>
+  <DisqusArea />
 </BaseLayout>

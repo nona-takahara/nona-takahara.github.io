@@ -1,70 +1,45 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
+import BaseLayout from "../layouts/BaseLayout.astro";
+import links from "../data/links.js";
+import LinkItem from "../components/LinkItem.astro";
+
+const interlink = links.filter((item) => item.inter);
+const otherlink = links.filter((item) => !item.inter);
 ---
+
 <BaseLayout>
-      <div class="content">
+  <div class="content">
+    {
+      interlink.length > 0 && (
         <section>
           <h2>相互リンク</h2>
-          <div class="floatbox">
-            <h3>
-              <a href="https://exout.net/~kirby3ds/">カービィ★KIRBYの家</a>
-            </h3>
-
-            <div class="banner float-l"></div>
-            <p>
-              「オリジナルキャラクターやイラスト、プログラムまで多彩なコンテンツをお届けします！」
-            </p>
-          </div>
-          <div class="floatbox">
-            <h3>
-              <a href="https://koronyan888.github.io/"
-                >ころにゃんのホームページ</a>
-            </h3>
-
-            <div class="banner float-l"></div>
-            <p>（現在リンク切れとなっています）</p>
-          </div>
-          <div class="floatbox">
-            <h3><a href="https://yude.jp/">yude.jp</a></h3>
-            <a href="https://yude.jp/"
-              ><img
-                src="https://www.yude.jp/assets/images/banner_new.png"
-                class="banner float-l"
-              /></a
-            >
-            <p></p>
-          </div>
-          <div class="floatbox">
-            <h3><a href="https://arkw.net/">Arakawa Laboratory</a></h3>
-            <a href="https://arkw.net/"
-              ><img src="./image/arkw_net_logo.png" class="banner float-l" /></a
-            >
-            <p></p>
-          </div>
-          <div class="floatbox">
-            <h3><a href="https://myanosasa.github.io/">ささみのぺーじ</a></h3>
-
-            <div class="banner float-l"></div>
-            <p></p>
-          </div>
+          {interlink.map((item) => {
+            return <LinkItem props={item} />;
+          })}
         </section>
-        <!--
-      <section>
-        <h2>その他のリンク</h2>
-
-      </section>
-      -->
+      )
+    }
+    {
+      otherlink.length > 0 && (
         <section>
-          <h2>リンクについて</h2>
-          <p>この「こーげんやさい」はリンクフリーです。</p>
-          <p>
-            また、バナーが <a
-              href="https://nona-takahara.github.io/image/banner_234x60.png"
-              >https://nona-takahara.github.io/image/banner_234x60.png</a
-            > にありますので、必要な方はご利用ください。気まぐれに更新するため、直リンやそれに準ずる方法を推奨しています。
-          </p>
-          <img src="/image/banner_234x60.png" alt="こーげんやさい バナー" />
-          <p><a href="/">[トップに戻る]</a></p>
+          <h2>その他のリンク</h2>
+          {otherlink.map((item) => {
+            return <LinkItem props={item} />;
+          })}
         </section>
-      </div>
-    </BaseLayout>
+      )
+    }
+    <section>
+      <h2>リンクについて</h2>
+      <p>この「こーげんやさい」はリンクフリーです。</p>
+      <p>
+        また、バナーが <a
+          href="https://nona-takahara.github.io/image/banner_234x60.png"
+          >https://nona-takahara.github.io/image/banner_234x60.png</a
+        > にありますので、必要な方はご利用ください。気まぐれに更新するため、直リンやそれに準ずる方法を推奨しています。
+      </p>
+      <img src="/image/banner_234x60.png" alt="こーげんやさい バナー" />
+      <p><a href="/">[トップに戻る]</a></p>
+    </section>
+  </div>
+</BaseLayout>

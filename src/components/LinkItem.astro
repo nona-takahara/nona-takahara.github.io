@@ -1,0 +1,13 @@
+---
+const { props } = Astro.props;
+---
+
+<div class="floatbox">
+  <h3>
+    <a href={props.url}>{props.title}</a>
+  </h3>
+  <a href={props.url}>
+    <img src={props.banner} class="banner float-l" />
+  </a>
+  <p>{props.short}</p>
+</div>
