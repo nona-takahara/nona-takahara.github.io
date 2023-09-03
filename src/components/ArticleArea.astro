@@ -4,9 +4,13 @@ const { title, postDate, updateDate } = Astro.props;
 
 <div class="content">
   <h2>{title}</h2>
-  <p class="text-r no-margin"><small>
-    投稿：<time datetime={postDate}>{postDate?.toLocaleString("ja-JP")}</time>
-      　最終更新：<time datetime={updateDate}>{updateDate?.toLocaleString("ja-JP")}</time>
-</small></p>
-    <slot />
+  <p class="text-r no-margin">
+    <small>
+      投稿：<time datetime={postDate}>{postDate?.toLocaleString("ja-JP")}</time>
+      最終更新：<time datetime={updateDate}
+        >{updateDate?.toLocaleString("ja-JP")}</time
+      >
+    </small>
+  </p>
+  <slot />
 </div>
