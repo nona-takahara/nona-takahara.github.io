@@ -11,6 +11,40 @@ const items = (await Astro.glob("../data/applist/*.md")).sort((a, b) =>
 ---
 
 <MainOnlyLayout>
+  <script>
+    window.addEventListener("DOMContentLoaded", domContentLoaded);
+    window.addEventListener("hashchange", onHashChange, false);
+
+    function domContentLoaded() {
+      const k = document.querySelectorAll(".jsshow");
+      k.forEach((v) => {
+        v.classList.remove("jsshow");
+      });
+      onHashChange();
+    }
+
+    function onHashChange() {
+      const k = document.querySelectorAll(".hideable");
+      k.forEach((v) => {
+        v.classList.toggle("hide", true);
+      });
+
+      let elem: NodeListOf<Element>;
+      if (!location.hash || location.hash == "#") {
+        elem = document.querySelectorAll(".landing");
+        document.title = "こーげんやさい";
+      } else {
+        elem = document.querySelectorAll(location.hash);
+        document.title =
+          (document.querySelector(location.hash + ">h2") as HTMLHeadingElement)
+            .innerText + " | こーげんやさい";
+      }
+
+      elem.forEach((v) => {
+        v.classList.toggle("hide", false);
+      });
+    }
+  </script>
   <div class="content">
     <section class="hideable landing">
       <h2>「こーげんやさい」へようこそ</h2>
@@ -68,8 +102,9 @@ const items = (await Astro.glob("../data/applist/*.md")).sort((a, b) =>
       <h2>ライセンス</h2>
       <p>当サイトでは多数のOSS成果物を使用しています。</p>
       <p>
-        特に<a href="https://github.com/JohnAlbin/normalize-scss"
-          >normalize-scss</a
+        特に<a
+          target="_blank"
+          href="https://github.com/JohnAlbin/normalize-scss">normalize-scss</a
         >を利用しています。ライセンス表記はビルドされたCSSファイル内の記載に代えさせていただきます。
       </p>
     </section>

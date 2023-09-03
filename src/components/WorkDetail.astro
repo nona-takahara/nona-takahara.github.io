@@ -27,7 +27,7 @@ const updateDate = ((date: string) => {
       </p>
     )
   }
-  <nav class="float-clear table-of-links" role="contentinfo">
+  <nav class="float-clear table-of-links">
     <ul class="link clickable">
       {(props.links as any[]).map((item) => {
         return (<li><a href={item.url}>{item.text}</a></li>);
