@@ -8,16 +8,16 @@ export async function getStaticPaths() {
 
   return data.map((post) => {
     return {
-      params: { post: path.basename(post.file).replace('.md', '.html') },
+      params: { post: path.basename(post.file).replace('.md', '') },
       props: post
     };
   });
 }
 
-const content = (Astro.props as MarkdownInstance<Record<string, any>>).compiledContent();
+const content = (Astro.props as MarkdownInstance<Record<string, any>>);
 ---
 
 <BaseLayout>
-  <div class="content" set:html={content}></div>
-  <DisqusArea />
+  <div class="content" set:html={content.compiledContent()}></div>
+  <DisqusArea baseName={Astro.params.post + '.html'} originalTitle={content.frontmatter.orignalTitle || content.frontmatter.title} />
 </BaseLayout>
