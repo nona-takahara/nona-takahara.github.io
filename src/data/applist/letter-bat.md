@@ -8,7 +8,7 @@ category:
     - プチコンBIG
     - プチコン4
 latest:
-    dateiso: 2018-01-26
+    dateiso: 2023-09-04
 links:
     - url: http://wiki.hosiken.jp/petc3gou/?Toukou%2FSmileBasic2weeks%20%C5%EA%B9%C6%BA%EE%C9%CA%BD%B8
       text: SmileBasic2weeks 投稿作品集（プチコン3号＆BIGまとめWiki）リンク切れ
@@ -25,3 +25,5 @@ links:
 
 ![おてがみコウモリさん オリジナル 3DS/WiiU版 上画面](image/letbat_up.jpg)  
 ![おてがみコウモリさん オリジナル 3DS/WiiU版 下画面](image/letbat_down.jpg)
+
+プチコン4版は約3年9か月ぶりに更新し、[petit4tablet](https://booth.pm/ja/items/3815403) に対応しました！
