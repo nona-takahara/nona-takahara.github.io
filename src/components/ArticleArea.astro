@@ -6,9 +6,19 @@ const { title, postDate, updateDate } = Astro.props;
   <h2>{title}</h2>
   <p class="text-r no-margin">
     <small>
-      投稿：<time datetime={postDate}>{postDate?.toLocaleString("ja-JP")}</time>
+      投稿：<time datetime={postDate}
+        >{
+          postDate?.toLocaleString("ja-jp", {
+            timeZone: "Asia/Tokyo",
+          })
+        }</time
+      >
       最終更新：<time datetime={updateDate}
-        >{updateDate?.toLocaleString("ja-JP")}</time
+        >{
+          updateDate?.toLocaleString("ja-jp", {
+            timeZone: "Asia/Tokyo",
+          })
+        }</time
       >
     </small>
   </p>
