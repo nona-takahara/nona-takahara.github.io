@@ -61,8 +61,12 @@ const date = await findFirstAndLatestTimeStamp(filepath);
   <main class="container">
     <ArticleArea
       title={content.frontmatter.title}
-      postDate={date.first_commit?.toLocaleString("ja-jp")}
-      updateDate={date.latest_commit?.toLocaleString("ja-jp")}
+      postDate={date.first_commit?.toLocaleString("ja-jp", {
+        timeZone: "Asia/Tokyo",
+      })}
+      updateDate={date.latest_commit?.toLocaleString("ja-jp", {
+        timeZone: "Asia/Tokyo",
+      })}
       set:html={content.compiledContent()}
     />
   </main>
