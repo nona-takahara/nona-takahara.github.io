@@ -3,7 +3,7 @@ import BaseLayout from "@layouts/BaseLayout.astro";
 ---
 
 <BaseLayout title={Astro.props.title} katex={Astro.props.katex}>
-  <main>
+  <main id="content" class="container">
     <slot />
   </main>
 </BaseLayout>

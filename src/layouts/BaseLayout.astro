@@ -11,34 +11,41 @@ const { katex, title = "こーげんやさい" } = Astro.props;
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>{title}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Red+Hat+Text:ital,wght@0,400;0,700;1,400;1,700&family=Zen+Kaku+Gothic+New:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
     {katex && <KaTeX />}
   </head>
 
   <body>
+    <a href="#content" style="visibility: hidden; position: fixed;"
+      >本文へ移動</a
+    >
     <header>
-      <div class="content flex">
-        <h1>
+      <div class="container">
+        <h1 class="brand">
           <a href="/">
             <img
               src="/image/logotype.svg"
               alt="こーげんやさい"
-              width="224"
-              height="38"
+              width="165"
+              height="28"
               decoding="async"
             />
           </a>
         </h1>
-
-        <nav aria-label="navigation">
-          <ul>
-            <li><a href="/blog/">ブログ</a></li>
-          </ul>
-        </nav>
+        <div class="spacer"></div>
+        <ul class="navs">
+          <li><a href="/blog/">ブログ</a></li>
+        </ul>
       </div>
     </header>
     <slot />
     <footer>
-      <div class="content">
+      <div class="container">
         <p>&copy; Nona Takahara</p>
       </div>
     </footer>
