@@ -1,14 +1,16 @@
 ---
+import { Temporal } from "@js-temporal/polyfill";
+
 const { props } = Astro.props;
 
 const updateDate = ((date: string) => {
-    if (!date) {
-        return undefined
-    }
-    if (date == "today") {
-        return new Date();
-    }
-    return new Date(date);
+  if (!date) {
+    return undefined;
+  }
+  if (date == "today") {
+    return Temporal.Now.plainDateISO("Asia/Tokyo");
+  }
+  return Temporal.PlainDate.from(date.split("T")?.[0] || date);
 })(props.latest.dateiso);
 ---
 
@@ -22,16 +24,25 @@ const updateDate = ((date: string) => {
       <p class="float-r no-margin">
         <small>
           {props.latest.version}（最終更新
-          <time datetime={updateDate.toISOString()}>{updateDate.toLocaleDateString("ja-JP")}</time>）
+          <time datetime={updateDate.toString()}>
+            {updateDate.toLocaleString("ja-JP")}
+          </time>
+          ）
         </small>
       </p>
     )
   }
   <nav class="float-clear table-of-links">
     <ul class="link clickable">
-      {(props.links as any[]).map((item) => {
-        return (<li><a href={item.url}>{item.text}</a></li>);
-      })}
+      {
+        (props.links as any[]).map((item) => {
+          return (
+            <li>
+              <a href={item.url}>{item.text}</a>
+            </li>
+          );
+        })
+      }
     </ul>
   </nav>
   <slot />
