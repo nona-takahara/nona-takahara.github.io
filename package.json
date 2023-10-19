@@ -2,6 +2,7 @@
   "main": "./index.js",
   "type": "module",
   "dependencies": {
+    "@js-temporal/polyfill": "^0.4.4",
     "astro": "^2.10.12",
     "normalize-scss": "^7.0.1",
     "remark-gfm": "^3.0.1",
