@@ -5,6 +5,8 @@ import DisqusArea from "@components/DisqusArea.astro";
 import ArticleArea from "@components/ArticleArea.astro";
 import path from "path";
 
+import { Temporal } from "@js-temporal/polyfill";
+
 export async function getStaticPaths() {
   const data = await Astro.glob("../../data/blog/*.md");
 
@@ -31,12 +33,12 @@ async function findFirstAndLatestTimeStamp(fileName: string) {
     for (const k of commitData) {
       let d = k?.commit?.committer?.date;
       if (d) {
-        d = new Date(d);
-        if (first === null || d < first) {
-          first = d;
+        let tp = Temporal.Instant.from(d);
+        if (first === null || Temporal.Instant.compare(tp, first) === -1) {
+          first = tp;
         }
-        if (latest === null || d > latest) {
-          latest = d;
+        if (latest === null || Temporal.Instant.compare(tp, latest) === 1) {
+          latest = tp;
         }
       }
     }
@@ -56,22 +58,22 @@ const date = await findFirstAndLatestTimeStamp(filepath);
   katex={content.frontmatter.katex}
   title={`${content.frontmatter.title} | こーげんやさいブログ`}
 >
-  <main>
+  <main class="container">
     <ArticleArea
       title={content.frontmatter.title}
-      postDate={date.first_commit}
-      updateDate={date.latest_commit}
+      postDate={date.first_commit?.toLocaleString("ja-jp")}
+      updateDate={date.latest_commit?.toLocaleString("ja-jp")}
       set:html={content.compiledContent()}
     />
   </main>
   <nav>
-    <div class="content">
+    <div class="container">
       <p><a href="/blog/">[ブログトップへ]</a></p>
       <hr />
     </div>
   </nav>
   <section>
-    <div class="content">
+    <div class="container">
       <DisqusArea
         baseName={path.basename(content.file).replace(".md", ".html")}
         originalTitle={content.frontmatter.orignalTitle ||
