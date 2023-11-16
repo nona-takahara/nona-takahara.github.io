@@ -7,7 +7,7 @@ category:
   - Web
 latest:
   dateiso: today
-  version: 2022+Astroバージョン
+  version: 2023 バージョン
 links:
   - text: GitHub リポジトリ
     url: https://github.com/nona-takahara/nona-takahara.github.io
