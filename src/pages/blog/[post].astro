@@ -19,11 +19,16 @@ export async function getStaticPaths() {
 }
 
 async function findFirstAndLatestTimeStamp(fileName: string) {
-  const res = await fetch(
-    "https://api.github.com/repos/nona-takahara/" +
-      "nona-takahara.github.io/commits" +
-      `?path=${encodeURIComponent(fileName)}`
-  );
+  let res;
+  try {
+    res = await fetch(
+      "https://api.github.com/repos/nona-takahara/" +
+        "nona-takahara.github.io/commits" +
+        `?path=${encodeURIComponent(fileName)}`
+    );
+  } catch {
+    return {};
+  }
 
   let first = null,
     latest = null;
@@ -52,6 +57,7 @@ const filepath = `src/data/blog/${path
   .basename(content.file)
   .replace(".html", ".md")}`;
 const date = await findFirstAndLatestTimeStamp(filepath);
+const useDisqus = !filepath.includes("stock");
 ---
 
 <BaseLayout
@@ -69,16 +75,21 @@ const date = await findFirstAndLatestTimeStamp(filepath);
   <nav>
     <div class="container">
       <p><a href="/blog/">[ブログトップへ]</a></p>
-      <hr />
     </div>
   </nav>
-  <section>
-    <div class="container">
-      <DisqusArea
-        baseName={path.basename(content.file).replace(".md", ".html")}
-        originalTitle={content.frontmatter.orignalTitle ||
-          content.frontmatter.title}
-      />
-    </div>
-  </section>
+  {
+    useDisqus && (
+      <section>
+        <div class="container">
+          <hr />
+          <DisqusArea
+            baseName={path.basename(content.file).replace(".md", ".html")}
+            originalTitle={
+              content.frontmatter.orignalTitle || content.frontmatter.title
+            }
+          />
+        </div>
+      </section>
+    )
+  }
 </BaseLayout>
