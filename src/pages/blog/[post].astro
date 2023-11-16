@@ -62,7 +62,9 @@ const useDisqus = !filepath.includes("stock");
 
 <BaseLayout
   katex={content.frontmatter.katex}
-  title={`${content.frontmatter.title} | こーげんやさいブログ`}
+  titleShort={content.frontmatter.title}
+  titleSuffix=" | こーげんやさいブログ"
+  description={content.frontmatter.short}
 >
   <main class="container">
     <ArticleArea

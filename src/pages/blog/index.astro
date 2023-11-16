@@ -4,7 +4,11 @@ import path from "path";
 const data = await Astro.glob("../../data/blog/*.md");
 ---
 
-<MainOnlyLayout title="こーげんやさいブログ">
+<MainOnlyLayout
+  titleShort="こーげんやさいブログ"
+  titleSuffix=""
+  pageType="blog"
+>
   <div class="content">
     <ul>
       {
