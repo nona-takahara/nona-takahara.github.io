@@ -2,3 +2,4 @@ build/
 dist/
 temp/
 node_modules/
+stock*.md

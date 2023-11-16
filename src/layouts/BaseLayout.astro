@@ -14,7 +14,7 @@ const { katex, title = "こーげんやさい" } = Astro.props;
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Red+Hat+Text:ital,wght@0,400;0,700;1,400;1,700&family=Zen+Kaku+Gothic+New:wght@400;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Red+Hat+Text:ital,wght@0,400;0,700;1,400;1,700&family=Inconsolata:wght@400;700&family=Zen+Kaku+Gothic+New:wght@400;700&display=swap"
       rel="stylesheet"
     />
     {katex && <KaTeX />}
@@ -27,15 +27,7 @@ const { katex, title = "こーげんやさい" } = Astro.props;
     <header>
       <div class="container">
         <h1 class="brand">
-          <a href="/">
-            <img
-              src="/image/logotype.svg"
-              alt="こーげんやさい"
-              width="165"
-              height="28"
-              decoding="async"
-            />
-          </a>
+          <a href="/">こーげんやさい</a>
         </h1>
         <div class="spacer"></div>
         <ul class="navs">
