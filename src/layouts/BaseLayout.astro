@@ -2,15 +2,28 @@
 import KaTeX from "@components/KaTeX.astro";
 import "@styles/common.scss";
 
-const { katex, title = "こーげんやさい" } = Astro.props;
+const {
+  katex,
+  titleShort,
+  titleSuffix = "こーげんやさい",
+  description = "",
+  pageType = "article",
+} = Astro.props;
 ---
 
 <!DOCTYPE html>
 <html lang="ja">
-  <head>
+  <head prefix="og: http://ogp.me/ns#">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>{title}</title>
+    <title>{titleShort + titleSuffix}</title>
+    <meta property="og:url" content={Astro.url} />
+    <meta property="og:type" content={pageType} />
+    <meta property="og:title" content={titleShort || titleSuffix} />
+    <meta property="og:description" content={description} />
+    <meta property="og:site_name" content="こーげんやさい" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@nona_takahara" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link

@@ -2,7 +2,13 @@
 import BaseLayout from "@layouts/BaseLayout.astro";
 ---
 
-<BaseLayout title={Astro.props.title} katex={Astro.props.katex}>
+<BaseLayout
+  titleShort={Astro.props.titleShort}
+  titleSuffix={Astro.props.titleSuffix || " | こーげんやさい"}
+  katex={Astro.props.katex}
+  description={Astro.props.description}
+  pageType={Astro.props.pageType}
+>
   <main id="content" class="container">
     <slot />
   </main>

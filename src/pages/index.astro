@@ -9,7 +9,7 @@ const items = (await Astro.glob("../data/applist/*.md")).sort((a, b) =>
 );
 ---
 
-<MainOnlyLayout>
+<MainOnlyLayout titleSuffix="こーげんやさい" pageType="website">
   <script>
     window.addEventListener("DOMContentLoaded", domContentLoaded);
     window.addEventListener("hashchange", onHashChange, false);
