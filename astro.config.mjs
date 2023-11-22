@@ -54,8 +54,12 @@ function MDNblock() {
       if (is(firstChildren, 'paragraph') && is(firstChildren?.children?.[0], 'strong')) {
         const boxType = firstChildren.children[0].children[0].value;
 
-        if (boxType.includes("Key")) {
+        if (boxType === "Key:") {
           petitcomKey(node);
+        } else if (boxType === "Callout:") {
+          callout(node);
+        } else if (boxType === "Warning:" || boxType === "Note:") {
+          note(node, boxType);
         }
       }
     });
@@ -89,6 +93,33 @@ function petitcomKey(node) {
   };
   node.children = [];
 }
+
+function callout(node) {
+  node.type = 'columnbox';
+  node.data = {
+    hProperties: {
+      className: ['callout']
+    }
+  };
+  node.children[0].children = node.children[0].children.slice(1);
+}
+
+function note(node, type) {
+  const typename = type.replace(":", "").toLowerCase();
+  node.type = 'columnbox';
+  node.data = {
+    hProperties: {
+      className: ['callout', typename]
+    }
+  };
+  const emoji = {
+    "warning": "警告：",
+    "note": "メモ："
+  }
+  node.children[0].children[0].children[0].value = emoji[typename] || type;
+}
+
+
 
 // https://astro.build/config
 export default defineConfig({
