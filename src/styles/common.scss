@@ -2,6 +2,12 @@
   --background-color-light: #ffffff;
   --background-color-dark: #181818;
 
+  --sub-background-color-light: #fafafa;
+  --sub-background-color-dark: #303030;
+
+  --sub-sub-background-color-light: #f0f0f0;
+  --sub-sub-background-color-dark: #404040;
+
   --text-color-light: #000000;
   --text-color-dark: #e8e8e8;
 
@@ -12,14 +18,36 @@
   --secondary-color-dark: #a22f2f; //fore:white
 
   --background-color: var(--background-color-light);
+  --sub-background-color: var(--sub-background-color-light);
+  --sub-sub-background-color: var(--sub-sub-background-color-light);
   --text-color: var(--text-color-light);
   --primary-color: var(--primary-color-light);
   --secondary-color: var(--secondary-color-light);
 
   --background-color-r: var(--background-color-dark);
+  --sub-background-color-r: var(--sub-background-color-dark);
+  --sub-sub-background-color-r: var(--sub-sub-background-color-dark);
   --text-color-r: var(--text-color-dark);
   --primary-color-r: var(--primary-color-dark);
   --secondary-color-r: var(--secondary-color-dark);
+
+  @media (prefers-color-scheme: dark) {
+    // */
+    --background-color-r: var(--background-color-light);
+    --sub-background-color-r: var(--sub-background-color-light);
+    --sub-sub-background-color-r: var(--sub-sub-background-color-light);
+    --text-color-r: var(--text-color-light);
+    --primary-color-r: var(--primary-color-light);
+    --secondary-color-r: var(--secondary-color-light);
+
+    --background-color: var(--background-color-dark);
+    --sub-background-color: var(--sub-background-color-dark);
+    --sub-sub-background-color: var(--sub-sub-background-color-dark);
+    --text-color: var(--text-color-dark);
+    --primary-color: var(--primary-color-dark);
+    --secondary-color: var(--secondary-color-dark);
+  }
+  // */
 }
 
 html {
@@ -35,7 +63,7 @@ pre,
 code,
 kbd {
   font-family: "Inconsolata", "Consolas", "Zen Kaku Gothic New", monospace;
-  background-color: #f0f0f0;
+  background-color: var(--sub-sub-background-color);
   padding: 2px 5px;
   border-radius: 0.2ic;
 }
@@ -288,6 +316,23 @@ div.petitcom-key {
       padding: 4px 8px;
     }
   }
+}
+
+div.callout {
+  background-color: var(--sub-background-color);
+  padding: 5px 10px;
+  border-radius: 0.5ic;
+  margin-bottom: 12px;
+  border: 1px solid #808080;
+  border-left-width: 0.4ic;
+}
+
+div.callout.warning {
+  border-color: var(--secondary-color);
+}
+
+div.callout.note {
+  border-color: var(--primary-color);
 }
 
 nav.table-of-links {
