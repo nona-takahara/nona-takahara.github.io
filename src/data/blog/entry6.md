@@ -11,7 +11,7 @@ short: 「こーげんやさい」の生成エンジンをEJSと自作スクリ�
 
 そのため、PHP の親戚みたいな記法のテンプレートエンジンはやめて、JSX（や、その親戚の言語）を使用して書けるビルドツールとして、Astro と Next.js による静的出力（[Deploying: Static Exports | Next.js](https://nextjs.org/docs/pages/building-your-application/deploying/static-exports)）を比較しました。
 
-最終的に、[新鮮こーげんやさい](./entry1.md) でも述べた「たとえば curl とかで HTML を取ってきても HTML のままでそこそこ読める」の要件を満たせる Astro を採用しました。
+最終的に、[新鮮こーげんやさい](./entry1.html) でも述べた「たとえば curl とかで HTML を取ってきても HTML のままでそこそこ読める」の要件を満たせる Astro を採用しました。
 
 ## Astro への切り替えの際に課した制約
 
