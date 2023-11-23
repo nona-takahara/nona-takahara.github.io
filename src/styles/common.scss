@@ -12,7 +12,7 @@
   --text-color-dark: #e8e8e8;
 
   --primary-color-light: #72aaff; //fore:black;
-  --primary-color-dark: #284d85; //fore:white
+  --primary-color-dark: #284d84; //fore:white
 
   --secondary-color-light: #ff887a; //fore:black
   --secondary-color-dark: #a22f2f; //fore:white
@@ -367,4 +367,11 @@ div.three-ds {
       margin-top: 16px;
     }
   }
+}
+
+main.blog img {
+  display: block;
+  margin: auto;
+  width: 50vw;
+  max-width: 480px;
 }
