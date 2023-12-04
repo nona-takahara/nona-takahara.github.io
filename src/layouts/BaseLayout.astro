@@ -8,6 +8,7 @@ const {
   titleSuffix = "こーげんやさい",
   description = "",
   pageType = "article",
+  highlight,
 } = Astro.props;
 ---
 
@@ -55,4 +56,5 @@ const {
       </div>
     </footer>
   </body>
+  {highlight && <script type="module" src="/highlighter.mjs" defer />}
 </html>
