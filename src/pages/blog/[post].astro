@@ -1,14 +1,15 @@
 ---
-import type { MarkdownInstance } from "astro";
+import type { AstroInstance, MarkdownInstance } from "astro";
 import BaseLayout from "@layouts/BaseLayout.astro";
 import DisqusArea from "@components/DisqusArea.astro";
 import ArticleArea from "@components/ArticleArea.astro";
+//@ts-ignore
 import path from "path";
 
 import { Temporal } from "@js-temporal/polyfill";
 
 export async function getStaticPaths() {
-  const data = await Astro.glob("../../data/blog/*.md");
+  const data: AstroInstance[] = await Astro.glob("../../data/blog/*.md");
 
   return data.map((post) => {
     return {
