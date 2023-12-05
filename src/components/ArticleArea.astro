@@ -3,7 +3,7 @@ const { title, postDate, updateDate } = Astro.props;
 ---
 
 <div class="content">
-  <h2>{title}</h2>
+  <h2 class="article-title">{title}</h2>
   <p class="text-r no-margin">
     <small>
       投稿：<time datetime={postDate}

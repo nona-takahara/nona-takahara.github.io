@@ -46,14 +46,14 @@ const items = (await Astro.glob("../data/applist/*.md")).sort((a, b) =>
   </script>
   <div class="content">
     <section class="hideable landing">
-      <h2>「こーげんやさい」へようこそ</h2>
+      <h2 class="article-title">「こーげんやさい」へようこそ</h2>
       <p>
         高原のなの制作物、公開物へのリンク置き場です。ライセンスとか守ってもらって、あとはご自由にどうぞ
       </p>
       <p><a href="/blog/">簡素なブログ</a>も用意しました</p>
     </section>
     <section id="list-of-content" class="hideable landing">
-      <h2>公開中のもの</h2>
+      <h2 class="article-title">公開中のもの</h2>
       <p>各制作物のタイトルをクリックすると、紹介ページに飛びます</p>
       {
         items.map((item) => {
@@ -63,7 +63,7 @@ const items = (await Astro.glob("../data/applist/*.md")).sort((a, b) =>
     </section>
 
     <section class="hideable landing floatbox">
-      <h2>自己紹介</h2>
+      <h2 class="article-title">自己紹介</h2>
       <img
         src="image/nona-takahara.png"
         alt="高原のな プロフィール画像"

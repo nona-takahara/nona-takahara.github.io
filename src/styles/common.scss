@@ -157,18 +157,25 @@ h3 {
 h4,
 h5,
 h6 {
-  margin: 0.5ic 0;
-  padding-bottom: 3px;
-}
-
-del {
-  text-decoration-thickness: 2px;
+  margin: 0.5ic 0 0 0;
 }
 
 h1:not(:first-child),
 h2:not(:first-child),
 h3:not(:first-child) {
   margin-top: 1.25ic;
+}
+
+h2.article-title {
+  margin-top: 0.75ic;
+}
+
+h3.work-item-title {
+  margin: 0;
+}
+
+del {
+  text-decoration-thickness: 2px;
 }
 
 p {
