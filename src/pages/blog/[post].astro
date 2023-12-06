@@ -31,8 +31,8 @@ async function findFirstAndLatestTimeStamp(fileName: string) {
     return {};
   }
 
-  let first = null,
-    latest = null;
+  let first = undefined,
+    latest = undefined;
 
   if (res.ok) {
     const commitData = await res.json();
@@ -40,10 +40,10 @@ async function findFirstAndLatestTimeStamp(fileName: string) {
       let d = k?.commit?.committer?.date;
       if (d) {
         let tp = Temporal.Instant.from(d);
-        if (first === null || Temporal.Instant.compare(tp, first) === -1) {
+        if (first == undefined || Temporal.Instant.compare(tp, first) === -1) {
           first = tp;
         }
-        if (latest === null || Temporal.Instant.compare(tp, latest) === 1) {
+        if (latest == undefined || Temporal.Instant.compare(tp, latest) === 1) {
           latest = tp;
         }
       }
@@ -67,6 +67,7 @@ const useDisqus = !filepath.includes("stock");
   titleShort={content.frontmatter.title}
   titleSuffix=" | こーげんやさいブログ"
   description={content.frontmatter.short}
+  pageType="article"
 >
   <main class="container blog">
     <ArticleArea

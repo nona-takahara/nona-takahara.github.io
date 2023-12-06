@@ -1,6 +1,16 @@
 ---
 import KaTeX from "@components/KaTeX.astro";
 import "@styles/common.scss";
+import type { OgPageType } from "./Og";
+
+export interface Props {
+  katex: boolean | undefined;
+  titleShort: string | undefined;
+  titleSuffix: string | undefined;
+  description: string;
+  pageType: OgPageType;
+  highlight: boolean | undefined;
+}
 
 const {
   katex,

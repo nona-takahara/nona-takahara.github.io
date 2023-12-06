@@ -1,14 +1,24 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
+import type { Props as Props } from "./BaseLayout.astro";
+
+const {
+  katex,
+  titleShort,
+  titleSuffix = " | こーげんやさい",
+  description,
+  pageType,
+  highlight,
+} = Astro.props;
 ---
 
 <BaseLayout
-  titleShort={Astro.props.titleShort}
-  titleSuffix={Astro.props.titleSuffix || " | こーげんやさい"}
-  katex={Astro.props.katex}
-  description={Astro.props.description}
-  pageType={Astro.props.pageType}
-  highlight={Astro.props.highlight}
+  titleShort={titleShort}
+  titleSuffix={titleSuffix || " | こーげんやさい"}
+  katex={katex}
+  description={description}
+  pageType={pageType}
+  highlight={highlight}
 >
   <main id="content" class="container">
     <slot />
