@@ -1,5 +1,5 @@
 ---
-import { Temporal } from "@js-temporal/polyfill";
+import { Temporal, Intl } from "@js-temporal/polyfill";
 
 interface Props {
   props: WorkItem;
@@ -34,6 +34,11 @@ const updateDate = ((date: string) => {
   }
   return Temporal.PlainDate.from(date.split("T")?.[0] || date);
 })(props.latest.dateiso);
+
+const formatOptions: Intl.DateTimeFormatOptions = {
+  timeZone: "Asia/Tokyo",
+  dateStyle: "long",
+};
 ---
 
 <section id={props.id} class="hideable">
@@ -47,7 +52,7 @@ const updateDate = ((date: string) => {
         <small>
           {props.latest.version}（最終更新
           <time datetime={updateDate.toString()}>
-            {updateDate.toLocaleString("ja-JP")}
+            {updateDate.toLocaleString("ja-JP", formatOptions)}
           </time>
           ）
         </small>
