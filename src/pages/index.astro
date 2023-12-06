@@ -57,7 +57,7 @@ const items = (await Astro.glob("../data/applist/*.md")).sort((a, b) =>
       <p>各制作物のタイトルをクリックすると、紹介ページに飛びます</p>
       {
         items.map((item) => {
-          return <WorkItem props={item.frontmatter} />;
+          return <WorkItem props={item.frontmatter as any} />;
         })
       }
     </section>
@@ -112,7 +112,7 @@ const items = (await Astro.glob("../data/applist/*.md")).sort((a, b) =>
     {
       items.map((item) => (
         <WorkDetail
-          props={item.frontmatter}
+          props={item.frontmatter as any}
           set:html={item.compiledContent()}
         />
       ))

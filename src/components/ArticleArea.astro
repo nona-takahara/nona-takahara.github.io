@@ -1,23 +1,28 @@
 ---
+import type { Temporal, Intl } from "@js-temporal/polyfill";
+
+interface Props {
+  title: string;
+  postDate: Temporal.Instant | undefined;
+  updateDate: Temporal.Instant | undefined;
+}
+
 const { title, postDate, updateDate } = Astro.props;
+const formatOptions: Intl.DateTimeFormatOptions = {
+  timeZone: "Asia/Tokyo",
+  dateStyle: "long",
+  timeStyle: "medium",
+};
 ---
 
 <div class="content">
   <h2 class="article-title">{title}</h2>
   <p class="text-r no-margin">
     <small>
-      投稿：<time datetime={postDate}
-        >{
-          postDate?.toLocaleString("ja-jp", {
-            timeZone: "Asia/Tokyo",
-          })
-        }</time
-      >, 最終更新：<time datetime={updateDate}
-        >{
-          updateDate?.toLocaleString("ja-jp", {
-            timeZone: "Asia/Tokyo",
-          })
-        }</time
+      投稿：<time datetime={postDate?.toString()}
+        >{postDate?.toLocaleString("ja-jp", formatOptions)}</time
+      >, 最終更新：<time datetime={updateDate?.toString()}
+        >{updateDate?.toLocaleString("ja-jp", formatOptions)}</time
       >
     </small>
   </p>

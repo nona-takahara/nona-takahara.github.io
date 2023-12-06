@@ -1,6 +1,28 @@
 ---
 import { Temporal } from "@js-temporal/polyfill";
 
+interface Props {
+  props: WorkItem;
+}
+
+interface WorkItem {
+  latest: LatestVersionInfo;
+  title: string;
+  category: string[];
+  id: string;
+  links: Link[];
+}
+
+interface LatestVersionInfo {
+  dateiso: string;
+  version: string;
+}
+
+interface Link {
+  url: string;
+  text: string;
+}
+
 const { props } = Astro.props;
 
 const updateDate = ((date: string) => {
@@ -17,7 +39,7 @@ const updateDate = ((date: string) => {
 <section id={props.id} class="hideable">
   <h2>{props.title}</h2>
   <ul class="float-l category">
-    {(props.category as any[]).map((key) => <li>{key}</li>)}
+    {props.category.map((key) => <li>{key}</li>)}
   </ul>
   {
     updateDate && (
@@ -35,7 +57,7 @@ const updateDate = ((date: string) => {
   <nav class="float-clear table-of-links">
     <ul class="link clickable">
       {
-        (props.links as any[]).map((item) => {
+        props.links.map((item) => {
           return (
             <li>
               <a href={item.url}>{item.text}</a>

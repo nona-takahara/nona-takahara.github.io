@@ -1,5 +1,12 @@
 ---
+//@ts-ignore
 import { createHash } from "crypto";
+
+interface Props {
+  baseName: string;
+  originalTitle: string;
+}
+
 const { baseName, originalTitle } = Astro.props;
 ---
 
@@ -13,20 +20,20 @@ const { baseName, originalTitle } = Astro.props;
 >
 </div>
 <script is:inline>
-var disqus_config = function () {
-  const dataset = document.getElementById("disqus_thread").dataset;
-  this.page.url = dataset.url;
-  this.page.identifier = dataset.identifier;
-};
+  var disqus_config = function () {
+    const dataset = document.getElementById("disqus_thread").dataset;
+    this.page.url = dataset.url;
+    this.page.identifier = dataset.identifier;
+  };
 
-(function () {
-  // DON'T EDIT BELOW THIS LINE
-  var d = document,
-    s = d.createElement("script");
-  s.src = "https://kogen-yasai-nt.disqus.com/embed.js";
-  s.setAttribute("data-timestamp", +new Date());
-  (d.head || d.body).appendChild(s);
-})();
+  (function () {
+    // DON'T EDIT BELOW THIS LINE
+    var d = document,
+      s = d.createElement("script");
+    s.src = "https://kogen-yasai-nt.disqus.com/embed.js";
+    s.setAttribute("data-timestamp", +new Date());
+    (d.head || d.body).appendChild(s);
+  })();
 </script>
 <noscript
   >Please enable JavaScript to view the <a
