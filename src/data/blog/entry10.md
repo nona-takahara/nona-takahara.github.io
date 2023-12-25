@@ -51,8 +51,8 @@ XML の勧告文書において、`Name` は次のように定義されていま
 
 ずるいパーサを使うことでこの問題を回避できることがあります。大抵そういうのは高速さを売りにしたパーサです。
 
-C 言語や C++ であれば [RapidXML](https://github.com/Fe-Bell/RapidXML)、JavaScript では [fast-xml-parser](https://github.com/NaturalIntelligence/fast-xml-parser) が
-例外を返さないので、ずるいパースができます。どちらも簡単なライブラリです。
+C++ であれば [RapidXML](https://github.com/Fe-Bell/RapidXML)、JavaScript では [fast-xml-parser](https://github.com/NaturalIntelligence/fast-xml-parser) が
+例外を返さないので、ずるいパースができます。どちらもちょっとずつ使ったことがありますが、作りが簡単で扱いやすいライブラリです。
 
 いずれにしても……　こんな脱出口を使わねばならないのは、全部 Stormworks のせいです。（おわり）
 
