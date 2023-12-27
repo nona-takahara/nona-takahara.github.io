@@ -1,6 +1,7 @@
 ---
 title: "【Stormworks v1.9.19】 property の終わりにカンマをつけろ"
 short: （Stormworks 第2 Advent Calendar 2023 第18日目）アドオンのpropertyでハマった罠の話をします。
+highlight: true
 ---
 
 > **Callout:** この記事は [Stormworks 第 2 Advent Calendar 2023](https://adventar.org/calendars/9267) 第 18 日目の記事です。
