@@ -4,11 +4,11 @@
   "dependencies": {
     "@astrojs/check": "^0.4.1",
     "@js-temporal/polyfill": "^0.4.4",
-    "@wooorm/starry-night": "^3.1.0",
+    "@wooorm/starry-night": "^3.2.0",
     "astro": "^4.1.1",
-    "normalize-scss": "^7.0.1",
-    "remark-gfm": "^3.0.1",
-    "remark-math": "^5.1.1",
+    "normalize-scss": "^8.0.0",
+    "remark-gfm": "^4.0.0",
+    "remark-math": "^6.0.0",
     "typescript": "^5.3.3"
   },
   "engines": {
