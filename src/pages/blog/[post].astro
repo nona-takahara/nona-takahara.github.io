@@ -29,12 +29,15 @@ async function findFirstAndLatestTimeStamp(fileName: string) {
     res = await exec(
       `git log --date=iso-strict --pretty=format:"%ad" ${fileName}`
     ).stdout;
-  } catch {
+  } catch (e) {
+    console.error("Error at git log: ");
+    console.error(e);
     return {};
   }
 
   let first = undefined,
     latest = undefined;
+  console.log(res);
 
   if (res) {
     const commitData = res.split("\n");
