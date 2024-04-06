@@ -397,3 +397,11 @@ main.blog img {
   width: 50vw;
   max-width: 480px;
 }
+
+blockquote {
+  background-color: var(--sub-sub-background-color);
+  margin: 0;
+  padding: 0.5ic 1ic;
+  border-radius: 0 0.7ic 0.7ic 0;
+  border-left: 0.5ic solid var(--background-color-r);
+}
