@@ -12,6 +12,9 @@ import util from "node:util";
 import childProcess from "node:child_process";
 const exec = util.promisify(childProcess.exec);
 
+// ちょっとずるい方法。インストールパスに注意
+const gitPath = process.platform === "linux" ? "/usr/bin/git" : "git";
+
 export async function getStaticPaths() {
   const data: AstroInstance[] = await Astro.glob("../../data/blog/*.md");
 
@@ -27,7 +30,7 @@ async function findFirstAndLatestTimeStamp(fileName: string) {
   let res;
   try {
     res = await exec(
-      `git log --date=iso-strict --pretty=format:"%ad" ${fileName}`
+      `${gitPath} log --date=iso-strict --pretty=format:"%ad" ${fileName}`
     ).stdout;
   } catch (e) {
     console.error("Error at git log: ");
