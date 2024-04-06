@@ -8,10 +8,6 @@ import path from "path";
 
 import { Temporal } from "@js-temporal/polyfill";
 
-import util from "node:util";
-import childProcess from "node:child_process";
-const exec = util.promisify(childProcess.exec);
-
 export async function getStaticPaths() {
   const data: AstroInstance[] = await Astro.glob("../../data/blog/*.md");
 
@@ -26,9 +22,11 @@ export async function getStaticPaths() {
 async function findFirstAndLatestTimeStamp(fileName: string) {
   let res;
   try {
-    res = await exec(
-      `git log --date=iso-strict --pretty=format:"%ad" ${fileName}`
-    ).stdout;
+    res = await fetch(
+      "https://api.github.com/repos/nona-takahara/" +
+        "nona-takahara.github.io/commits" +
+        `?path=${encodeURIComponent(fileName)}`
+    );
   } catch {
     return {};
   }
@@ -36,9 +34,10 @@ async function findFirstAndLatestTimeStamp(fileName: string) {
   let first = undefined,
     latest = undefined;
 
-  if (res) {
-    const commitData = res.split("\n");
-    for (const d of commitData) {
+  if (res.ok) {
+    const commitData = await res.json();
+    for (const k of commitData) {
+      let d = k?.commit?.committer?.date;
       if (d) {
         let tp = Temporal.Instant.from(d);
         if (first == undefined || Temporal.Instant.compare(tp, first) === -1) {
