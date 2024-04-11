@@ -10,10 +10,8 @@ latest:
   dateiso: 2019-03-06
   version: ver 2.2
 links:
-  - url: http://wiki.hosiken.jp/petc3gou/?Toukou%2F%A5%B3%A5%F3%A5%BD%A1%BC%A5%EB%A5%B7%A5%E5%A1%BC%A5%C6%A5%A3%A5%F3%A5%B0
-    text: コンソールシューティング（プチコン3号＆BIGまとめWiki）リンク切れ
-  - url: https://petc-archive.vercel.app/petc3gou/?Toukou%2F%A5%B3%A5%F3%A5%BD%A1%BC%A5%EB%A5%B7%A5%E5%A1%BC%A5%C6%A5%A3%A5%F3%A5%B0
-    text: コンソールシューティング（プチコンまとめArchive）
+  - url: http://wiki.hosiken.jp/petc3gou/html/Toukou/A5-B3-A5-F3-A5-BD-A1-BC-A5-EB-A5-B7-A5-E5-A1-BC-A5-C6-A5-A3-A5-F3-A5-B0-.html
+    text: コンソールシューティング（プチコン3号＆BIGまとめWiki）
 ---
 
 > **Key:**(プチコン 3 号・BIG 公開キー) QR83RXZD
