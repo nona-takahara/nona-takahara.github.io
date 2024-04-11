@@ -10,8 +10,8 @@ category:
 latest:
   dateiso: 2023-09-04
 links:
-  - url: http://wiki.hosiken.jp/petc3gou/?Toukou%2FSmileBasic2weeks%20%C5%EA%B9%C6%BA%EE%C9%CA%BD%B8
-    text: SmileBasic2weeks 投稿作品集（プチコン3号＆BIGまとめWiki）リンク切れ
+  - url: http://wiki.hosiken.jp/petc3gou/html/Toukou/SmileBasic2weeks20-C5-EA-B9-C6-BA-EE-C9-CA-BD-B8-.html
+    text: SmileBasic2weeks 投稿作品集（プチコン3号＆BIGまとめWiki）
   - url: https://smilebasic.kurun96.com/work/44PVN3N4/
     text: 『おてがみコウモリさん リターンズ』 SmileBASIC4 作品一覧のハコ
 ---
