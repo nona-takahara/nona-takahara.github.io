@@ -2,7 +2,7 @@
 title: Storm Kamishibai
 id: storm-kamishibai
 short: Stormworks用のモニタ描画Luaプログラムジェネレータ
-order: 2
+order: 3
 category:
   - Stormworks
   - Web
