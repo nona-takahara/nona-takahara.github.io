@@ -2,7 +2,7 @@
 title: コンソールシューティング
 id: console-shooter
 short: プチコン3号のコンソール画面だけを使って多重スクロールすることを試みたシューティングゲーム
-order: 4
+order: 5
 category:
   - プチコン3号
   - プチコンBIG

@@ -2,7 +2,7 @@
 title: おてがみコウモリさん
 id: letter-bat
 short: 第3回SB2Weeksに向けて制作したタッチオンリーで遊べるゲーム
-order: 3
+order: 4
 category:
   - プチコン3号
   - プチコンBIG
