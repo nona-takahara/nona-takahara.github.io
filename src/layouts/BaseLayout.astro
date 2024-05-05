@@ -1,70 +1,39 @@
 ---
-import KaTeX from "@components/KaTeX.astro";
 import "@styles/common.scss";
 import type { OgPageType } from "./Og";
+import BaseHeader from "../components/BaseHeader.astro";
+import BaseBody from "../components/BaseBody.astro";
+import Html from "../components/Html.astro";
 
-export interface Props {
-  katex: boolean | undefined;
-  titleShort: string | undefined;
-  titleSuffix: string | undefined;
+interface Props {
+  katex?: boolean;
+  titleShort?: string;
+  titleSuffix?: string;
   description: string;
   pageType: OgPageType;
-  highlight: boolean | undefined;
+  highlight?: boolean;
 }
 
 const {
-  katex,
-  titleShort,
+  katex = false,
+  titleShort = "",
   titleSuffix = "こーげんやさい",
   description = "",
   pageType = "article",
-  highlight,
+  highlight = false,
 } = Astro.props;
 ---
 
-<!DOCTYPE html>
-<html lang="ja">
-  <head prefix="og: http://ogp.me/ns#">
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>{titleShort + titleSuffix}</title>
-    <meta property="og:url" content={Astro.url} />
-    <meta property="og:type" content={pageType} />
-    <meta property="og:title" content={titleShort || titleSuffix} />
-    <meta property="og:description" content={description} />
-    <meta property="og:site_name" content="こーげんやさい" />
-    <meta name="twitter:card" content="summary" />
-    <meta name="twitter:site" content="@nona_takahara" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Red+Hat+Text:ital,wght@0,400;0,700;1,400;1,700&family=Inconsolata:wght@400;700&family=Zen+Kaku+Gothic+New:wght@400;700&display=swap"
-      rel="stylesheet"
-    />
-    {katex && <KaTeX />}
-  </head>
+<Html>
+  <BaseHeader
+    katex={katex}
+    titleSuffix={titleSuffix}
+    titleShort={titleShort}
+    description={description}
+    pageType={pageType}
+  />
 
-  <body>
-    <a href="#content" style="visibility: hidden; position: fixed;"
-      >本文へ移動</a
-    >
-    <header>
-      <div class="container">
-        <h1 class="brand">
-          <a href="/">こーげんやさい</a>
-        </h1>
-        <div class="spacer"></div>
-        <ul class="navs">
-          <li><a href="/blog/">ブログ</a></li>
-        </ul>
-      </div>
-    </header>
+  <BaseBody highlight={highlight}>
     <slot />
-    <footer>
-      <div class="container">
-        <p>Nona Takahara</p>
-      </div>
-    </footer>
-  </body>
-  {highlight && <script type="module" src="/highlighter.js" defer />}
-</html>
+  </BaseBody>
+</Html>

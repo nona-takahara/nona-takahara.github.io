@@ -1,32 +1,32 @@
 ---
-import MainOnlyLayout from "@layouts/MainOnlyLayout.astro";
-//@ts-ignore
-import path from "path";
+import BlogList from "@components/BlogList.astro";
+import BaseLayout from "@layouts/BaseLayout.astro";
+
 const data = (await Astro.glob("../../data/blog/*.md")).sort((a, b) => {
   const af = Number(a.file.match(/\d+/g));
   const bf = Number(b.file.match(/\d+/g));
-  return af - bf;
+  return bf - af;
 });
 ---
 
-<MainOnlyLayout
+<BaseLayout
   titleShort="こーげんやさいブログ"
   titleSuffix=""
   pageType="blog"
+  description="こーげんやさいブログ 記事一覧"
 >
-  <div class="content">
-    <ul>
-      {
-        data.map((post) => {
-          return (
-            <li>
-              <a href={path.basename(post.file).replace(".md", ".html")}>
-                {post.frontmatter.title}
-              </a>
-            </li>
-          );
-        })
-      }
-    </ul>
-  </div>
-</MainOnlyLayout>
+  <main id="content" class="container">
+    <div class="content">
+      <h2>ブログ記事一覧</h2>
+      <p>上の方ほど新しいです</p>
+      <BlogList props={data} />
+    </div>
+  </main>
+  <nav>
+    <div class="container">
+      <p>
+        <a href="/">[こーげんやさいトップへ]</a>
+      </p>
+    </div>
+  </nav>
+</BaseLayout>

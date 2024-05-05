@@ -12,8 +12,12 @@ latest:
 links:
   - url: http://wiki.hosiken.jp/petc3gou/html/Toukou/SmileBasic2weeks20-C5-EA-B9-C6-BA-EE-C9-CA-BD-B8-.html
     text: SmileBasic2weeks 投稿作品集（プチコン3号＆BIGまとめWiki）
+    label: プチコン3号＆BIGまとめWiki
   - url: https://smilebasic.kurun96.com/work/44PVN3N4/
     text: 『おてがみコウモリさん リターンズ』 SmileBASIC4 作品一覧のハコ
+    label: SmileBASIC4 作品一覧のハコ
+icon: /image/work-icon/letter-bat.png
+iconPixelated: true
 ---
 
 > **Key:**(プチコン 3 号・BIG 公開キー) KDNNS384

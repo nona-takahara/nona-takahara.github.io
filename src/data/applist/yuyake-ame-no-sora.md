@@ -11,16 +11,19 @@ latest:
 links:
   - url: https://smilebasic.kurun96.com/work/4N443KXX3/
     text: 『夕やけ雨のそら』 SmileBASIC4 作品一覧のハコ
+    main: true
+icon: /image/work-icon/yuyake-ame-no-sora.png
+iconPixelated: true
 ---
 
-> **Key:**(プチコン4公開キー) 4N443KXX3
+> **Key:**(プチコン 4 公開キー) 4N443KXX3
 
 「おうちへかえろう」
 
-ジャンプとふわふわおちる かさ をつかって 
+ジャンプとふわふわおちる かさ をつかって
 夕やけそらのひみつきちから おうちへかえろう!
 
-そらのどこかの おたから たくさん あつめて 
+そらのどこかの おたから たくさん あつめて
 右へ下へ よりみち かえりみち
 
 すばやくかえる きょうそうもいいね

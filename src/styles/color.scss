@@ -1,0 +1,51 @@
+:root {
+  --background-color-light: #ffffff;
+  --background-color-dark: #181818;
+
+  --sub-background-color-light: #fafafa;
+  --sub-background-color-dark: #303030;
+
+  --sub-sub-background-color-light: #f0f0f0;
+  --sub-sub-background-color-dark: #404040;
+
+  --text-color-light: #000000;
+  --text-color-dark: #e8e8e8;
+
+  --primary-color-light: #72aaff; //fore:black;
+  --primary-color-dark: #284d84; //fore:white
+
+  --secondary-color-light: #ff887a; //fore:black
+  --secondary-color-dark: #a22f2f; //fore:white
+
+  --background-color: var(--background-color-light);
+  --sub-background-color: var(--sub-background-color-light);
+  --sub-sub-background-color: var(--sub-sub-background-color-light);
+  --text-color: var(--text-color-light);
+  --primary-color: var(--primary-color-light);
+  --secondary-color: var(--secondary-color-light);
+
+  --background-color-r: var(--background-color-dark);
+  --sub-background-color-r: var(--sub-background-color-dark);
+  --sub-sub-background-color-r: var(--sub-sub-background-color-dark);
+  --text-color-r: var(--text-color-dark);
+  --primary-color-r: var(--primary-color-dark);
+  --secondary-color-r: var(--secondary-color-dark);
+
+  @media (prefers-color-scheme: dark) {
+    // */
+    --background-color-r: var(--background-color-light);
+    --sub-background-color-r: var(--sub-background-color-light);
+    --sub-sub-background-color-r: var(--sub-sub-background-color-light);
+    --text-color-r: var(--text-color-light);
+    --primary-color-r: var(--primary-color-light);
+    --secondary-color-r: var(--secondary-color-light);
+
+    --background-color: var(--background-color-dark);
+    --sub-background-color: var(--sub-background-color-dark);
+    --sub-sub-background-color: var(--sub-sub-background-color-dark);
+    --text-color: var(--text-color-dark);
+    --primary-color: var(--primary-color-dark);
+    --secondary-color: var(--secondary-color-dark);
+  }
+  // */
+}
