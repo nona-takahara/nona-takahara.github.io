@@ -133,6 +133,12 @@ a:visited {
   color: var(--secondary-color-r);
 }
 
+main a {
+  @media print {
+    color: var(--text-color) !important;
+  }
+}
+
 .blog a::after {
   @media print {
     display: inline;

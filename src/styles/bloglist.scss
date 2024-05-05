@@ -40,4 +40,8 @@
     color: var(--primary-color-r);
     background-color: var(--sub-sub-background-color);
   }
+
+  @media print {
+    break-inside: avoid;
+  }
 }
