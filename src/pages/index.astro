@@ -3,47 +3,19 @@ import WorkDetail from "@components/WorkDetail.astro";
 import WorkItem from "@components/WorkItem.astro";
 import MainOnlyLayout from "@layouts/MainOnlyLayout.astro";
 import contacts from "@data/contacts.json";
+import { Image } from "astro:assets";
 
-const items = (await Astro.glob("../data/applist/*.md")).sort((a, b) =>
-  a.frontmatter.latest.dateiso >= b.frontmatter.latest.dateiso ? -1 : 1
+const items = (await Astro.glob("../data/applist/*.md")).sort(
+  (a, b) => a.frontmatter.order - b.frontmatter.order
 );
 ---
 
-<MainOnlyLayout titleSuffix="こーげんやさい" pageType="website">
-  <script>
-    window.addEventListener("DOMContentLoaded", domContentLoaded);
-    window.addEventListener("hashchange", onHashChange, false);
-
-    function domContentLoaded() {
-      const k = document.querySelectorAll(".jsshow");
-      k.forEach((v) => {
-        v.classList.remove("jsshow");
-      });
-      onHashChange();
-    }
-
-    function onHashChange() {
-      const k = document.querySelectorAll(".hideable");
-      k.forEach((v) => {
-        v.classList.toggle("hide", true);
-      });
-
-      let elem: NodeListOf<Element>;
-      if (!location.hash || location.hash == "#") {
-        elem = document.querySelectorAll(".landing");
-        document.title = "こーげんやさい";
-      } else {
-        elem = document.querySelectorAll(location.hash);
-        document.title =
-          (document.querySelector(location.hash + ">h2") as HTMLHeadingElement)
-            .innerText + " | こーげんやさい";
-      }
-
-      elem.forEach((v) => {
-        v.classList.toggle("hide", false);
-      });
-    }
-  </script>
+<MainOnlyLayout
+  titleShort=""
+  titleSuffix="こーげんやさい"
+  description=""
+  pageType="website"
+>
   <div class="content">
     <section class="hideable landing">
       <h2 class="article-title">「こーげんやさい」へようこそ</h2>
@@ -64,8 +36,8 @@ const items = (await Astro.glob("../data/applist/*.md")).sort((a, b) =>
 
     <section class="hideable landing floatbox">
       <h2 class="article-title">自己紹介</h2>
-      <img
-        src="image/nona-takahara.png"
+      <Image
+        src="/image/nona-takahara.png"
         alt="高原のな プロフィール画像"
         class="profile-icon float-r"
         width="100"
