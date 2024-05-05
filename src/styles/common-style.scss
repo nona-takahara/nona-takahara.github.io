@@ -207,6 +207,12 @@ img.banner {
   margin-bottom: 1ic;
 }
 
+@media print {
+  *:has(> img) {
+    break-inside: avoid;
+  }
+}
+
 div.banner {
   margin: 8px 0;
   height: 60px;
