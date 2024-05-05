@@ -32,11 +32,13 @@ const { highlight = false } = Astro.props;
   <script>
     document.addEventListener("DOMContentLoaded", () => {
       document.querySelectorAll("img").forEach((img) => {
-        const title = document.createElement("span");
-        title.innerText = img.title;
-        title.classList.add("fig-caption");
+        if (img.title) {
+          const title = document.createElement("span");
+          title.innerText = img.title;
+          title.classList.add("fig-caption");
 
-        img.after(title);
+          img.after(title);
+        }
     })
     });
   </script>
