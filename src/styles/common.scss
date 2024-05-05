@@ -61,7 +61,7 @@ html {
 }
 
 pre,
-code,
+code:not(.language-math),
 kbd {
   font-family: "Inconsolata", "Consolas", "Zen Kaku Gothic New", monospace;
   background-color: var(--sub-sub-background-color);
