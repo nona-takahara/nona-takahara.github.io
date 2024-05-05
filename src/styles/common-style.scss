@@ -133,7 +133,7 @@ a:visited {
   color: var(--secondary-color-r);
 }
 
-main a::after {
+.blog a::after {
   @media print {
     display: inline;
     font-size: 60%;
