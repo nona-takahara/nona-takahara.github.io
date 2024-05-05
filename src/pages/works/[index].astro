@@ -1,0 +1,10 @@
+---
+import IndexItem from "./index.astro";
+
+// 動的ルーティングを利用して強制的にindex.htmlを生成
+export function getStaticPaths() {
+  return [{ params: { index: "index" } }];
+}
+---
+
+<IndexItem />
