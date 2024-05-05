@@ -1,0 +1,50 @@
+header {
+  background-color: var(--background-color);
+  border-bottom: 8px solid var(--primary-color);
+  color: var(--text-color);
+
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    padding: 0.5ic 2ic;
+
+    align-items: center;
+
+    .brand {
+      margin: 8px auto 8px 0;
+      a {
+        color: var(--text-color);
+        font-weight: bold;
+        text-decoration: none;
+        &:hover,
+        &:focus {
+          text-decoration: underline;
+        }
+      }
+    }
+
+    ul.navs {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+
+      flex-direction: row;
+      margin: 0;
+      padding: 0;
+
+      li {
+        flex: 1;
+        margin: 0 4px;
+        padding: 4px 10px;
+        display: inline;
+        text-align: center;
+      }
+    }
+
+    h1,
+    h2 {
+      border: none;
+    }
+  }
+}

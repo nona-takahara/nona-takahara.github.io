@@ -1,0 +1,18 @@
+---
+import "@styles/bloglist.scss";
+interface Props {
+  title: string;
+  url: string;
+  short?: string;
+}
+
+const { title, url, short = "" } = Astro.props;
+---
+
+<a href={url} class="blog-list-item"
+  ><div>
+    <h3>{title}</h3>
+    <ul class="category"></ul>
+    <p>{short}</p>
+  </div></a
+>

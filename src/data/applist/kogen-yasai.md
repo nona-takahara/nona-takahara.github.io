@@ -10,9 +10,15 @@ latest:
   version: 2023 バージョン
 links:
   - text: GitHub リポジトリ
+    label: GitHub
     url: https://github.com/nona-takahara/nona-takahara.github.io
   - text: こーげんやさいブログ
-    url: https://nona-takahara.github.io/blog/
+    label: ブログ
+    url: /blog/
+  - url: /
+    main: true
+  - url: /works/
+    label: つくったもの
 ---
 
 Markdown、GitHub Actions などを活用し、保守管理をかなり簡略化させた、n 代目の（数えていない）高原のなウェブサイトです。

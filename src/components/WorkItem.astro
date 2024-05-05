@@ -1,10 +1,52 @@
 ---
+import { Image } from "astro:assets";
+import type { WorkItem } from "./WorkItem";
+import "@styles/card.scss";
+
 interface Props {
-  props: { id: string; title: string; short: string };
+  props: WorkItem;
+  detailLink: boolean;
 }
-const { props } = Astro.props;
+const { props, detailLink } = Astro.props;
+
+const bottomLinks = props.links?.filter((v) => !!v?.label);
 ---
 
-<h3 class="work-item-title"><a href={`#${props.id}`}>{props.title}</a></h3><p>
-  {props.short}
-</p>
+<div class="card">
+  <div class="card-content">
+    <a
+      class="card-main"
+      href={!detailLink && props.links?.find((v) => v?.main)?.url ||
+        "/works/" + props.id + ".html"}
+    >
+      <Image
+        src={props.icon || "/favicon.ico"}
+        width="120"
+        height="120"
+        alt={props.title + "のアイコン"}
+        style={(props.iconPixelated || !props.icon) && "image-rendering: pixelated;"}
+      />
+      <div>
+        <h3 class="card-title">
+          {props.title}
+        </h3>
+        <p class="card-description">
+          {props.short}
+        </p>
+      </div>
+    </a>
+    {
+      (!detailLink && bottomLinks.length > 0) && (
+        <div class="card-link-list">
+          {bottomLinks.map((li) => {
+            return (
+              <a class="card-link" href={li.url}>
+                <span>{li.label}</span>
+              </a>
+            );
+          })}
+        </div>
+      )
+    }
+  </div>
+</div>
