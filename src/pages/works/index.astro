@@ -17,7 +17,7 @@ const data = (await Astro.glob("../../data/applist/*.md")).sort((a, b) => {
   <main id="content" class="container">
     <div class="content">
       <h2>つくったもの</h2>
-      <WorkList items={data} />
+      <WorkList items={data} detailLink={true} />
     </div>
   </main>
   <nav>

@@ -16,6 +16,8 @@ links:
   - url: https://smilebasic.kurun96.com/work/44PVN3N4/
     text: 『おてがみコウモリさん リターンズ』 SmileBASIC4 作品一覧のハコ
     label: SmileBASIC4 作品一覧のハコ
+icon: /image/work-icon/letter-bat.png
+iconPixelated: true
 ---
 
 > **Key:**(プチコン 3 号・BIG 公開キー) KDNNS384

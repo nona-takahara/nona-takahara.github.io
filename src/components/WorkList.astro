@@ -3,9 +3,10 @@ import type { MarkdownInstance } from "astro";
 import WorkItem from "./WorkItem.astro";
 interface Props {
   items: MarkdownInstance<Record<string, any>>[];
+  detailLink?: boolean;
 }
 
-const { items } = Astro.props;
+const { items, detailLink = false } = Astro.props;
 ---
 
 <h3>ソフトウェア・ゲーム</h3>
@@ -16,7 +17,7 @@ const { items } = Astro.props;
         return !item.frontmatter.category.includes("Stormworks");
       })
       .map((item) => {
-        return <WorkItem props={item.frontmatter as any} />;
+        return <WorkItem props={item.frontmatter as any} detailLink={detailLink} />;
       })
   }
 </div>
@@ -28,7 +29,7 @@ const { items } = Astro.props;
         return item.frontmatter.category.includes("Stormworks");
       })
       .map((item) => {
-        return <WorkItem props={item.frontmatter as any} />;
+        return <WorkItem props={item.frontmatter as any} detailLink={detailLink} />;
       })
   }
 </div>

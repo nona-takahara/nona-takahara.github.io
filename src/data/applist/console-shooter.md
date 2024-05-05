@@ -13,6 +13,8 @@ links:
   - url: http://wiki.hosiken.jp/petc3gou/html/Toukou/A5-B3-A5-F3-A5-BD-A1-BC-A5-EB-A5-B7-A5-E5-A1-BC-A5-C6-A5-A3-A5-F3-A5-B0-.html
     text: コンソールシューティング（プチコン3号＆BIGまとめWiki）
     main: true
+icon: /image/work-icon/consh.png
+iconPixelated: true
 ---
 
 > **Key:**(プチコン 3 号・BIG 公開キー) QR83RXZD

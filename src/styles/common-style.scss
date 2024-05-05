@@ -273,3 +273,7 @@ blockquote {
   border-radius: 0 0.7ic 0.7ic 0;
   border-left: 0.5ic solid var(--background-color-r);
 }
+
+*:focus-visible {
+  z-index: 1;
+}

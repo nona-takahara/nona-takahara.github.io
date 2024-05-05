@@ -37,7 +37,7 @@ const updateDate =
     <ul class="link clickable">
       {
         props.links
-          .filter((v) => !v.text)
+          .filter((v) => !!v.text)
           .map((item) => {
             return (
               <li>
