@@ -5,6 +5,9 @@ html {
   color: var(--text-color);
 
   height: 100%;
+  @media print {
+    font-size: 10.5pt;
+  }
 }
 
 body {
@@ -27,12 +30,27 @@ kbd {
   background-color: var(--sub-sub-background-color);
   padding: 2px 5px;
   border-radius: 0.2ic;
+  @media print {
+    background-color: none;
+  }
+}
+
+pre:has(code),
+:not(pre:has(code)) > code:not(.language-math),
+kbd {
+  @media print {
+    border: 2px solid var(--sub-sub-background-color);
+  }
 }
 
 pre {
   overflow-x: auto;
   padding: 0.7ic 1ic;
   border-radius: 0.7ic;
+  @media print {
+    overflow: unset;
+    text-wrap: balance;
+  }
   code {
     padding: 0;
     margin: 0;
@@ -45,6 +63,7 @@ h3 {
   margin: 0.5ic 0;
   padding-bottom: 3px;
   border-bottom: 2px solid var(--primary-color);
+  page-break-after: avoid;
   del {
     text-decoration-thickness: 3px;
   }
@@ -54,6 +73,7 @@ h4,
 h5,
 h6 {
   margin: 0.5ic 0 0 0;
+  page-break-after: avoid;
 }
 
 h1:not(:first-child),
@@ -111,6 +131,16 @@ a {
 
 a:visited {
   color: var(--secondary-color-r);
+}
+
+main a::after {
+  @media print {
+    display: inline;
+    font-size: 60%;
+    color: var(--text-color);
+    content: " (" attr(href) ")";
+    text-wrap: wrap;
+  }
 }
 
 rp {

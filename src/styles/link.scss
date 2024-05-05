@@ -12,6 +12,10 @@
     text-align: center;
     border: 2px solid var(--sub-sub-background-color);
     border-bottom-width: 3px;
+
+    &:hover:not(&:focus-visible), &:focus:not(&:focus-visible) {
+      outline: 2px solid var(--primary-color);
+    }
   }
 }
 
