@@ -31,4 +31,12 @@ const content = Astro.props as MarkdownInstance<Record<string, any>>;
       set:html={content.compiledContent()}
     />
   </main>
+  <nav>
+    <div class="container">
+      <p>
+        <a href="/works/">[つくったものトップへ]</a>
+        <a href="/">[こーげんやさいトップへ]</a>
+      </p>
+    </div>
+  </nav>
 </BaseLayout>

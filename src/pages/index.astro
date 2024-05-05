@@ -1,15 +1,29 @@
 ---
-import WorkItem from "@components/WorkItem.astro";
+import WorkList from "@components/WorkList.astro";
 import contacts from "@data/contacts.json";
 import { Image } from "astro:assets";
 import BaseBody from "@components/BaseBody.astro";
 import BaseHeader from "@components/BaseHeader.astro";
 import Html from "@components/Html.astro";
+import links from "@data/links.js";
+import LinkList from "@components/LinkList.astro";
+import BlogList from "@components/BlogList.astro";
 
-const items = (await Astro.glob("../data/applist/*.md")).sort(
+const interlink = links.filter((item) => item.inter);
+const otherlink = links.filter((item) => !item.inter);
+
+const workItems = (await Astro.glob("../data/applist/*.md")).sort(
   (a, b) => a.frontmatter.order - b.frontmatter.order
 );
-const itemsId = items.map((v) => v.frontmatter.id);
+const workItemsId = workItems.map((v) => v.frontmatter.id);
+
+const blogdata = (await Astro.glob("../data/blog/*.md"))
+  .sort((a, b) => {
+    const af = Number(a.file.match(/\d+/g));
+    const bf = Number(b.file.match(/\d+/g));
+    return bf - af;
+  })
+  .slice(0, 3);
 ---
 
 <Html>
@@ -19,7 +33,7 @@ const itemsId = items.map((v) => v.frontmatter.id);
     description=""
     pageType="website"
   >
-    <script is:inline define:vars={{ itemsId }}>
+    <script is:inline define:vars={{ itemsId: workItemsId }}>
       const hash = location.hash.replace("#", "");
       if (itemsId.includes(hash)) {
         window.location.href = location.origin + "/works/" + hash;
@@ -28,72 +42,56 @@ const itemsId = items.map((v) => v.frontmatter.id);
   </BaseHeader>
   <BaseBody>
     <main id="content" class="container">
-      <div class="content">
-        <section class="hideable landing">
-          <h2 class="article-title">「こーげんやさい」へようこそ</h2>
-          <p>
-            高原のなの制作物、公開物へのリンク置き場です。ライセンスとか守ってもらって、あとはご自由にどうぞ
-          </p>
-          <p><a href="/blog/">簡素なブログ</a>も用意しました</p>
-        </section>
-        <section id="list-of-content" class="hideable landing">
-          <h2 class="article-title">公開中のもの</h2>
-          <p>各制作物のタイトルをクリックすると、紹介ページに飛びます</p>
+      <section class="floatbox">
+        <h2 class="article-title">プロフィール</h2>
+        <Image
+          src="/image/nona-takahara.png"
+          alt="高原のな プロフィール画像"
+          class="profile-icon float-r"
+          width="160"
+          height="160"
+          decoding="async"
+          loading="lazy"
+        />
+        <p>
+          <b><ruby>高原<rp>（</rp><rt>たかはら</rt><rp>）</rp></ruby>のな</b
+          >といいます。ゲームを作ります。動画も作っていたりしたらしい。
+        </p>
+        <ul class="link clickable">
           {
-            items.map((item) => {
-              return <WorkItem props={item.frontmatter as any} />;
+            contacts.map((item) => {
+              return (
+                <li>
+                  <a target="_blank" href={item.href}>
+                    {item.text}
+                  </a>
+                </li>
+              );
             })
           }
-        </section>
-
-        <section class="hideable landing floatbox">
-          <h2 class="article-title">自己紹介</h2>
-          <Image
-            src="/image/nona-takahara.png"
-            alt="高原のな プロフィール画像"
-            class="profile-icon float-r"
-            width="100"
-            height="100"
-            decoding="async"
-            loading="lazy"
-          />
-          <p>
-            <b><ruby>高原<rp>（</rp><rt>たかはら</rt><rp>）</rp></ruby>のな</b
-            >といいます。ゲームを作っていたり、動画を作っていたりしたらしい。
-          </p>
-          <ul class="link clickable">
-            {
-              contacts.map((item) => {
-                return (
-                  <li>
-                    <a target="_blank" href={item.href}>
-                      {item.text}
-                    </a>
-                  </li>
-                );
-              })
-            }
-          </ul>
-        </section>
-        <section class="hideable landing">
-          <h2>リンク集</h2>
-          <p>
-            <a href="links.html">リンク集はこちら</a
-            >。相互リンクなども対応します。
-          </p>
-        </section>
-        <section class="hideable landing">
-          <h2>ライセンス</h2>
-          <p>当サイトでは多数のOSS成果物を使用しています。</p>
-          <p>
-            特に<a
-              target="_blank"
-              href="https://github.com/JohnAlbin/normalize-scss"
-              >normalize-scss</a
-            >を利用しています。ライセンス表記はビルドされたCSSファイル内の記載に代えさせていただきます。
-          </p>
-        </section>
-      </div>
+        </ul>
+      </section>
+      <section id="list-of-content">
+        <h2 class="article-title">つくったもの</h2>
+        <WorkList items={workItems} />
+      </section>
+      <section>
+        <h2>最近のブログ記事</h2>
+        <BlogList props={blogdata} haveContinue={true} />
+      </section>
+      <section>
+        <h2>リンク</h2>
+        <LinkList heading="相互リンク" props={interlink} />
+        <LinkList heading="その他のリンク" props={otherlink} />
+        <h3>リンクについて</h3>
+        <p>当サイトは全部のページがリンクフリーです。</p>
+        <p>
+          バナーが <a
+            href="https://nona-takahara.github.io/image/banner_234x60.png"
+            >https://nona-takahara.github.io/image/banner_234x60.png</a
+          > にありますので、必要な方はご利用ください。気まぐれに更新するため、直リンやそれに準ずる方法を推奨しています。
+        </p>
+      </section>
     </main>
   </BaseBody>
 </Html>

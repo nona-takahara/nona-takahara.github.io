@@ -1,0 +1,43 @@
+.blog-list {
+  border: 2px solid var(--sub-sub-background-color);
+  border-bottom-width: 3px;
+  border-radius: 0.75ic;
+}
+
+.blog-list-item {
+  display: block;
+  padding: 0.25ic 1ic;
+
+  border-bottom: 2px solid var(--sub-sub-background-color);
+
+  &:first-child {
+    border-top-left-radius: calc(0.75ic - 3px);
+    border-top-right-radius: calc(0.75ic - 3px);
+  }
+
+  &:last-child {
+    border-bottom: none;
+    border-bottom-left-radius: calc(0.75ic - 3px);
+    border-bottom-right-radius: calc(0.75ic - 3px);
+  }
+
+  h1,
+  h2,
+  h3 {
+    border: none;
+  }
+
+  text-decoration: none;
+  color: var(--text-color);
+  transition: background 0.1s;
+
+  &:visited {
+    color: var(--text-color);
+  }
+
+  &:hover,
+  &:focus {
+    color: var(--primary-color-r);
+    background-color: var(--sub-sub-background-color);
+  }
+}

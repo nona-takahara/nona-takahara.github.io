@@ -10,9 +10,10 @@ latest:
 links:
   - text: サイト
     url: https://nona-takahara.github.io/sw-train-docs/
+    main: true
   - text: GitHub リポジトリ
     url: https://github.com/nona-takahara/sw-train-docs/
-  
+    label: GitHub
 ---
 
-Stormworks用鉄道システム情報集積ページです。
+Stormworks 用鉄道システム情報集積ページです。

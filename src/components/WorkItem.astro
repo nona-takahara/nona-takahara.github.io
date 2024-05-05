@@ -1,12 +1,50 @@
 ---
+import { Image } from "astro:assets";
+import type { WorkItem } from "./WorkItem";
+import "@styles/card.scss";
+
 interface Props {
-  props: { id: string; title: string; short: string };
+  props: WorkItem;
 }
 const { props } = Astro.props;
+
+const bottomLinks = props.links?.filter((v) => !!v?.label);
 ---
 
-<h3 class="work-item-title">
-  <a href={`/works/${props.id}.html`}>{props.title}</a>
-</h3><p>
-  {props.short}
-</p>
+<div class="card">
+  <div class="card-content">
+    <a
+      class="card-main"
+      href={props.links?.find((v) => v?.main)?.url ||
+        "/works/" + props.id + ".html"}
+    >
+      <Image
+        src={props.icon || "/favicon.ico"}
+        width="96"
+        height="96"
+        alt={props.title + "のアイコン"}
+      />
+      <div>
+        <h3 class="card-title">
+          {props.title}
+        </h3>
+        <p class="card-description">
+          {props.short}
+        </p>
+      </div>
+    </a>
+    {
+      bottomLinks.length > 0 && (
+        <div class="card-link-list">
+          {bottomLinks.map((li) => {
+            return (
+              <a class="card-link" href={li.url}>
+                <span>{li.label}</span>
+              </a>
+            );
+          })}
+        </div>
+      )
+    }
+  </div>
+</div>

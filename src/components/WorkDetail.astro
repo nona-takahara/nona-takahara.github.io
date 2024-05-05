@@ -1,44 +1,18 @@
 ---
-import { Temporal, Intl } from "@js-temporal/polyfill";
+import { Temporal } from "@js-temporal/polyfill";
+import type { WorkItem } from "./WorkItem";
+import { dateStringToPlainDate, formatOptions } from "./TemporalWrap";
 
 interface Props {
   props: WorkItem;
 }
 
-interface WorkItem {
-  latest: LatestVersionInfo;
-  title: string;
-  category: string[];
-  id: string;
-  links: Link[];
-}
-
-interface LatestVersionInfo {
-  dateiso: string;
-  version: string;
-}
-
-interface Link {
-  url: string;
-  text: string;
-}
-
 const { props } = Astro.props;
 
-const updateDate = ((date: string) => {
-  if (!date) {
-    return undefined;
-  }
-  if (date == "today") {
-    return Temporal.Now.plainDateISO("Asia/Tokyo");
-  }
-  return Temporal.PlainDate.from(date.split("T")?.[0] || date);
-})(props.latest.dateiso);
-
-const formatOptions: Intl.DateTimeFormatOptions = {
-  timeZone: "Asia/Tokyo",
-  dateStyle: "long",
-};
+const updateDate =
+  props.latest.dateiso == "today"
+    ? Temporal.Now.plainDateISO("Asia/Tokyo")
+    : dateStringToPlainDate(props.latest.dateiso);
 ---
 
 <section id={props.id} class="hideable">
@@ -50,7 +24,7 @@ const formatOptions: Intl.DateTimeFormatOptions = {
     updateDate && (
       <p class="float-r no-margin">
         <small>
-          {props.latest.version}（最終更新
+          {props.latest.version}（ 最終更新
           <time datetime={updateDate.toString()}>
             {updateDate.toLocaleString("ja-JP", formatOptions)}
           </time>
@@ -62,16 +36,17 @@ const formatOptions: Intl.DateTimeFormatOptions = {
   <nav class="float-clear table-of-links">
     <ul class="link clickable">
       {
-        props.links.map((item) => {
-          return (
-            <li>
-              <a href={item.url}>{item.text}</a>
-            </li>
-          );
-        })
+        props.links
+          .filter((v) => !v.text)
+          .map((item) => {
+            return (
+              <li>
+                <a href={item.url}>{item.text}</a>
+              </li>
+            );
+          })
       }
     </ul>
   </nav>
   <slot />
-  <p class="float-clear"><a href="/" class="jsshow">[戻る]</a></p>
 </section>

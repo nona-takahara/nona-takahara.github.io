@@ -1,0 +1,21 @@
+.linklist {
+  display: flex;
+  padding: 0;
+  flex-direction: row;
+  align-items: center;
+  vertical-align: middle;
+
+  & > * {
+    flex: 1;
+    display: inline-block;
+    margin: 0.5ic;
+    text-align: center;
+    border: 2px solid var(--sub-sub-background-color);
+    border-bottom-width: 3px;
+  }
+}
+
+.link-title {
+  display: inline-block;
+  padding: 8px;
+}

@@ -1,0 +1,26 @@
+---
+import type { MarkdownInstance } from "astro";
+import BlogItem from "./BlogItem.astro";
+//@ts-ignore
+import path from "path";
+
+interface Props {
+  props: MarkdownInstance<Record<string, any>>[];
+  haveContinue?: boolean;
+}
+
+const { props, haveContinue } = Astro.props;
+---
+
+<div class="blog-list">
+  {
+    props.map((item) => (
+      <BlogItem
+        url={"/blog/" + path.basename(item.file).replace(".md", ".html")}
+        title={item.frontmatter.title}
+        short={item.frontmatter.short}
+      />
+    ))
+  }
+  {haveContinue && <BlogItem url="/blog/" title="その他の記事" />}
+</div>

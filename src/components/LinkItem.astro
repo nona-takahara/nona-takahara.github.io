@@ -1,8 +1,10 @@
 ---
+import "@styles/link.scss";
 interface Props {
-  props: LinkItem;
+  props: LinkItemType;
 }
-interface LinkItem {
+
+export interface LinkItemType {
   url?: string;
   title?: string;
   banner?: string;
@@ -12,16 +14,10 @@ interface LinkItem {
 const { props } = Astro.props;
 ---
 
-<div class="floatbox">
-  <h3>
-    <a href={props.url}>{props.title}</a>
-  </h3>
+<a href={props.url}>
   {
-    props.banner && (
-      <a href={props.url}>
-        <img src={props.banner} class="banner float-l" alt={props.title} />
-      </a>
-    )
+    (props.banner && (
+      <img src={props.banner} class="banner float-l" alt={props.title} />
+    )) || <span class="link-title">{props.title}</span>
   }
-  <p>{props.short}</p>
-</div>
+</a>

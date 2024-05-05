@@ -1,0 +1,35 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import type { OgPageType } from "./Og";
+
+interface Props {
+  katex?: boolean;
+  titleShort?: string;
+  titleSuffix?: string;
+  description: string;
+  pageType: OgPageType;
+  highlight?: boolean;
+}
+
+const {
+  katex = false,
+  titleShort = "",
+  titleSuffix = " | こーげんやさい",
+  description,
+  pageType,
+  highlight = false,
+} = Astro.props;
+---
+
+<BaseLayout
+  titleShort={titleShort}
+  titleSuffix={titleSuffix || " | こーげんやさい"}
+  katex={katex}
+  description={description}
+  pageType={pageType}
+  highlight={highlight}
+>
+  <main id="content" class="container">
+    <slot />
+  </main>
+</BaseLayout>

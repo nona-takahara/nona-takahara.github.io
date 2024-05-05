@@ -12,7 +12,9 @@ latest:
 links:
   - text: Storm Kamishibai (Webアプリ利用の際はこちらから)
     url: https://nona-takahara.github.io/storm-kamishibai/
+    main: true
   - text: GitHub リポジトリ
+    label: GitHub
     url: https://github.com/nona-takahara/storm-kamishibai
 ---
 

@@ -1,0 +1,34 @@
+---
+import type { MarkdownInstance } from "astro";
+import WorkItem from "./WorkItem.astro";
+interface Props {
+  items: MarkdownInstance<Record<string, any>>[];
+}
+
+const { items } = Astro.props;
+---
+
+<h3>ソフトウェア・ゲーム</h3>
+<div class="card-collection">
+  {
+    items
+      .filter((item) => {
+        return !item.frontmatter.category.includes("Stormworks");
+      })
+      .map((item) => {
+        return <WorkItem props={item.frontmatter as any} />;
+      })
+  }
+</div>
+<h3>Stormworks関連</h3>
+<div class="card-collection">
+  {
+    items
+      .filter((item) => {
+        return item.frontmatter.category.includes("Stormworks");
+      })
+      .map((item) => {
+        return <WorkItem props={item.frontmatter as any} />;
+      })
+  }
+</div>
