@@ -5,6 +5,8 @@ interface Props {
 const { props } = Astro.props;
 ---
 
-<h3 class="work-item-title"><a href={`#${props.id}`}>{props.title}</a></h3><p>
+<h3 class="work-item-title">
+  <a href={`/works/${props.id}.html`}>{props.title}</a>
+</h3><p>
   {props.short}
 </p>

@@ -3,10 +3,10 @@ interface Props {
   props: LinkItem;
 }
 interface LinkItem {
-  url: string;
-  title: string;
-  banner: string;
-  short: string;
+  url?: string;
+  title?: string;
+  banner?: string;
+  short?: string;
 }
 
 const { props } = Astro.props;

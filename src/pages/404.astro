@@ -1,16 +1,22 @@
 ---
-import MainOnlyLayout from "@layouts/MainOnlyLayout.astro";
+import BaseLayout from "@layouts/BaseLayout.astro";
 ---
 
-<MainOnlyLayout titleShort="HTTP 404 Not Found">
-  <div class="content">
-    <section>
-      <h2>指定のファイルが見つかりません (HTTP 404)</h2>
-      <p>アクセスしたURLは存在しないか、削除されたようです。</p>
-      <p>
-        目的のページを探すために<a href="/">トップページ</a
-        >に行くこともできます。
-      </p>
-    </section>
-  </div>
-</MainOnlyLayout>
+<BaseLayout
+  titleShort="HTTP 404 Not Found"
+  description="HTTP 404"
+  pageType="article"
+>
+  <main id="content" class="container">
+    <div class="content">
+      <section>
+        <h2>指定のファイルが見つかりません (HTTP 404)</h2>
+        <p>アクセスしたURLは存在しないか、削除されたようです。</p>
+        <p>
+          目的のページを探すために<a href="/">トップページ</a
+          >に行くこともできます。
+        </p>
+      </section>
+    </div>
+  </main>
+</BaseLayout>

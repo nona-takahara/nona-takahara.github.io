@@ -1,0 +1,31 @@
+---
+import "@styles/common.scss";
+
+interface Props {
+  highlight?: boolean;
+}
+
+const { highlight = false } = Astro.props;
+---
+
+<body>
+  <a href="#content" style="visibility: hidden; position: fixed;">本文へ移動</a>
+  <header>
+    <div class="container">
+      <h1 class="brand">
+        <a href="/">こーげんやさい</a>
+      </h1>
+      <div class="spacer"></div>
+      <ul class="navs">
+        <li><a href="/blog/">ブログ</a></li>
+      </ul>
+    </div>
+  </header>
+  <slot />
+  <footer>
+    <div class="container">
+      <p>Nona Takahara</p>
+    </div>
+  </footer>
+  {highlight && <script type="module" src="/highlighter.js" defer />}
+</body>

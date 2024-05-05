@@ -1,0 +1,34 @@
+---
+import type { AstroInstance, MarkdownInstance } from "astro";
+//@ts-ignore
+import path from "path";
+import WorkDetail from "@components/WorkDetail.astro";
+import BaseLayout from "@layouts/BaseLayout.astro";
+
+export async function getStaticPaths() {
+  const data: AstroInstance[] = await Astro.glob("../../data/applist/*.md");
+
+  return data.map((work) => {
+    return {
+      params: { work: path.basename(work.file).replace(".md", "") },
+      props: work,
+    };
+  });
+}
+
+const content = Astro.props as MarkdownInstance<Record<string, any>>;
+---
+
+<BaseLayout
+  titleShort={content.frontmatter.title}
+  titleSuffix=" | こーげんやさい"
+  description={content.frontmatter.short}
+  pageType="article"
+>
+  <main id="content" class="container">
+    <WorkDetail
+      props={content.frontmatter as any}
+      set:html={content.compiledContent()}
+    />
+  </main>
+</BaseLayout>

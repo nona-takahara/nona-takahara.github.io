@@ -1,93 +1,99 @@
 ---
-import WorkDetail from "@components/WorkDetail.astro";
 import WorkItem from "@components/WorkItem.astro";
-import MainOnlyLayout from "@layouts/MainOnlyLayout.astro";
 import contacts from "@data/contacts.json";
 import { Image } from "astro:assets";
+import BaseBody from "@components/BaseBody.astro";
+import BaseHeader from "@components/BaseHeader.astro";
+import Html from "@components/Html.astro";
 
 const items = (await Astro.glob("../data/applist/*.md")).sort(
   (a, b) => a.frontmatter.order - b.frontmatter.order
 );
+const itemsId = items.map((v) => v.frontmatter.id);
 ---
 
-<MainOnlyLayout
-  titleShort=""
-  titleSuffix="こーげんやさい"
-  description=""
-  pageType="website"
->
-  <div class="content">
-    <section class="hideable landing">
-      <h2 class="article-title">「こーげんやさい」へようこそ</h2>
-      <p>
-        高原のなの制作物、公開物へのリンク置き場です。ライセンスとか守ってもらって、あとはご自由にどうぞ
-      </p>
-      <p><a href="/blog/">簡素なブログ</a>も用意しました</p>
-    </section>
-    <section id="list-of-content" class="hideable landing">
-      <h2 class="article-title">公開中のもの</h2>
-      <p>各制作物のタイトルをクリックすると、紹介ページに飛びます</p>
-      {
-        items.map((item) => {
-          return <WorkItem props={item.frontmatter as any} />;
-        })
+<Html>
+  <BaseHeader
+    titleShort=""
+    titleSuffix="こーげんやさい"
+    description=""
+    pageType="website"
+  >
+    <script is:inline define:vars={{ itemsId }}>
+      const hash = location.hash.replace("#", "");
+      if (itemsId.includes(hash)) {
+        window.location.href = location.origin + "/works/" + hash;
       }
-    </section>
+    </script>
+  </BaseHeader>
+  <BaseBody>
+    <main id="content" class="container">
+      <div class="content">
+        <section class="hideable landing">
+          <h2 class="article-title">「こーげんやさい」へようこそ</h2>
+          <p>
+            高原のなの制作物、公開物へのリンク置き場です。ライセンスとか守ってもらって、あとはご自由にどうぞ
+          </p>
+          <p><a href="/blog/">簡素なブログ</a>も用意しました</p>
+        </section>
+        <section id="list-of-content" class="hideable landing">
+          <h2 class="article-title">公開中のもの</h2>
+          <p>各制作物のタイトルをクリックすると、紹介ページに飛びます</p>
+          {
+            items.map((item) => {
+              return <WorkItem props={item.frontmatter as any} />;
+            })
+          }
+        </section>
 
-    <section class="hideable landing floatbox">
-      <h2 class="article-title">自己紹介</h2>
-      <Image
-        src="/image/nona-takahara.png"
-        alt="高原のな プロフィール画像"
-        class="profile-icon float-r"
-        width="100"
-        height="100"
-        decoding="async"
-        loading="lazy"
-      />
-      <p>
-        <b><ruby>高原<rp>（</rp><rt>たかはら</rt><rp>）</rp></ruby>のな</b
-        >といいます。ゲームを作っていたり、動画を作っていたりしたらしい。
-      </p>
-      <ul class="link clickable">
-        {
-          contacts.map((item) => {
-            return (
-              <li>
-                <a target="_blank" href={item.href}>
-                  {item.text}
-                </a>
-              </li>
-            );
-          })
-        }
-      </ul>
-    </section>
-    <section class="hideable landing">
-      <h2>リンク集</h2>
-      <p>
-        <a href="links.html">リンク集はこちら</a>。相互リンクなども対応します。
-      </p>
-    </section>
-    <section class="hideable landing">
-      <h2>ライセンス</h2>
-      <p>当サイトでは多数のOSS成果物を使用しています。</p>
-      <p>
-        特に<a
-          target="_blank"
-          href="https://github.com/JohnAlbin/normalize-scss">normalize-scss</a
-        >を利用しています。ライセンス表記はビルドされたCSSファイル内の記載に代えさせていただきます。
-      </p>
-    </section>
-
-    <hr class="hideable" />
-    {
-      items.map((item) => (
-        <WorkDetail
-          props={item.frontmatter as any}
-          set:html={item.compiledContent()}
-        />
-      ))
-    }
-  </div>
-</MainOnlyLayout>
+        <section class="hideable landing floatbox">
+          <h2 class="article-title">自己紹介</h2>
+          <Image
+            src="/image/nona-takahara.png"
+            alt="高原のな プロフィール画像"
+            class="profile-icon float-r"
+            width="100"
+            height="100"
+            decoding="async"
+            loading="lazy"
+          />
+          <p>
+            <b><ruby>高原<rp>（</rp><rt>たかはら</rt><rp>）</rp></ruby>のな</b
+            >といいます。ゲームを作っていたり、動画を作っていたりしたらしい。
+          </p>
+          <ul class="link clickable">
+            {
+              contacts.map((item) => {
+                return (
+                  <li>
+                    <a target="_blank" href={item.href}>
+                      {item.text}
+                    </a>
+                  </li>
+                );
+              })
+            }
+          </ul>
+        </section>
+        <section class="hideable landing">
+          <h2>リンク集</h2>
+          <p>
+            <a href="links.html">リンク集はこちら</a
+            >。相互リンクなども対応します。
+          </p>
+        </section>
+        <section class="hideable landing">
+          <h2>ライセンス</h2>
+          <p>当サイトでは多数のOSS成果物を使用しています。</p>
+          <p>
+            特に<a
+              target="_blank"
+              href="https://github.com/JohnAlbin/normalize-scss"
+              >normalize-scss</a
+            >を利用しています。ライセンス表記はビルドされたCSSファイル内の記載に代えさせていただきます。
+          </p>
+        </section>
+      </div>
+    </main>
+  </BaseBody>
+</Html>
