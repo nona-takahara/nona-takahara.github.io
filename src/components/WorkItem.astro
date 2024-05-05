@@ -36,7 +36,7 @@ const bottomLinks = props.links?.filter((v) => !!v?.label);
       </div>
     </a>
     {
-      bottomLinks.length > 0 && (
+      (!detailLink && bottomLinks.length > 0) && (
         <div class="card-link-list">
           {bottomLinks.map((li) => {
             return (
