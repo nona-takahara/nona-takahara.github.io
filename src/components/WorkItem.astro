@@ -16,15 +16,15 @@ const bottomLinks = props.links?.filter((v) => !!v?.label);
   <div class="card-content">
     <a
       class="card-main"
-      href={!detailLink && props.links?.find((v) => v?.main)?.url ||
+      href={(!detailLink && props.links?.find((v) => v?.main)?.url) ||
         "/works/" + props.id + ".html"}
     >
       <Image
-        src={props.icon || "/favicon.ico"}
+        src={props.icon || "/icon-192.png"}
         width="120"
         height="120"
         alt={props.title + "のアイコン"}
-        style={(props.iconPixelated || !props.icon) && "image-rendering: pixelated;"}
+        style={props.iconPixelated ? "image-rendering: pixelated;" : ""}
       />
       <div>
         <h3 class="card-title">
@@ -36,7 +36,7 @@ const bottomLinks = props.links?.filter((v) => !!v?.label);
       </div>
     </a>
     {
-      (!detailLink && bottomLinks.length > 0) && (
+      !detailLink && bottomLinks.length > 0 && (
         <div class="card-link-list">
           {bottomLinks.map((li) => {
             return (
