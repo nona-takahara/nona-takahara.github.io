@@ -2,14 +2,14 @@
   "main": "./index.js",
   "type": "module",
   "dependencies": {
-    "@astrojs/check": "^0.4.1",
+    "@astrojs/check": "^0.8.2",
     "@js-temporal/polyfill": "^0.4.4",
-    "@wooorm/starry-night": "^3.2.0",
-    "astro": "^4.1.1",
+    "@wooorm/starry-night": "^3.4.0",
+    "astro": "^4.11.6",
     "normalize-scss": "^8.0.0",
     "remark-gfm": "^4.0.0",
     "remark-math": "^6.0.0",
-    "typescript": "^5.3.3"
+    "typescript": "^5.5.3"
   },
   "engines": {
     "node": ">=18"
@@ -21,6 +21,6 @@
     "preview": "astro preview"
   },
   "devDependencies": {
-    "sass": "^1.54.0"
+    "sass": "^1.77.8"
   }
 }
