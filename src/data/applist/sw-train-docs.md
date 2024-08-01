@@ -6,7 +6,7 @@ order: 6
 category:
   - Stormworks
 latest:
-  dateiso: 2024-05-05
+  dateiso: 2024-07-20
 links:
   - text: サイト
     url: https://nona-takahara.github.io/sw-train-docs/
