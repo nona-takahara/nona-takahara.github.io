@@ -2,7 +2,7 @@
   "main": "./index.js",
   "type": "module",
   "dependencies": {
-    "@astrojs/check": "^0.8.2",
+    "@astrojs/check": "^0.9.3",
     "@js-temporal/polyfill": "^0.4.4",
     "@wooorm/starry-night": "^3.4.0",
     "astro": "^4.11.6",
