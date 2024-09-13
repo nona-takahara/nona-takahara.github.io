@@ -2,7 +2,7 @@
 import BlogList from "@components/BlogList.astro";
 import BaseLayout from "@layouts/BaseLayout.astro";
 
-const data = (await Astro.glob("../../data/blog/*.md")).sort((a, b) => {
+const data = (await Astro.glob("../../content/blog/*.md")).sort((a, b) => {
   const af = Number(a.file.match(/\d+/g));
   const bf = Number(b.file.match(/\d+/g));
   return bf - af;
