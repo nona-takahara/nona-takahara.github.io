@@ -6,7 +6,7 @@ import WorkDetail from "@components/WorkDetail.astro";
 import BaseLayout from "@layouts/BaseLayout.astro";
 
 export async function getStaticPaths() {
-  const data: AstroInstance[] = await Astro.glob("../../data/applist/*.md");
+  const data: AstroInstance[] = await Astro.glob("../../content/applist/*.md");
 
   return data.map((work) => {
     return {

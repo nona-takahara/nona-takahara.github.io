@@ -9,7 +9,7 @@ import path from "path";
 import { Temporal } from "@js-temporal/polyfill";
 
 export async function getStaticPaths() {
-  const data: AstroInstance[] = await Astro.glob("../../data/blog/*.md");
+  const data: AstroInstance[] = await Astro.glob("../../content/blog/*.md");
 
   return data.map((post) => {
     return {
@@ -54,7 +54,7 @@ async function findFirstAndLatestTimeStamp(fileName: string) {
 }
 
 const content = Astro.props as MarkdownInstance<Record<string, any>>;
-const filepath = `src/data/blog/${path
+const filepath = `src/content/blog/${path
   .basename(content.file)
   .replace(".html", ".md")}`;
 const date = await findFirstAndLatestTimeStamp(filepath);
