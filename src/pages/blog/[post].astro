@@ -1,12 +1,13 @@
 ---
+import gitlog from "gitlog";
 import type { AstroInstance, MarkdownInstance } from "astro";
 import BaseLayout from "@layouts/BaseLayout.astro";
 import DisqusArea from "@components/DisqusArea.astro";
 import ArticleArea from "@components/ArticleArea.astro";
 //@ts-ignore
-import path from "path";
-
+import path from "node:path";
 import { Temporal } from "@js-temporal/polyfill";
+import ignoreHashes from "@data/ignore-hashes";
 
 export async function getStaticPaths() {
   const data: AstroInstance[] = await Astro.glob("../../content/blog/*.md");
@@ -20,37 +21,40 @@ export async function getStaticPaths() {
 }
 
 async function findFirstAndLatestTimeStamp(fileName: string) {
-  let res;
-  try {
-    res = await fetch(
-      "https://api.github.com/repos/nona-takahara/" +
-        "nona-takahara.github.io/commits" +
-        `?path=${encodeURIComponent(fileName)}`
-    );
-  } catch {
-    return {};
-  }
+  const res = await gitlog({
+    repo: "./",
+    follow: true,
+    file: fileName,
+    all: true,
+  });
 
-  let first = undefined,
-    latest = undefined;
+  let first: Temporal.Instant | undefined = undefined,
+    latest: Temporal.Instant | undefined = undefined;
 
-  if (res.ok) {
-    const commitData = await res.json();
-    for (const k of commitData) {
-      let d = k?.commit?.committer?.date;
-      if (d) {
-        let tp = Temporal.Instant.from(d);
-        if (first == undefined || Temporal.Instant.compare(tp, first) === -1) {
-          first = tp;
-        }
-        if (latest == undefined || Temporal.Instant.compare(tp, latest) === 1) {
-          latest = tp;
-        }
+  if (res) {
+    res.forEach((k) => {
+      let tp = Temporal.Instant.from(gitlogLibDateToISODate(k.authorDate));
+      if (first == undefined || Temporal.Instant.compare(tp, first) === -1) {
+        first = tp;
       }
-    }
+      if (latest == undefined || Temporal.Instant.compare(tp, latest) === 1) {
+        latest = tp;
+      }
+    });
   }
 
   return { first_commit: first, latest_commit: latest };
+}
+
+function gitlogLibDateToISODate(gitlibdate: string) {
+  return (
+    gitlibdate.slice(0, 10) +
+    "T" +
+    gitlibdate.slice(11, 19) +
+    gitlibdate.slice(20, 23) +
+    ":" +
+    gitlibdate.slice(23, 25)
+  );
 }
 
 const content = Astro.props as MarkdownInstance<Record<string, any>>;
