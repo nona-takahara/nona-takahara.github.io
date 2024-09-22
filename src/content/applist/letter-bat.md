@@ -16,7 +16,7 @@ links:
   - url: https://smilebasic.kurun96.com/work/44PVN3N4/
     text: 『おてがみコウモリさん リターンズ』 SmileBASIC4 作品一覧のハコ
     label: SmileBASIC4 作品一覧のハコ
-icon: /image/work-icon/letter-bat.png
+icon: ./icons/letter-bat.png
 iconPixelated: true
 ---
 
@@ -30,8 +30,8 @@ iconPixelated: true
 
 <div class="three-ds">
 
-![おてがみコウモリさん オリジナル 3DS/WiiU版 上画面](/image/letbat_up.jpg)
-![おてがみコウモリさん オリジナル 3DS/WiiU版 下画面](/image/letbat_down.jpg)
+![おてがみコウモリさん オリジナル 3DS/WiiU版 上画面](screenshots/letbat_up.jpg)
+![おてがみコウモリさん オリジナル 3DS/WiiU版 下画面](screenshots/letbat_down.jpg)
 
 </div>
 

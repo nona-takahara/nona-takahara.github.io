@@ -1,11 +1,11 @@
 ---
-import type { MarkdownInstance } from "astro";
+import type { CollectionEntry } from "astro:content";
 import BlogItem from "./BlogItem.astro";
 //@ts-ignore
 import path from "path";
 
 interface Props {
-  props: MarkdownInstance<Record<string, any>>[];
+  props: CollectionEntry<"blog">[];
   haveContinue?: boolean;
 }
 
@@ -16,9 +16,9 @@ const { props, haveContinue } = Astro.props;
   {
     props.map((item) => (
       <BlogItem
-        url={"/blog/" + path.basename(item.file).replace(".md", ".html")}
-        title={item.frontmatter.title}
-        short={item.frontmatter.short}
+        url={"/blog/" + item.slug + ".html"}
+        title={item.data.title}
+        short={item.data.short}
       />
     ))
   }

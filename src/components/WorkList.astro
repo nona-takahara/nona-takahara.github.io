@@ -1,8 +1,8 @@
 ---
-import type { MarkdownInstance } from "astro";
 import WorkItem from "./WorkItem.astro";
+import type { CollectionEntry } from "astro:content";
 interface Props {
-  items: MarkdownInstance<Record<string, any>>[];
+  items: CollectionEntry<"applist">[];
   detailLink?: boolean;
 }
 
@@ -14,10 +14,10 @@ const { items, detailLink = false } = Astro.props;
   {
     items
       .filter((item) => {
-        return !item.frontmatter.category.includes("Stormworks");
+        return !item.data.category.includes("Stormworks");
       })
       .map((item) => {
-        return <WorkItem props={item.frontmatter as any} detailLink={detailLink} />;
+        return <WorkItem props={item} detailLink={detailLink} />;
       })
   }
 </div>
@@ -26,10 +26,10 @@ const { items, detailLink = false } = Astro.props;
   {
     items
       .filter((item) => {
-        return item.frontmatter.category.includes("Stormworks");
+        return item.data.category.includes("Stormworks");
       })
       .map((item) => {
-        return <WorkItem props={item.frontmatter as any} detailLink={detailLink} />;
+        return <WorkItem props={item} detailLink={detailLink} />;
       })
   }
 </div>
