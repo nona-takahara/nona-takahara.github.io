@@ -3,6 +3,7 @@ import { Image } from "astro:assets";
 import type { WorkItem } from "./WorkItem";
 import "@styles/card.scss";
 import type { CollectionEntry } from "astro:content";
+import defaultIcon from "./../images/nona-takahara.png";
 
 interface Props {
   props: CollectionEntry<"applist">;
@@ -20,13 +21,26 @@ const bottomLinks = props.data.links.filter((v) => v.label != undefined);
       href={(!detailLink && props.data.links?.find((v) => v?.main)?.url) ||
         "/works/" + props.slug + ".html"}
     >
-      <Image
-        src={props.data.icon || "/icon-192.png"}
-        width="120"
-        height="120"
-        alt={props.data.title + "のアイコン"}
-        style={props.data.iconPixelated ? "image-rendering: pixelated;" : ""}
-      />
+      {
+        props.data.iconPixelated ? (
+          <img
+            src={props.data.icon?.src}
+            width="120"
+            height="120"
+            alt={props.data.title + "のアイコン"}
+            style="image-rendering: pixelated;"
+          />
+        ) : (
+          <Image
+            src={props.data.icon || defaultIcon}
+            width="120"
+            height="120"
+            densities={[1, 2, 3]}
+            alt={props.data.title + "のアイコン"}
+          />
+        )
+      }
+
       <div>
         <h3 class="card-title">
           {props.data.title}

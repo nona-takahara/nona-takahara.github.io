@@ -9,6 +9,7 @@ import links from "@data/links/links.js";
 import LinkList from "@components/LinkList.astro";
 import BlogList from "@components/BlogList.astro";
 import { getCollection } from "astro:content";
+import nonaIcon from "./../images/nona-takahara.png";
 
 const interlink = links.filter((item) => item.inter);
 const otherlink = links.filter((item) => !item.inter);
@@ -46,11 +47,12 @@ const blogdata = (await getCollection("blog"))
       <section class="floatbox">
         <h2 class="article-title">プロフィール</h2>
         <Image
-          src="/image/nona-takahara.png"
+          src={nonaIcon}
           alt="高原のな プロフィール画像"
           class="profile-icon float-r"
           width="160"
           height="160"
+          densities={[1, 2, 3]}
           decoding="async"
           loading="lazy"
         />

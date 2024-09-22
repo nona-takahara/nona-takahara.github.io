@@ -6,7 +6,8 @@
       "@data/*": ["src/content/*"],
       "@styles/*": ["src/styles/*"],
       "@components/*": ["src/components/*"],
-      "@layouts/*": ["src/layouts/*"]
+      "@layouts/*": ["src/layouts/*"],
+      "@app-icon/*": ["src/content/applist/icons/*"]
     }
   }
 }
