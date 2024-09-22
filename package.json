@@ -2,10 +2,11 @@
   "main": "./index.js",
   "type": "module",
   "dependencies": {
-    "@astrojs/check": "^0.8.2",
+    "@astrojs/check": "^0.9.3",
     "@js-temporal/polyfill": "^0.4.4",
     "@wooorm/starry-night": "^3.4.0",
     "astro": "^4.11.6",
+    "gitlog": "^5.1.0",
     "normalize-scss": "^8.0.0",
     "remark-gfm": "^4.0.0",
     "remark-math": "^6.0.0",

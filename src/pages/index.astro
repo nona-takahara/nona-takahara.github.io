@@ -1,23 +1,23 @@
 ---
 import WorkList from "@components/WorkList.astro";
-import contacts from "@data/contacts.json";
+import contacts from "src/content/contacts.json";
 import { Image } from "astro:assets";
 import BaseBody from "@components/BaseBody.astro";
 import BaseHeader from "@components/BaseHeader.astro";
 import Html from "@components/Html.astro";
-import links from "@data/links.js";
+import links from "src/content/links.js";
 import LinkList from "@components/LinkList.astro";
 import BlogList from "@components/BlogList.astro";
 
 const interlink = links.filter((item) => item.inter);
 const otherlink = links.filter((item) => !item.inter);
 
-const workItems = (await Astro.glob("../data/applist/*.md")).sort(
+const workItems = (await Astro.glob("../content/applist/*.md")).sort(
   (a, b) => a.frontmatter.order - b.frontmatter.order
 );
 const workItemsId = workItems.map((v) => v.frontmatter.id);
 
-const blogdata = (await Astro.glob("../data/blog/*.md"))
+const blogdata = (await Astro.glob("../content/blog/*.md"))
   .sort((a, b) => {
     const af = Number(a.file.match(/\d+/g));
     const bf = Number(b.file.match(/\d+/g));

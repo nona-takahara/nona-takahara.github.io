@@ -3,3 +3,4 @@ dist/
 temp/
 node_modules/
 stock*.md
+.astro/

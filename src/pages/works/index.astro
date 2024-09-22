@@ -3,7 +3,7 @@ import WorkList from "@components/WorkList.astro";
 import BaseLayout from "@layouts/BaseLayout.astro";
 //@ts-ignore
 import path from "path";
-const data = (await Astro.glob("../../data/applist/*.md")).sort((a, b) => {
+const data = (await Astro.glob("../../content/applist/*.md")).sort((a, b) => {
   return a.frontmatter.order - b.frontmatter.order;
 });
 ---
