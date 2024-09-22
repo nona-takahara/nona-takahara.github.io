@@ -7,7 +7,7 @@ interface Props {
   updateDate: Temporal.Instant | undefined;
 }
 
-const { title, /*postDate,*/ updateDate } = Astro.props;
+const { title, postDate, updateDate } = Astro.props;
 const formatOptions: Intl.DateTimeFormatOptions = {
   timeZone: "Asia/Tokyo",
   dateStyle: "long",
@@ -20,10 +20,9 @@ const formatOptions: Intl.DateTimeFormatOptions = {
   <ul class="float-l category"></ul>
   <p class="text-r no-margin">
     <small>
-      <!-- 投稿：<time datetime={postDate?.toString()}
+      投稿：<time datetime={postDate?.toString()}
         >{postDate?.toLocaleString("ja-jp", formatOptions)}</time
-      >，-->最終更新：<time
-        datetime={updateDate?.toString()}
+      >，最終更新：<time datetime={updateDate?.toString()}
         >{updateDate?.toLocaleString("ja-jp", formatOptions)}</time
       >
     </small>
