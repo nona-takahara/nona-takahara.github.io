@@ -1,26 +1,27 @@
 ---
 import WorkList from "@components/WorkList.astro";
-import contacts from "src/content/contacts.json";
+import contacts from "@data/contacts/contacts.json";
 import { Image } from "astro:assets";
 import BaseBody from "@components/BaseBody.astro";
 import BaseHeader from "@components/BaseHeader.astro";
 import Html from "@components/Html.astro";
-import links from "src/content/links.js";
+import links from "@data/links/links.js";
 import LinkList from "@components/LinkList.astro";
 import BlogList from "@components/BlogList.astro";
+import { getCollection } from "astro:content";
 
 const interlink = links.filter((item) => item.inter);
 const otherlink = links.filter((item) => !item.inter);
 
-const workItems = (await Astro.glob("../content/applist/*.md")).sort(
-  (a, b) => a.frontmatter.order - b.frontmatter.order
+const workItems = (await getCollection("applist")).sort(
+  (a, b) => a.data.order - b.data.order
 );
-const workItemsId = workItems.map((v) => v.frontmatter.id);
+const workItemsId = workItems.map((v) => v.data.id);
 
-const blogdata = (await Astro.glob("../content/blog/*.md"))
+const blogdata = (await getCollection("blog"))
   .sort((a, b) => {
-    const af = Number(a.file.match(/\d+/g));
-    const bf = Number(b.file.match(/\d+/g));
+    const af = Number(a.slug.match(/\d+/g));
+    const bf = Number(b.slug.match(/\d+/g));
     return bf - af;
   })
   .slice(0, 3);

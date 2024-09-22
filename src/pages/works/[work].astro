@@ -1,35 +1,33 @@
 ---
-import type { AstroInstance, MarkdownInstance } from "astro";
 //@ts-ignore
 import path from "path";
 import WorkDetail from "@components/WorkDetail.astro";
 import BaseLayout from "@layouts/BaseLayout.astro";
+import { getCollection } from "astro:content";
 
 export async function getStaticPaths() {
-  const data: AstroInstance[] = await Astro.glob("../../content/applist/*.md");
+  const data = await getCollection("applist");
 
   return data.map((work) => {
     return {
-      params: { work: path.basename(work.file).replace(".md", "") },
+      params: { work: work.slug },
       props: work,
     };
   });
 }
 
-const content = Astro.props as MarkdownInstance<Record<string, any>>;
+const content = Astro.props;
+const { Content } = await content.render();
 ---
 
 <BaseLayout
-  titleShort={content.frontmatter.title}
+  titleShort={content.data.title}
   titleSuffix=" | こーげんやさい"
-  description={content.frontmatter.short}
+  description={content.data.short}
   pageType="article"
 >
   <main id="content" class="container">
-    <WorkDetail
-      props={content.frontmatter as any}
-      set:html={content.compiledContent()}
-    />
+    <WorkDetail props={content}><Content /></WorkDetail>
   </main>
   <nav>
     <div class="container">

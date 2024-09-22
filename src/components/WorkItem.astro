@@ -2,36 +2,37 @@
 import { Image } from "astro:assets";
 import type { WorkItem } from "./WorkItem";
 import "@styles/card.scss";
+import type { CollectionEntry } from "astro:content";
 
 interface Props {
-  props: WorkItem;
+  props: CollectionEntry<"applist">;
   detailLink: boolean;
 }
 const { props, detailLink } = Astro.props;
 
-const bottomLinks = props.links?.filter((v) => !!v?.label);
+const bottomLinks = props.data.links.filter((v) => v.label != undefined);
 ---
 
 <div class="card">
   <div class="card-content">
     <a
       class="card-main"
-      href={(!detailLink && props.links?.find((v) => v?.main)?.url) ||
-        "/works/" + props.id + ".html"}
+      href={(!detailLink && props.data.links?.find((v) => v?.main)?.url) ||
+        "/works/" + props.slug + ".html"}
     >
       <Image
-        src={props.icon || "/icon-192.png"}
+        src={props.data.icon || "/icon-192.png"}
         width="120"
         height="120"
-        alt={props.title + "のアイコン"}
-        style={props.iconPixelated ? "image-rendering: pixelated;" : ""}
+        alt={props.data.title + "のアイコン"}
+        style={props.data.iconPixelated ? "image-rendering: pixelated;" : ""}
       />
       <div>
         <h3 class="card-title">
-          {props.title}
+          {props.data.title}
         </h3>
         <p class="card-description">
-          {props.short}
+          {props.data.short}
         </p>
       </div>
     </a>
