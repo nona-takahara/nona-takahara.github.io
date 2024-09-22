@@ -3,7 +3,11 @@ import BlogList from "@components/BlogList.astro";
 import BaseLayout from "@layouts/BaseLayout.astro";
 import { getCollection } from "astro:content";
 
-const data = await getCollection("blog");
+const data = (await getCollection("blog")).sort((a, b) => {
+  return (
+    Number(b.slug.replace("entry", "")) - Number(a.slug.replace("entry", ""))
+  );
+});
 ---
 
 <BaseLayout
