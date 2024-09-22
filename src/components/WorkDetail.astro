@@ -1,30 +1,34 @@
 ---
 import { Temporal } from "@js-temporal/polyfill";
-import type { WorkItem } from "./WorkItem";
 import { dateStringToPlainDate, formatOptions } from "./TemporalWrap";
+import type { CollectionEntry } from "astro:content";
 
 interface Props {
-  props: WorkItem;
+  props: CollectionEntry<"applist">;
 }
 
 const { props } = Astro.props;
 
+const dateIso = props.data.latest.dateiso;
+
 const updateDate =
-  props.latest.dateiso == "today"
+  props.data.latest.dateiso == "today"
     ? Temporal.Now.plainDateISO("Asia/Tokyo")
-    : dateStringToPlainDate(props.latest.dateiso);
+    : dateStringToPlainDate(
+        typeof dateIso === "object" ? dateIso.toISOString() : ""
+      );
 ---
 
 <section id={props.id} class="hideable">
-  <h2>{props.title}</h2>
+  <h2>{props.data.title}</h2>
   <ul class="float-l category">
-    {props.category.map((key) => <li>{key}</li>)}
+    {props.data.category.map((key) => <li>{key}</li>)}
   </ul>
   {
     updateDate && (
       <p class="float-r no-margin">
         <small>
-          {props.latest.version}（ 最終更新
+          {props.data.latest.version}（ 最終更新
           <time datetime={updateDate.toString()}>
             {updateDate.toLocaleString("ja-JP", formatOptions)}
           </time>
@@ -36,7 +40,7 @@ const updateDate =
   <nav class="float-clear table-of-links">
     <ul class="link clickable">
       {
-        props.links
+        props.data.links
           .filter((v) => !!v.text)
           .map((item) => {
             return (

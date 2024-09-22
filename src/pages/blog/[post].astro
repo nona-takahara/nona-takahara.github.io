@@ -1,20 +1,20 @@
 ---
 import gitlog from "gitlog";
-import type { AstroInstance, MarkdownInstance } from "astro";
 import BaseLayout from "@layouts/BaseLayout.astro";
 import DisqusArea from "@components/DisqusArea.astro";
 import ArticleArea from "@components/ArticleArea.astro";
 //@ts-ignore
 import path from "node:path";
 import { Temporal } from "@js-temporal/polyfill";
-import ignoreHashes from "@data/ignore-hashes";
+import ignoreHashes from "@data/blog/ignore-hashes";
+import { getCollection } from "astro:content";
 
 export async function getStaticPaths() {
-  const data: AstroInstance[] = await Astro.glob("../../content/blog/*.md");
+  const data = await getCollection("blog");
 
   return data.map((post) => {
     return {
-      params: { post: path.basename(post.file).replace(".md", "") },
+      params: { post: post.slug + ".html" },
       props: post,
     };
   });
@@ -59,29 +59,27 @@ function gitlogLibDateToISODate(gitlibdate: string) {
   );
 }
 
-const content = Astro.props as MarkdownInstance<Record<string, any>>;
-const filepath = `src/content/blog/${path
-  .basename(content.file)
-  .replace(".html", ".md")}`;
+const content = Astro.props;
+const filepath = "src/content/blog/" + content.id;
 const date = await findFirstAndLatestTimeStamp(filepath);
 const useDisqus = !filepath.includes("stock");
+const { Content } = await content.render();
 ---
 
 <BaseLayout
-  katex={content.frontmatter.katex}
-  highlight={content.frontmatter.highlight}
-  titleShort={content.frontmatter.title}
+  katex={!!content.data.katex}
+  highlight={!!content.data.highlight}
+  titleShort={content.data.title}
   titleSuffix=" | こーげんやさいブログ"
-  description={content.frontmatter.short}
+  description={content.data.short}
   pageType="article"
 >
   <main class="container blog">
     <ArticleArea
-      title={content.frontmatter.title}
+      title={content.data.title}
       postDate={date.first_commit}
-      updateDate={date.latest_commit}
-      set:html={content.compiledContent()}
-    />
+      updateDate={date.latest_commit}><Content /></ArticleArea
+    >
   </main>
   <nav>
     <div class="container">
@@ -97,10 +95,8 @@ const useDisqus = !filepath.includes("stock");
         <div class="container">
           <hr />
           <DisqusArea
-            baseName={path.basename(content.file).replace(".md", ".html")}
-            originalTitle={
-              content.frontmatter.orignalTitle || content.frontmatter.title
-            }
+            baseName={content.slug + ".html"}
+            originalTitle={content.data.originalTitle || content.data.title}
           />
         </div>
       </section>

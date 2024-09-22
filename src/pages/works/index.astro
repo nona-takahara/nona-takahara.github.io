@@ -1,10 +1,11 @@
 ---
 import WorkList from "@components/WorkList.astro";
 import BaseLayout from "@layouts/BaseLayout.astro";
+import { getCollection } from "astro:content";
 //@ts-ignore
 import path from "path";
-const data = (await Astro.glob("../../content/applist/*.md")).sort((a, b) => {
-  return a.frontmatter.order - b.frontmatter.order;
+const data = (await getCollection("applist")).sort((a, b) => {
+  return a.data.order - b.data.order;
 });
 ---
 
