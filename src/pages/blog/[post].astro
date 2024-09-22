@@ -62,6 +62,7 @@ function gitlogLibDateToISODate(gitlibdate: string) {
 const content = Astro.props as MarkdownInstance<Record<string, any>>;
 const filepath = `src/content/blog/${path
   .basename(content.file)
+  .replace(".mdx", ".md")
   .replace(".html", ".md")}`;
 const date = await findFirstAndLatestTimeStamp(filepath);
 const useDisqus = !filepath.includes("stock");

@@ -30,8 +30,8 @@ iconPixelated: true
 
 <div class="three-ds">
 
-![おてがみコウモリさん オリジナル 3DS/WiiU版 上画面](/image/letbat_up.jpg)
-![おてがみコウモリさん オリジナル 3DS/WiiU版 下画面](/image/letbat_down.jpg)
+![おてがみコウモリさん オリジナル 3DS/WiiU版 上画面](letbat_up.jpg)
+![おてがみコウモリさん オリジナル 3DS/WiiU版 下画面](letbat_down.jpg)
 
 </div>
 
