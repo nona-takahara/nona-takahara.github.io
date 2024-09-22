@@ -17,7 +17,6 @@ const otherlink = links.filter((item) => !item.inter);
 const workItems = (await getCollection("applist")).sort(
   (a, b) => a.data.order - b.data.order
 );
-const workItemsId = workItems.map((v) => v.data.id);
 
 const blogdata = (await getCollection("blog"))
   .sort((a, b) => {
@@ -34,14 +33,7 @@ const blogdata = (await getCollection("blog"))
     titleSuffix="こーげんやさい"
     description=""
     pageType="website"
-  >
-    <script is:inline define:vars={{ itemsId: workItemsId }}>
-      const hash = location.hash.replace("#", "");
-      if (itemsId.includes(hash)) {
-        window.location.href = location.origin + "/works/" + hash;
-      }
-    </script>
-  </BaseHeader>
+  />
   <BaseBody>
     <main id="content" class="container">
       <section class="floatbox">
