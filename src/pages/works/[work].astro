@@ -3,21 +3,21 @@
 import path from "path";
 import WorkDetail from "@components/WorkDetail.astro";
 import BaseLayout from "@layouts/BaseLayout.astro";
-import { getCollection } from "astro:content";
+import { getCollection, render } from "astro:content";
 
 export async function getStaticPaths() {
   const data = await getCollection("applist");
 
   return data.map((work) => {
     return {
-      params: { work: work.slug },
+      params: { work: work.id },
       props: work,
     };
   });
 }
 
 const content = Astro.props;
-const { Content } = await content.render();
+const { Content } = await render(content);
 ---
 
 <BaseLayout

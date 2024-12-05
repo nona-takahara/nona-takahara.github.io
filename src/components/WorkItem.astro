@@ -19,7 +19,7 @@ const bottomLinks = props.data.links.filter((v) => v.label != undefined);
     <a
       class="card-main"
       href={(!detailLink && props.data.links?.find((v) => v?.main)?.url) ||
-        "/works/" + props.slug + ".html"}
+        "/works/" + props.id + ".html"}
     >
       {
         props.data.iconPixelated ? (

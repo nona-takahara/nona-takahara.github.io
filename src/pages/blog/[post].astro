@@ -6,25 +6,31 @@ import ArticleArea from "@components/ArticleArea.astro";
 //@ts-ignore
 import path from "node:path";
 import { Temporal } from "@js-temporal/polyfill";
-import ignoreHashes from "@data/blog/ignore-hashes";
-import { getCollection } from "astro:content";
+import ignoreHashes from "src/data/blog/ignore-hashes";
+import { getCollection, render } from "astro:content";
 
 export async function getStaticPaths() {
   const data = await getCollection("blog");
 
   return data.map((post) => {
     return {
-      params: { post: post.slug + ".html" },
+      params: { post: post.id + ".html" },
       props: post,
     };
   });
 }
 
 async function findFirstAndLatestTimeStamp(fileName: string) {
+  const parsedPath = path.parse(fileName);
+
   const res = await gitlog({
     repo: "./",
     follow: true,
-    file: fileName,
+    file: path.format({
+      ext: ".md",
+      dir: parsedPath.dir,
+      name: parsedPath.name || parsedPath.base,
+    }),
     all: true,
   });
 
@@ -63,7 +69,7 @@ const content = Astro.props;
 const filepath = "src/content/blog/" + content.id;
 const date = await findFirstAndLatestTimeStamp(filepath);
 const useDisqus = !filepath.includes("stock");
-const { Content } = await content.render();
+const { Content } = await render(content);
 ---
 
 <BaseLayout
@@ -95,7 +101,7 @@ const { Content } = await content.render();
         <div class="container">
           <hr />
           <DisqusArea
-            baseName={content.slug + ".html"}
+            baseName={content.id + ".html"}
             originalTitle={content.data.originalTitle || content.data.title}
           />
         </div>
