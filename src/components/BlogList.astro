@@ -16,7 +16,7 @@ const { props, haveContinue } = Astro.props;
   {
     props.map((item) => (
       <BlogItem
-        url={"/blog/" + item.slug + ".html"}
+        url={"/blog/" + item.id + ".html"}
         title={item.data.title}
         short={item.data.short}
       />
