@@ -14,7 +14,7 @@ export async function getStaticPaths() {
 
   return data.map((post) => {
     return {
-      params: { post: post.id + ".html" },
+      params: { post: post.id },
       props: post,
     };
   });
