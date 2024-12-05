@@ -1,6 +1,5 @@
 ---
 import gitlog from "gitlog";
-import BaseLayout from "@layouts/BaseLayout.astro";
 import DisqusArea from "@components/DisqusArea.astro";
 import ArticleArea from "@components/ArticleArea.astro";
 //@ts-ignore
@@ -8,6 +7,7 @@ import path from "node:path";
 import { Temporal } from "@js-temporal/polyfill";
 import ignoreHashes from "src/data/blog/ignore-hashes";
 import { getCollection, render } from "astro:content";
+import Layout from "@layouts/Layout.astro";
 
 export async function getStaticPaths() {
   const data = await getCollection("blog");
@@ -72,7 +72,7 @@ const useDisqus = !filepath.includes("stock");
 const { Content } = await render(content);
 ---
 
-<BaseLayout
+<Layout
   katex={!!content.data.katex}
   highlight={!!content.data.highlight}
   titleShort={content.data.title}
@@ -108,4 +108,4 @@ const { Content } = await render(content);
       </section>
     )
   }
-</BaseLayout>
+</Layout>

@@ -1,13 +1,13 @@
 ---
 import links from "src/data/links/links.js";
 import LinkItem from "@components/LinkItem.astro";
-import BaseLayout from "@layouts/BaseLayout.astro";
+import Layout from "@layouts/Layout.astro";
 
 const interlink = links.filter((item) => item.inter);
 const otherlink = links.filter((item) => !item.inter);
 ---
 
-<BaseLayout
+<Layout
   titleShort="リンク集"
   description="こーげんやさいとリンクしているサイトです"
   pageType="article"
@@ -16,7 +16,7 @@ const otherlink = links.filter((item) => !item.inter);
     <div class="content">
       {
         interlink.length > 0 && (
-          <section>
+          <section style="display: block;">
             <h2>相互リンク</h2>
             {interlink.map((item) => {
               return <LinkItem props={item} />;
@@ -26,7 +26,7 @@ const otherlink = links.filter((item) => !item.inter);
       }
       {
         otherlink.length > 0 && (
-          <section>
+          <section style="display: block;">
             <h2>その他のリンク</h2>
             {otherlink.map((item) => {
               return <LinkItem props={item} />;
@@ -34,7 +34,7 @@ const otherlink = links.filter((item) => !item.inter);
           </section>
         )
       }
-      <section>
+      <section style="display: block;">
         <h2>リンクについて</h2>
         <p>この「こーげんやさい」はリンクフリーです。</p>
         <p>
@@ -48,4 +48,4 @@ const otherlink = links.filter((item) => !item.inter);
       </section>
     </div>
   </main>
-</BaseLayout>
+</Layout>

@@ -2,14 +2,12 @@
 import WorkList from "@components/WorkList.astro";
 import contacts from "src/data/contacts/contacts.json";
 import { Image } from "astro:assets";
-import BaseBody from "@components/BaseBody.astro";
-import BaseHeader from "@components/BaseHeader.astro";
-import Html from "@components/Html.astro";
 import links from "src/data/links/links.js";
 import LinkList from "@components/LinkList.astro";
 import BlogList from "@components/BlogList.astro";
 import { getCollection } from "astro:content";
 import nonaIcon from "./../images/nona-takahara.png";
+import Layout from "@layouts/Layout.astro";
 
 const interlink = links.filter((item) => item.inter);
 const otherlink = links.filter((item) => !item.inter);
@@ -27,66 +25,63 @@ const blogdata = (await getCollection("blog"))
   .slice(0, 3);
 ---
 
-<Html>
-  <BaseHeader
-    titleShort=""
-    titleSuffix="こーげんやさい"
-    description=""
-    pageType="website"
-  />
-  <BaseBody>
-    <main id="content" class="container">
-      <section class="floatbox">
-        <h2 class="article-title">プロフィール</h2>
-        <Image
-          src={nonaIcon}
-          alt="高原のな プロフィール画像"
-          class="profile-icon float-r"
-          width="160"
-          height="160"
-          densities={[1, 2, 3]}
-          decoding="async"
-          loading="lazy"
-        />
-        <p>
-          <b><ruby>高原<rp>（</rp><rt>たかはら</rt><rp>）</rp></ruby>のな</b
-          >といいます。ゲームを作ります。動画も作っていたりしたらしい。
-        </p>
-        <ul class="link clickable">
-          {
-            contacts.map((item) => {
-              return (
-                <li>
-                  <a target="_blank" href={item.href}>
-                    {item.text}
-                  </a>
-                </li>
-              );
-            })
-          }
-        </ul>
-      </section>
-      <section id="list-of-content">
-        <h2 class="article-title">つくったもの</h2>
-        <WorkList items={workItems} />
-      </section>
-      <section>
-        <h2>最近のブログ記事</h2>
-        <BlogList props={blogdata} haveContinue={true} />
-      </section>
-      <section>
-        <h2>リンク</h2>
-        <LinkList heading="相互リンク" props={interlink} />
-        <LinkList heading="その他のリンク" props={otherlink} />
-        <h3>リンクについて</h3>
-        <p>当サイトは全部のページがリンクフリーです。</p>
-        <p>
-          バナーが <a
-            href="https://nona-takahara.github.io/image/banner_234x60.png"
-            >https://nona-takahara.github.io/image/banner_234x60.png</a
-          > にありますので、必要な方はご利用ください。気まぐれに更新するため、直リンやそれに準ずる方法を推奨しています。
-        </p>
-      </section>
-    </main>
-  </BaseBody>
-</Html>
+<Layout
+  titleShort=""
+  titleSuffix="こーげんやさい"
+  description=""
+  pageType="website"
+>
+  <main id="content" class="container">
+    <section class="floatbox">
+      <h2 class="article-title">プロフィール</h2>
+      <Image
+        src={nonaIcon}
+        alt="高原のな プロフィール画像"
+        class="profile-icon float-r"
+        width="160"
+        height="160"
+        densities={[1, 2, 3]}
+        decoding="async"
+        loading="lazy"
+      />
+      <p>
+        <b><ruby>高原<rp>（</rp><rt>たかはら</rt><rp>）</rp></ruby>のな</b
+        >といいます。ゲームを作ります。動画も作っていたりしたらしい。
+      </p>
+      <ul class="link clickable">
+        {
+          contacts.map((item) => {
+            return (
+              <li>
+                <a target="_blank" href={item.href}>
+                  {item.text}
+                </a>
+              </li>
+            );
+          })
+        }
+      </ul>
+    </section>
+    <section id="list-of-content">
+      <h2 class="article-title">つくったもの</h2>
+      <WorkList items={workItems} />
+    </section>
+    <section>
+      <h2>最近のブログ記事</h2>
+      <BlogList props={blogdata} haveContinue={true} />
+    </section>
+    <section>
+      <h2>リンク</h2>
+      <LinkList heading="相互リンク" props={interlink} />
+      <LinkList heading="その他のリンク" props={otherlink} />
+      <h3>リンクについて</h3>
+      <p>当サイトは全部のページがリンクフリーです。</p>
+      <p>
+        バナーが <a
+          href="https://nona-takahara.github.io/image/banner_234x60.png"
+          >https://nona-takahara.github.io/image/banner_234x60.png</a
+        > にありますので、必要な方はご利用ください。気まぐれに更新するため、直リンやそれに準ずる方法を推奨しています。
+      </p>
+    </section>
+  </main>
+</Layout>

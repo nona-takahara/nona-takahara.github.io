@@ -2,8 +2,8 @@
 //@ts-ignore
 import path from "path";
 import WorkDetail from "@components/WorkDetail.astro";
-import BaseLayout from "@layouts/BaseLayout.astro";
 import { getCollection, render } from "astro:content";
+import Layout from "@layouts/Layout.astro";
 
 export async function getStaticPaths() {
   const data = await getCollection("applist");
@@ -20,7 +20,7 @@ const content = Astro.props;
 const { Content } = await render(content);
 ---
 
-<BaseLayout
+<Layout
   titleShort={content.data.title}
   titleSuffix=" | こーげんやさい"
   description={content.data.short}
@@ -37,4 +37,4 @@ const { Content } = await render(content);
       </p>
     </div>
   </nav>
-</BaseLayout>
+</Layout>

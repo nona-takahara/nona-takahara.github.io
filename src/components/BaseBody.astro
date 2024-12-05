@@ -8,7 +8,7 @@ interface Props {
 const { highlight = false } = Astro.props;
 ---
 
-<body>
+<>
   <a href="#content" style="visibility: hidden; position: fixed;">本文へ移動</a>
   <header>
     <div class="container">
@@ -39,7 +39,7 @@ const { highlight = false } = Astro.props;
 
           img.after(title);
         }
-    })
+      });
     });
   </script>
-</body>
+</>

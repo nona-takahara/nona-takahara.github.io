@@ -1,6 +1,6 @@
 ---
 import WorkList from "@components/WorkList.astro";
-import BaseLayout from "@layouts/BaseLayout.astro";
+import Layout from "@layouts/Layout.astro";
 import { getCollection } from "astro:content";
 //@ts-ignore
 import path from "path";
@@ -9,7 +9,7 @@ const data = (await getCollection("applist")).sort((a, b) => {
 });
 ---
 
-<BaseLayout
+<Layout
   titleShort="こーげんやさい"
   titleSuffix=""
   pageType="article"
@@ -28,4 +28,4 @@ const data = (await getCollection("applist")).sort((a, b) => {
       </p>
     </div>
   </nav>
-</BaseLayout>
+</Layout>
