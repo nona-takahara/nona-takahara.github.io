@@ -31,3 +31,7 @@ Actionsの`actions/checkout`で`fetch-depth`を`0`に指定すると、ちゃん
 ## 対応記録 その3
 
 以上の方針で修正しました。修正にあたってはgit logをNode.jsから上手に扱うために<https://github.com/domharrington/node-gitlog>を利用しました。
+
+## 後記
+
+Astro v5対応で問題のディレクトリ名が元に戻りました……　これまでの苦労を返して。
