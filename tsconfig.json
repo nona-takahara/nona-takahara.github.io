@@ -5,7 +5,7 @@
     "paths": {
       "@data/*": ["src/data/*"],
       "@styles/*": ["src/styles/*"],
-      "@components/*": ["src/components/*"],
+      "@components/*": ["src/components/components/*"],
       "@layouts/*": ["src/layouts/*"],
       "@app-icon/*": ["src/data/applist/icons/*"]
     }

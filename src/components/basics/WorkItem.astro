@@ -1,9 +1,9 @@
 ---
 import { Image } from "astro:assets";
-import type { WorkItem } from "./WorkItem";
+import type { WorkItem } from "../WorkItem";
 import "@styles/card.scss";
 import type { CollectionEntry } from "astro:content";
-import defaultIcon from "./../images/nona-takahara.png";
+import defaultIcon from "src/images/nona-takahara.png";
 
 interface Props {
   props: CollectionEntry<"applist">;
