@@ -21,10 +21,16 @@ export async function getStaticPaths() {
 }
 
 async function findFirstAndLatestTimeStamp(fileName: string) {
+  const parsedPath = path.parse(fileName);
+
   const res = await gitlog({
     repo: "./",
     follow: true,
-    file: fileName,
+    file: path.format({
+      ext: ".md",
+      dir: parsedPath.dir,
+      name: parsedPath.name || parsedPath.base,
+    }),
     all: true,
   });
 
