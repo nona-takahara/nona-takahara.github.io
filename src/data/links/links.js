@@ -24,7 +24,7 @@ export default [
     inter: true,
   },
   {
-    title: "ささみのぺーじ",
+    title: "みゃのさんのページ",
     url: "https://myanosasa.github.io/",
     inter: true,
   },
