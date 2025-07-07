@@ -16,52 +16,46 @@ const bottomLinks = props.data.links.filter((v) => v.label != undefined);
 
 <div class="card">
   <div class="card-content">
-    <a
-      class="card-main"
-      href={(!detailLink && props.data.links?.find((v) => v?.main)?.url) ||
-        "/works/" + props.id + ".html"}
-    >
-      {
-        props.data.iconPixelated ? (
-          <img
-            src={props.data.icon?.src}
-            width="120"
-            height="120"
-            alt={props.data.title + "のアイコン"}
-            style="image-rendering: pixelated;"
-          />
-        ) : (
-          <Image
-            src={props.data.icon || defaultIcon}
-            width="120"
-            height="120"
-            densities={[1, 2, 3]}
-            alt={props.data.title + "のアイコン"}
-          />
-        )
-      }
-
-      <div>
-        <h3 class="card-title">
-          {props.data.title}
-        </h3>
-        <p class="card-description">
-          {props.data.short}
-        </p>
-      </div>
-    </a>
     {
-      !detailLink && bottomLinks.length > 0 && (
-        <div class="card-link-list">
-          {bottomLinks.map((li) => {
-            return (
-              <a class="card-link" href={li.url}>
-                <span>{li.label}</span>
-              </a>
-            );
-          })}
-        </div>
+      props.data.iconPixelated ? (
+        <img
+          src={props.data.icon?.src}
+          width="120"
+          height="120"
+          alt={props.data.title + "のアイコン"}
+          style="image-rendering: pixelated;"
+        />
+      ) : (
+        <Image
+          src={props.data.icon || defaultIcon}
+          width="120"
+          height="120"
+          densities={[1, 2, 3]}
+          alt={props.data.title + "のアイコン"}
+        />
       )
     }
+
+    <div>
+      <h3 class="card-title">
+        {props.data.title}
+      </h3>
+      <p class="card-description">
+        {props.data.short}
+      </p>
+      {
+        !detailLink && bottomLinks.length > 0 && (
+          <div class="card-link-list">
+            {bottomLinks.map((li) => {
+              return (
+                <a class="card-link" href={li.url}>
+                  {li.label}
+                </a>
+              );
+            })}
+          </div>
+        )
+      }
+    </div>
   </div>
 </div>
