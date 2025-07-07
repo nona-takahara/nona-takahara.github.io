@@ -9,27 +9,33 @@ interface Props {
 const { items, detailLink = false } = Astro.props;
 ---
 
-<h3>ソフトウェア・ゲーム</h3>
-<div class="card-collection">
-  {
-    items
-      .filter((item) => {
-        return !item.data.category.includes("Stormworks");
-      })
-      .map((item) => {
-        return <WorkItem props={item} detailLink={detailLink} />;
-      })
-  }
-</div>
-<h3>Stormworks関連</h3>
-<div class="card-collection">
-  {
-    items
-      .filter((item) => {
-        return item.data.category.includes("Stormworks");
-      })
-      .map((item) => {
-        return <WorkItem props={item} detailLink={detailLink} />;
-      })
-  }
+<div class="card-column">
+  <div class="no-wrap">
+    <h3>ソフトウェア・ゲーム</h3>
+    <div class="card-collection">
+      {
+        items
+          .filter((item) => {
+            return !item.data.category.includes("Stormworks");
+          })
+          .map((item) => {
+            return <WorkItem props={item} detailLink={detailLink} />;
+          })
+      }
+    </div>
+  </div>
+  <div class="no-wrap">
+    <h3>Stormworks関連</h3>
+    <div class="card-collection">
+      {
+        items
+          .filter((item) => {
+            return item.data.category.includes("Stormworks");
+          })
+          .map((item) => {
+            return <WorkItem props={item} detailLink={detailLink} />;
+          })
+      }
+    </div>
+  </div>
 </div>
