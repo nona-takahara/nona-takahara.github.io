@@ -69,3 +69,15 @@
     flex-direction: row;
   }
 }
+
+.card-column {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  .no-wrap {
+    display: block;
+    flex: 1;
+    margin-right: 1ic;
+    max-width: 800px;
+  }
+}
