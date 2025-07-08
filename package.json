@@ -10,6 +10,7 @@
     "normalize-scss": "^8.0.0",
     "remark-gfm": "^4.0.0",
     "remark-math": "^6.0.0",
+    "remixicon": "^4.6.0",
     "typescript": "^5.5.3"
   },
   "engines": {
