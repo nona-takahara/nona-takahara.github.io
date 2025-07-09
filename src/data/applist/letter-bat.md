@@ -31,10 +31,12 @@ iconPixelated: true
 タッチパネルの左をタッチすると左に、右をタッチすると右にコウモリさんが移動するので、お手紙を回収し、長く飛び続けましょう。
 
 <div class="three-ds">
+<div>
 
 ![おてがみコウモリさん オリジナル 3DS/WiiU版 上画面](screenshots/letbat_up.jpg)
 ![おてがみコウモリさん オリジナル 3DS/WiiU版 下画面](screenshots/letbat_down.jpg)
 
+</div>
 </div>
 
 プチコン 4 版は約 3 年 9 か月ぶりに更新し、[petit4tablet](https://booth.pm/ja/items/3815403) に対応しました！

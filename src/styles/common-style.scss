@@ -294,29 +294,35 @@ nav.table-of-links {
 }
 
 div.three-ds {
-  display: inline-block;
-  background-color: #e8e8e8;
-  max-width: 100%;
+  display: block;
+  width: 100%;
   overflow: auto;
-  border-radius: 8px;
-  p {
-    display: flex;
-    flex-direction: column;
-    width: 400px;
-    margin: 12px;
-    padding: 0;
-    & img:nth-child(1) {
+  text-align: center;
+
+  div {
+    display: inline-block;
+    background-color: #e8e8e8;
+    margin: auto;
+    border-radius: 8px;
+    p {
+      display: flex;
+      flex-direction: column;
       width: 400px;
-      position: relative;
-      left: 0px;
-      margin: 0;
-    }
-    & img:nth-child(2) {
-      width: 320px;
-      position: relative;
-      left: 40px;
-      margin: 0;
-      margin-top: 16px;
+      margin: 12px;
+      padding: 0;
+      & img:nth-child(1) {
+        width: 400px;
+        position: relative;
+        left: 0px;
+        margin: 0;
+      }
+      & img:nth-child(2) {
+        width: 320px;
+        position: relative;
+        left: 40px;
+        margin: 0;
+        margin-top: 16px;
+      }
     }
   }
 }
