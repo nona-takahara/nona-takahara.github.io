@@ -26,15 +26,15 @@ const { Content } = await render(content);
   description={content.data.short}
   pageType="article"
 >
-  <main id="content" class="container">
-    <WorkDetail props={content}><Content /></WorkDetail>
-  </main>
   <nav>
     <div class="container">
       <p>
-        <a href="/works/">[つくったものトップへ]</a>
-        <a href="/">[こーげんやさいトップへ]</a>
+        <a href="/">こーげんやさい</a> >
+        <a href="/works/">つくったもの</a> > {content.data.title}
       </p>
     </div>
   </nav>
+  <main id="content" class="container">
+    <WorkDetail props={content}><Content /></WorkDetail>
+  </main>
 </BaseLayout>

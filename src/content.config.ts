@@ -33,6 +33,9 @@ const appCollection = defineCollection({
           label: z.string().optional(),
           url: z.string(),
           main: z.boolean().optional(),
+          icon: z.string().optional(),
+          image: z.string().optional(),
+          imageDark: z.string().optional()
         })
       ),
     }),

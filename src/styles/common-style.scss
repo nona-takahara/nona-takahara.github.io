@@ -129,13 +129,16 @@ a {
   color: var(--primary-color-r);
 }
 
-a:visited {
+a:visited:hover {
   color: var(--secondary-color-r);
 }
 
-main a {
+main.article a {
   @media print {
-    color: var(--text-color) !important;
+    &::after {
+      content: "(" attr(href) ")";
+      font-size: 80%;
+    }
   }
 }
 
@@ -197,6 +200,10 @@ img.profile-icon {
   height: 160px;
   margin: 16px;
   margin-right: 24px;
+}
+
+a:has(.banner) {
+  background-color: #ffffff;
 }
 
 img.banner {

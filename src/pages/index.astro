@@ -10,6 +10,8 @@ import LinkList from "@components/LinkList.astro";
 import BlogList from "@components/BlogList.astro";
 import { getCollection } from "astro:content";
 import nonaIcon from "./../images/nona-takahara.png";
+import "remixicon/fonts/remixicon.css";
+import IconButton from "@components/IconButton.astro";
 
 const interlink = links.filter((item) => item.inter);
 const otherlink = links.filter((item) => !item.inter);
@@ -36,35 +38,39 @@ const blogdata = (await getCollection("blog"))
   />
   <BaseBody>
     <main id="content" class="container">
-      <section class="floatbox">
-        <Image
-          src={nonaIcon}
-          alt="高原のな プロフィール画像"
-          class="profile-icon float-l"
-          width="160"
-          height="160"
-          densities={[1, 2, 3]}
-          decoding="async"
-          loading="lazy"
-        />
-        <p>
-          <b><ruby>高原<rp>（</rp><rt>たかはら</rt><rp>）</rp></ruby>のな</b
-          >といいます。ゲームを作ります。動画も作っていたりしたらしい。
-        </p>
-        <ul class="link clickable">
-          {
-            contacts.map((item) => {
-              return (
-                <li>
-                  <a target="_blank" href={item.href}>
-                    {item.text}
-                  </a>
-                </li>
-              );
-            })
-          }
-        </ul>
-      </section>
+      <div class="card">
+        <div class="card-content">
+          <Image
+            src={nonaIcon}
+            alt="高原のな プロフィール画像"
+            class="profile-icon float-l"
+            width="160"
+            height="160"
+            densities={[1, 2, 3]}
+            decoding="async"
+            loading="lazy"
+          />
+          <div>
+            <h3>
+              <ruby>高原<rp>（</rp><rt>たかはら</rt><rp>）</rp></ruby>のな
+            </h3>
+            <p>ゲームを作ります。動画も作っていたりしたらしい。</p>
+            <div class="card-link-list">
+              {
+                contacts.map((item) => (
+                  <IconButton
+                    icon={item.icon}
+                    image={item.image}
+                    href={item.href}
+                    text={item.text}
+                    image_dark={item["image-dark"]}
+                  />
+                ))
+              }
+            </div>
+          </div>
+        </div>
+      </div>
       <section id="list-of-content">
         <h2 class="article-title">つくったもの</h2>
         <WorkList items={workItems} />
