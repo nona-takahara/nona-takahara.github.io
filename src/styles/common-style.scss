@@ -200,6 +200,12 @@ img.profile-icon {
   height: 160px;
   margin: 16px;
   margin-right: 24px;
+  @media screen and (max-width: 400px) {
+    width: 100px;
+    height: 100px;
+    margin: 8px;
+    margin-right: 16px;
+  }
 }
 
 a:has(.banner) {

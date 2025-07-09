@@ -20,6 +20,7 @@ const bottomLinks = props.data.links; //.filter((v) => v.label != undefined);
     {
       props.data.iconPixelated ? (
         <img
+          class="card-work-icon"
           src={props.data.icon?.src}
           width="120"
           height="120"
@@ -28,6 +29,7 @@ const bottomLinks = props.data.links; //.filter((v) => v.label != undefined);
         />
       ) : (
         <Image
+          class="card-work-icon"
           src={props.data.icon || defaultIcon}
           width="120"
           height="120"
@@ -47,7 +49,7 @@ const bottomLinks = props.data.links; //.filter((v) => v.label != undefined);
       <p class="card-description">
         {props.data.short}
       </p>
-      <div class="card-link-list">
+      <div class="card-link-list" style="justify-content: flex-end;">
         <a class="detail-link" href={"/works/" + props.id + ".html"}>
           詳しく<i class="ri-arrow-right-double-fill"></i>
         </a>
