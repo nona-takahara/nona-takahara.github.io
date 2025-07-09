@@ -1,7 +1,7 @@
 ---
 import links from "src/data/links/links.js";
-import LinkItem from "@components/LinkItem.astro";
 import BaseLayout from "@layouts/BaseLayout.astro";
+import LinkList from "@components/LinkList.astro";
 
 const interlink = links.filter((item) => item.inter);
 const otherlink = links.filter((item) => !item.inter);
@@ -14,28 +14,13 @@ const otherlink = links.filter((item) => !item.inter);
 >
   <main id="content" class="container">
     <div class="content">
-      {
-        interlink.length > 0 && (
-          <section>
-            <h2>相互リンク</h2>
-            {interlink.map((item) => {
-              return <LinkItem props={item} />;
-            })}
-          </section>
-        )
-      }
-      {
-        otherlink.length > 0 && (
-          <section>
-            <h2>その他のリンク</h2>
-            {otherlink.map((item) => {
-              return <LinkItem props={item} />;
-            })}
-          </section>
-        )
-      }
       <section>
-        <h2>リンクについて</h2>
+        <h2>リンク集</h2>
+        <LinkList heading="相互リンク" props={interlink} />
+        <LinkList heading="その他のリンク" props={otherlink} />
+      </section>
+      <section>
+        <h2>このサイトへのリンクについて</h2>
         <p>この「こーげんやさい」はリンクフリーです。</p>
         <p>
           また、バナーが <a

@@ -1,0 +1,35 @@
+---
+interface Props {
+  href: string;
+  text: string;
+  icon?: string | undefined;
+  image?: string | undefined;
+  image_dark?: string | undefined;
+}
+const {
+  href,
+  text: title,
+  icon = undefined,
+  image = undefined,
+  image_dark = undefined,
+} = Astro.props;
+---
+
+<a class="link-icon" target="_blank" href={href} title={title}>
+  {
+    image ? (
+      <picture>
+        {image_dark && (
+          <source
+            srcset={"/image/" + image_dark}
+            media="(prefers-color-scheme: dark)"
+          />
+        )}
+        <source srcset={"/image/" + image} />
+        <img src={"/image/" + image} width="28px" height="28px" />
+      </picture>
+    ) : (
+      <i class={icon || "ri-link"} />
+    )
+  }
+</a>

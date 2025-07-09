@@ -4,6 +4,7 @@ import type { WorkItem } from "./WorkItem";
 import "@styles/card.scss";
 import type { CollectionEntry } from "astro:content";
 import defaultIcon from "./../images/nona-takahara.png";
+import IconButton from "./IconButton.astro";
 
 interface Props {
   props: CollectionEntry<"applist">;
@@ -11,57 +12,60 @@ interface Props {
 }
 const { props, detailLink } = Astro.props;
 
-const bottomLinks = props.data.links.filter((v) => v.label != undefined);
+const bottomLinks = props.data.links; //.filter((v) => v.label != undefined);
 ---
 
 <div class="card">
   <div class="card-content">
-    <a
-      class="card-main"
-      href={(!detailLink && props.data.links?.find((v) => v?.main)?.url) ||
-        "/works/" + props.id + ".html"}
-    >
-      {
-        props.data.iconPixelated ? (
-          <img
-            src={props.data.icon?.src}
-            width="120"
-            height="120"
-            alt={props.data.title + "のアイコン"}
-            style="image-rendering: pixelated;"
-          />
-        ) : (
-          <Image
-            src={props.data.icon || defaultIcon}
-            width="120"
-            height="120"
-            densities={[1, 2, 3]}
-            alt={props.data.title + "のアイコン"}
-          />
-        )
-      }
-
-      <div>
-        <h3 class="card-title">
-          {props.data.title}
-        </h3>
-        <p class="card-description">
-          {props.data.short}
-        </p>
-      </div>
-    </a>
     {
-      !detailLink && bottomLinks.length > 0 && (
-        <div class="card-link-list">
-          {bottomLinks.map((li) => {
-            return (
-              <a class="card-link" href={li.url}>
-                <span>{li.label}</span>
-              </a>
-            );
-          })}
-        </div>
+      props.data.iconPixelated ? (
+        <img
+          src={props.data.icon?.src}
+          width="120"
+          height="120"
+          alt={props.data.title + "のアイコン"}
+          style="image-rendering: pixelated;"
+        />
+      ) : (
+        <Image
+          src={props.data.icon || defaultIcon}
+          width="120"
+          height="120"
+          densities={[1, 2, 3]}
+          alt={props.data.title + "のアイコン"}
+        />
       )
     }
+
+    <div>
+      <h3 class="card-title">
+        {props.data.title}
+      </h3>
+      <div class="card-tag-list">
+        {props.data.category.map((item) => <span class="tag">{item}</span>)}
+      </div>
+      <p class="card-description">
+        {props.data.short}
+      </p>
+      <div class="card-link-list">
+        <a class="detail-link" href={"/works/" + props.id + ".html"}>
+          詳しく<i class="ri-arrow-right-double-fill"></i>
+        </a>
+        <div class="link-list-spacer"></div>
+        {
+          !detailLink &&
+            bottomLinks.length > 0 &&
+            bottomLinks.map((li) => (
+              <IconButton
+                href={li.url}
+                icon={li.icon}
+                image={li.image}
+                image_dark={li.imageDark}
+                text={li.text || ""}
+              />
+            ))
+        }
+      </div>
+    </div>
   </div>
 </div>
