@@ -6,8 +6,8 @@ order: 2
 category:
   - プチコン4
 latest:
-  dateiso: 2024-04-27
-  version: v1.0.0
+  dateiso: 2024-08-05
+  version: v1.1.1
 links:
   - url: https://smilebasic.kurun96.com/work/4N443KXX3/
     text: 『夕やけ雨のそら』 SmileBASIC4 作品一覧のハコ
@@ -18,6 +18,8 @@ iconPixelated: true
 ---
 
 > **Key:**(プチコン 4 公開キー) 4N443KXX3
+
+![夕やけ雨のそらのゲーム画面](./screenshots/yuyake.jpg)
 
 「おうちへかえろう」
 
