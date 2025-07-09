@@ -1,6 +1,9 @@
 .card-collection {
   display: flex;
   flex-direction: column;
+  & > .card:not(:last-child) {
+    border-bottom: 2px solid var(--sub-sub-background-color);
+  }
 }
 
 .card {
@@ -20,7 +23,8 @@
   display: flex;
   flex: 1;
   text-decoration: none;
-  align-items: center;
+  align-items: flex-start;
+
   border-start-start-radius: calc(0.75ic - 3px);
   border-start-end-radius: calc(0.75ic - 3px);
 
