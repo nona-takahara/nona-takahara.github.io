@@ -14,6 +14,13 @@ const data = (await getCollection("blog")).sort((a, b) => {
   pageType="blog"
   description="こーげんやさいブログ 記事一覧"
 >
+  <nav>
+    <div class="container">
+      <p>
+        <a href="/">こーげんやさい</a> > ブログ
+      </p>
+    </div>
+  </nav>
   <main id="content" class="container">
     <div class="content">
       <h2>ブログ記事一覧</h2>
@@ -21,11 +28,4 @@ const data = (await getCollection("blog")).sort((a, b) => {
       <BlogList props={data} />
     </div>
   </main>
-  <nav>
-    <div class="container">
-      <p>
-        <a href="/">[こーげんやさいトップへ]</a>
-      </p>
-    </div>
-  </nav>
 </BaseLayout>

@@ -15,17 +15,17 @@ const data = (await getCollection("applist")).sort((a, b) => {
   pageType="article"
   description="こーげんやさい 成果物一覧"
 >
+  <nav>
+    <div class="container">
+      <p>
+        <a href="/">こーげんやさい</a> > つくったもの
+      </p>
+    </div>
+  </nav>
   <main id="content" class="container">
     <div class="content">
       <h2>つくったもの</h2>
       <WorkList items={data} detailLink={true} />
     </div>
   </main>
-  <nav>
-    <div class="container">
-      <p>
-        <a href="/">[こーげんやさいトップへ]</a>
-      </p>
-    </div>
-  </nav>
 </BaseLayout>

@@ -1,10 +1,18 @@
 [
   {
     "href": "mailto:nona_t_2612@yahoo.co.jp",
-    "text": "メール（nona_t_2612@yahoo.co.jp）"
+    "text": "メール",
+    "icon": "ri-mail-line"
   },
   {
     "href": "https://github.com/nona-takahara",
-    "text": "GitHub（@nona-takahara）"
+    "text": "GitHub",
+    "image": "github-mark.svg",
+    "image-dark": "github-mark-white.svg"
+  },
+  {
+    "href": "https://sizu.me/nona_takahara",
+    "text": "しずかなインターネット",
+    "image": "sizu-me-logo.svg"
   }
 ]

@@ -12,6 +12,7 @@ links:
   - url: https://smilebasic.kurun96.com/work/4N443KXX3/
     text: 『夕やけ雨のそら』 SmileBASIC4 作品一覧のハコ
     main: true
+    icon: ri-number-4
 icon: ./icons/yuyake-ame-no-sora.png
 iconPixelated: true
 ---

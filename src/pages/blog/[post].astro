@@ -80,6 +80,14 @@ const { Content } = await render(content);
   description={content.data.short}
   pageType="article"
 >
+  <nav>
+    <div class="container">
+      <p>
+        <a href="/">こーげんやさい</a> >
+        <a href="/blog/">ブログ</a> > {content.data.title}
+      </p>
+    </div>
+  </nav>
   <main class="container blog">
     <ArticleArea
       title={content.data.title}
@@ -87,14 +95,7 @@ const { Content } = await render(content);
       updateDate={date.latest_commit}><Content /></ArticleArea
     >
   </main>
-  <nav>
-    <div class="container">
-      <p>
-        <a href="/blog/">[ブログトップへ]</a>
-        <a href="/">[こーげんやさいトップへ]</a>
-      </p>
-    </div>
-  </nav>
+
   {
     useDisqus && (
       <section>

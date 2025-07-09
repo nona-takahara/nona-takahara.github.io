@@ -13,9 +13,12 @@ links:
   - text: Storm Kamishibai (Webアプリ利用の際はこちらから)
     url: https://nona-takahara.github.io/storm-kamishibai/
     main: true
+    icon: ri-play-fill
   - text: GitHub リポジトリ
     label: GitHub
     url: https://github.com/nona-takahara/storm-kamishibai
+    image: github-mark.svg
+    imageDark: github-mark-white.svg
 ---
 
 Stormworks で、大量の画像コマから 1 つ選んで画像を表示するような、モニタ用 Lua コードを自動生成するツールです。
