@@ -3,7 +3,7 @@ import { Image } from "astro:assets";
 import type { WorkItem } from "./WorkItem";
 import "@styles/card.scss";
 import type { CollectionEntry } from "astro:content";
-import defaultIcon from "./../images/nona-takahara.png";
+import defaultIcon from "@data/applist/icons/noimage.png";
 import IconButton from "./IconButton.astro";
 
 interface Props {
@@ -18,7 +18,7 @@ const bottomLinks = props.data.links; //.filter((v) => v.label != undefined);
 <div class="card">
   <div class="card-content">
     {
-      props.data.iconPixelated ? (
+      props.data.icon && props.data.iconPixelated ? (
         <img
           class="card-work-icon"
           src={props.data.icon?.src}

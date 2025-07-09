@@ -14,6 +14,7 @@ links:
     url: https://github.com/nona-takahara/nona-takahara.github.io
     image: github-mark.svg
     imageDark: github-mark-white.svg
+icon: ../../images/nona-takahara.png
 ---
 
 Markdown、GitHub Actions などを活用し、保守管理をかなり簡略化させた、n 代目の（数えていない）高原のなウェブサイトです。
