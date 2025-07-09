@@ -56,6 +56,10 @@ a.link-icon {
     }
   }
 
+  &.always-white {
+    background-color: var(--background-color-light);
+  }
+
   picture,
   picture * {
     margin: 0;
