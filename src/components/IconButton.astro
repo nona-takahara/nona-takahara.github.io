@@ -14,7 +14,7 @@ const {
   image_dark = undefined,
 } = Astro.props;
 
-const icontype = image && image_dark ? "link-icon" : "link-icon always-white";
+const icontype = !image || image_dark ? "link-icon" : "link-icon always-white";
 ---
 
 <a class={icontype} target="_blank" href={href} title={title}>
