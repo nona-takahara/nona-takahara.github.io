@@ -4,15 +4,17 @@
   flex-direction: row;
   flex-wrap: wrap;
   align-items: center;
-  vertical-align: middle;
+  justify-content: center;
 
   & > * {
-    flex: 1;
+    flex: 0 0 234px;
     display: inline-block;
     margin: 0.5ic;
     text-align: center;
     border: 2px solid var(--sub-sub-background-color);
     border-bottom-width: 3px;
+    max-width: 100%;
+    min-height: 60px;
 
     &:hover:not(&:focus-visible),
     &:focus:not(&:focus-visible) {
