@@ -19,6 +19,7 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
+    "prebuild": "git fetch --unshallow",
     "build": "astro build",
     "preview": "astro preview"
   },
