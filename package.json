@@ -5,7 +5,7 @@
     "@astrojs/check": "^0.9.4",
     "@js-temporal/polyfill": "^0.4.4",
     "@wooorm/starry-night": "^3.4.0",
-    "astro": "^5.12.8",
+    "astro": "^5.13.1",
     "gitlog": "^5.1.0",
     "normalize-scss": "^8.0.0",
     "remark-gfm": "^4.0.0",
