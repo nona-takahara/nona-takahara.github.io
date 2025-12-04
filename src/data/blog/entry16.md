@@ -7,15 +7,15 @@ short: （Stormworks Advent Calendar 2025 第4日目）大規模Add-on Lua開発
 
 [無免ライター氏による「VSCode導入方法」](https://note.com/mumenry/n/n5376ae45b7e0)はStormworksのLuaをVSCodeで扱う標準的な方法ですが、別の方法だってあります！
 
-それが拙作ツール **[storm-lua-minify](https://github.com/nona-takahara/storm-lua-minify)** を使う方法です。Stormworks Lua with LifeBoatAPI Extension（以下VSCode Stormworks Extension）とは異なる特徴ユースケースにピッタリな人も、全然そうでない人もいると思います。是非ピッタリな方を使ってください！
+それが拙作ツール **[storm-lua-minify](https://github.com/nona-takahara/storm-lua-minify)** を使う方法です。Stormworks Lua with LifeBoatAPI Extension（以下VSCode Stormworks Extension）とは異なる特徴を持つため、ユースケースにピッタリな人も、全然そうでない人もいると思います。是非ピッタリな方を使ってください！
 
 ## storm-lua-minifyの特徴
 
-VSCode Stormworks Extensionとstorm-lua-minifyを比較した場合の大きな特徴は以下の3つです：
+VSCode Stormworks Extensionと、storm-lua-minifyを比較した場合の大きな特徴は以下の3つです：
 
 - [Source Map](https://firefox-source-docs.mozilla.org/devtools-user/debugger/how_to/use_a_source_map/index.html)出力対応
 - CLIユーザーにとって（比較的）素直なインターフェース
-- 純粋なLuaに近い`require` `doFile`解決
+- 純粋なLuaに近い`require` `dofile`解決
 
 現時点でのminify能力はVSCode Stormworks Extensionに圧倒的に劣り、不要コードの削除もできないので、コード圧縮ツールを使いたいというニーズには全く合致しません。それでもstorm-lua-minifyが圧倒的に役立つシーンがあります。
 
@@ -39,7 +39,7 @@ storm-lua-minifyは、Node.js製という怪しさはあるものの、比較的
 
 VSCode Stormworks Extensionは、`require`を（C言語とかのプリプロセッサマクロのように）その場で展開しますが、オリジナルのLuaの`require`は、そのファイルを一つの関数のように実行します（[参考資料(Qiita)](https://qiita.com/mod_poppo/items/ef3d8a6fe03f7f426426)）。これらの両方で正確に動作するように書くことは難しいです。
 
-storm-lua-minifyの**モジュールモード**では、`require`を特殊な方法で展開し、Stormworks上では関数のように実行します。このため、オリジナルのLuaに近い挙動になり、テストが簡単になります。代わりに、`doFile`はその場で展開します。これもオリジナルのLuaに近い挙動を示します。
+storm-lua-minifyの**モジュールモード**では、`require`を特殊な方法で展開し、Stormworks上では関数のように実行します。このため、オリジナルのLuaに近い挙動になり、テストが簡単になります。代わりに、`dofile`はその場で展開します。これもオリジナルのLuaに近い挙動を示します。
 
 ## 投げやりな環境構築
 
