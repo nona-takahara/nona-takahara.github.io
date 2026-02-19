@@ -4,3 +4,7 @@ temp/
 node_modules/
 stock*.md
 .astro/
+
+## Panda
+styled-system
+styled-system-studio
