@@ -1,3 +1,5 @@
+import { code } from "./code";
+import { breadcrumb } from "./breadcrumb";
 import { spinner } from "./spinner";
 import { absoluteCenter } from "./absolute-center";
 import { group } from "./group";
@@ -14,6 +16,9 @@ export const recipes = {
   button,
   group,
   absoluteCenter,
-  spinner
+  spinner,
+  code,
 }
-export const slotRecipes = {}
+export const slotRecipes = {
+  breadcrumb
+}

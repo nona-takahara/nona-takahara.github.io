@@ -86,3 +86,13 @@ function note(node, type) {
     }
     node.children[0].children[0].children[0].value = emoji[typename] || type;
 }
+
+export function remarkCodeLanguage() {
+    return (tree) => {
+        visit(tree, 'code', (node) => {
+            node.data = node.data || {};
+            node.data.hProperties = node.data.hProperties || {};
+            node.data.hProperties['data-lang'] = `language-${String(node.lang)}`;
+        });
+    };
+}

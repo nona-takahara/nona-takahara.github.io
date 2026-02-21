@@ -1,6 +1,8 @@
 export { AbsoluteCenter, type AbsoluteCenterProps } from "./absolute-center";
+export * as Breadcrumb from "./breadcrumb";
 export { Button, ButtonGroup, type ButtonGroupProps, type ButtonProps } from "./button";
 export * as Card from "./card";
+export { Code, type CodeProps } from "./code";
 export { Group, type GroupProps } from "./group";
 export { Heading, type HeadingProps } from "./heading";
 export { Image, type ImageProps } from "./image";

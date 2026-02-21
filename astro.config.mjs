@@ -1,7 +1,7 @@
 import { defineConfig } from 'astro/config';
 
 import { remarkGfm } from './nonagfm.mjs'
-import { underLine, MDNblock } from './markparse.mjs';
+import { underLine, MDNblock, remarkCodeLanguage } from './markparse.mjs';
 import remarkMath from 'remark-math';
 import react from '@astrojs/react';
 import mdx from '@astrojs/mdx';
@@ -18,7 +18,7 @@ export default defineConfig({
 
   markdown: {
     remarkPlugins: [
-      remarkGfm, remarkMath, underLine, MDNblock
+      remarkCodeLanguage, remarkGfm, remarkMath, underLine, MDNblock
     ],
     syntaxHighlight: false
   },
