@@ -2,6 +2,7 @@
 import links from "src/data/links/links.js";
 import BaseLayout from "@layouts/BaseLayout.astro";
 import LinkList from "@components/LinkList.astro";
+import { Section } from "@data/components/primitive/Section";
 
 const interlink = links.filter((item) => item.inter);
 const otherlink = links.filter((item) => !item.inter);
@@ -12,25 +13,22 @@ const otherlink = links.filter((item) => !item.inter);
   description="こーげんやさいとリンクしているサイトです"
   pageType="article"
 >
-  <main id="content" class="container">
-    <div class="content">
-      <section>
-        <h2>リンク集</h2>
-        <LinkList heading="相互リンク" props={interlink} />
-        <LinkList heading="その他のリンク" props={otherlink} />
-      </section>
-      <section>
-        <h2>このサイトへのリンクについて</h2>
-        <p>この「こーげんやさい」はリンクフリーです。</p>
-        <p>
-          また、バナーが <a
-            href="https://nona-takahara.github.io/image/banner_234x60.png"
-            >https://nona-takahara.github.io/image/banner_234x60.png</a
-          > にありますので、必要な方はご利用ください。気まぐれに更新するため、直リンやそれに準ずる方法を推奨しています。
-        </p>
-        <img src="/image/banner_234x60.png" alt="こーげんやさい バナー" />
-        <p><a href="/">[トップに戻る]</a></p>
-      </section>
-    </div>
-  </main>
+  <Section>
+    <h2>リンク集</h2>
+    <LinkList heading="相互リンク" props={interlink} />
+    <LinkList heading="その他のリンク" props={otherlink} />
+  </Section>
+
+  <Section>
+    <h2>このサイトへのリンクについて</h2>
+    <p>この「こーげんやさい」はリンクフリーです。</p>
+    <p>
+      また、バナーが <a
+        href="https://nona-takahara.github.io/image/banner_234x60.png"
+        >https://nona-takahara.github.io/image/banner_234x60.png</a
+      > にありますので、必要な方はご利用ください。気まぐれに更新するため、直リンやそれに準ずる方法を推奨しています。
+    </p>
+    <img src="/image/banner_234x60.png" alt="こーげんやさい バナー" />
+    <p><a href="/">[トップに戻る]</a></p>
+  </Section>
 </BaseLayout>

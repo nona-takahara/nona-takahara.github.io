@@ -1,5 +1,4 @@
 ---
-import BlogList from "@components/BlogList.astro";
 import BaseLayout from "@layouts/BaseLayout.astro";
 import { getCollection } from "astro:content";
 
@@ -25,7 +24,7 @@ const data = (await getCollection("blog")).sort((a, b) => {
     <div class="content">
       <h2>ブログ記事一覧</h2>
       <p>上の方ほど新しいです</p>
-      <BlogList props={data} />
+      {JSON.stringify(data)}
     </div>
   </main>
 </BaseLayout>

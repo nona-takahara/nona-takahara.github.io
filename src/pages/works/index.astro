@@ -1,5 +1,4 @@
 ---
-import WorkList from "@components/WorkList.astro";
 import BaseLayout from "@layouts/BaseLayout.astro";
 import { getCollection } from "astro:content";
 //@ts-ignore
@@ -25,7 +24,7 @@ const data = (await getCollection("applist")).sort((a, b) => {
   <main id="content" class="container">
     <div class="content">
       <h2>つくったもの</h2>
-      <WorkList items={data} detailLink={true} />
+      {JSON.stringify(data)}
     </div>
   </main>
 </BaseLayout>

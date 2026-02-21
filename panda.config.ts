@@ -1,7 +1,7 @@
 import { green } from "@data/theme/colors/green";
 import { red } from "@data/theme/colors/red";
 import { neutral } from "@data/theme/colors/neutral";
-import { violet } from "@data/theme/colors/violet";
+import { brand } from "@data/theme/colors/brand";
 import { animationStyles } from "@data/theme/animation-styles";
 import { zIndex } from "@data/theme/tokens/z-index";
 import { shadows } from "@data/theme/tokens/shadows";
@@ -13,14 +13,19 @@ import { keyframes } from "@data/theme/keyframes";
 import { globalCss } from "@data/theme/global-css";
 import { conditions } from "@data/theme/conditions";
 import { slotRecipes, recipes } from "@data/theme/recipes";
+import { fontSizes } from "@data/theme/tokens/font-sizes";
+import { borderWidths } from "@data/theme/tokens/border-widths";
+import { fontWeights } from "@data/theme/tokens/font-weights";
 import { defineConfig } from "@pandacss/dev";
 
 export default defineConfig({
+  jsxFramework: "react",
+
   // Whether to use css reset
   preflight: true,
 
   // Where to look for your css declarations
-  include: ["./src/**/*.{js,jsx,ts,tsx}", "./pages/**/*.{js,jsx,ts,tsx}"],
+  include: ["./src/**/*.{js,jsx,ts,tsx,.astro}", "./pages/**/*.{js,jsx,ts,tsx,.astro}"],
 
   // Files to exclude
   exclude: [],
@@ -38,7 +43,20 @@ export default defineConfig({
       tokens: {
         colors: colors,
         durations: durations,
-        zIndex: zIndex
+        zIndex: zIndex,
+        fonts: {
+          sans: {
+            value:
+              '"Red Hat Text", "Zen Kaku Gothic New", system-ui, -apple-system, BlinkMacSystemFont, sans-serif',
+          },
+          mono: {
+            value:
+              '"Inconsolata", Consolas, "Zen Kaku Gothic New", monospace',
+          },
+        },
+        fontSizes: fontSizes,
+        fontWeights: fontWeights,
+        borderWidths: borderWidths
       },
 
       semanticTokens: {
@@ -80,27 +98,27 @@ export default defineConfig({
             }
           },
 
-          violet: violet,
           gray: neutral,
           red: red,
-          green: green
+          green: green,
+          brand: brand
         },
 
         shadows: shadows,
 
         radii: {
           l1: {
-            value: "{radii.xs}"
+            value: "{radii.lg}"
           },
 
           l2: {
-            value: "{radii.sm}"
+            value: "{radii.xl}"
           },
 
           l3: {
-            value: "{radii.md}"
+            value: "{radii.2xl}"
           }
-        }
+        },
       }
     },
   },

@@ -1,1 +1,25 @@
 @layer reset, base, tokens, recipes, utilities;
+
+:root {
+  --font-sans:
+    "Red Hat Text", "Zen Kaku Gothic New", system-ui, -apple-system,
+    BlinkMacSystemFont, sans-serif;
+  --font-mono: "Inconsolata", Consolas, "Zen Kaku Gothic New", monospace;
+}
+
+/* fallback */
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+}
+
+code,
+pre,
+kbd,
+samp {
+  font-family: var(--font-mono);
+}

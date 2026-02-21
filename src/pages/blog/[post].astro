@@ -1,12 +1,12 @@
 ---
 import gitlog from "gitlog";
 import BaseLayout from "@layouts/BaseLayout.astro";
-import DisqusArea from "@components/DisqusArea.astro";
-import ArticleArea from "@components/ArticleArea.astro";
+import DisqusArea from "@layouts/DisqusArea.astro";
 //@ts-ignore
 import path from "node:path";
 import { Temporal } from "@js-temporal/polyfill";
 import ignoreHashes from "src/data/blog/ignore-hashes";
+import { MdxComponents } from "@data/components/layout/MdxComponents";
 import { getCollection, render } from "astro:content";
 
 export async function getStaticPaths() {
@@ -27,7 +27,7 @@ async function findFirstAndLatestTimeStamp(fileName: string) {
     repo: "./",
     follow: true,
     file: path.format({
-      ext: ".md",
+      ext: parsedPath.ext,
       dir: parsedPath.dir,
       name: parsedPath.name || parsedPath.base,
     }),
@@ -66,7 +66,7 @@ function gitlogLibDateToISODate(gitlibdate: string) {
 }
 
 const content = Astro.props;
-const filepath = "src/data/blog/" + content.id;
+const filepath = content.filePath || "src/data/blog/" + content.id + ".md";
 const date = await findFirstAndLatestTimeStamp(filepath);
 const useDisqus = !filepath.includes("stock");
 const { Content } = await render(content);
@@ -89,11 +89,10 @@ const { Content } = await render(content);
     </div>
   </nav>
   <main class="container blog">
-    <ArticleArea
-      title={content.data.title}
-      postDate={date.first_commit}
-      updateDate={date.latest_commit}><Content /></ArticleArea
-    >
+    title={content.data.title}
+    postDate={date.first_commit}
+    updateDate={date.latest_commit}
+    <Content components={MdxComponents} />
   </main>
 
   {
