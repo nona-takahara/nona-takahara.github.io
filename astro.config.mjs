@@ -18,7 +18,7 @@ export default defineConfig({
 
   markdown: {
     remarkPlugins: [
-      remarkCodeLanguage, remarkGfm, remarkMath, underLine, MDNblock
+      remarkGfm, remarkMath, underLine, MDNblock, remarkCodeLanguage
     ],
     syntaxHighlight: false
   },

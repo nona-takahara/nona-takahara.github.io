@@ -89,10 +89,16 @@ function note(node, type) {
 
 export function remarkCodeLanguage() {
     return (tree) => {
-        visit(tree, 'code', (node) => {
+        visit(tree, ['code', 'inline-code', 'math', 'inlineMath'], (node) => {
             node.data = node.data || {};
             node.data.hProperties = node.data.hProperties || {};
-            node.data.hProperties['data-lang'] = `language-${String(node.lang)}`;
+            const cls = node.data.hProperties?.className;
+            const idx = cls && cls.findIndex((v) => v.includes("language-"));
+            if (node.type == "code") {
+                node.data.hProperties['data-lang'] = `language-${String(node.lang)}`;
+            } else if (idx !== -1) {
+                node.data.hProperties['data-lang'] = cls[idx];
+            }
         });
     };
 }

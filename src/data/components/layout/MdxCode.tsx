@@ -4,7 +4,7 @@ export const MdxCode = (props: CodeProps & { 'data-lang'?: string }) => {
     const isBlock = props['data-lang']?.includes('language-');
 
     if (isBlock) {
-        return <code {...props} />;
+        return <code className={props['data-lang'] || ''} {...props} />;
     }
 
     return <InlineCode colorPalette="gray" {...props} />;
