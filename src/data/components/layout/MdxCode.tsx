@@ -4,6 +4,7 @@ export const MdxCode = (props: CodeProps & { 'data-lang'?: string }) => {
     const isBlock = props['data-lang']?.includes('language-');
 
     if (isBlock) {
+        //@ts-ignore
         return <code className={props['data-lang'] || ''} {...props} />;
     }
 

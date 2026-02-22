@@ -1,30 +1,25 @@
 ---
+import { Breadcrumb } from "@data/components/layout/Breadcrumb";
+import { Section } from "@data/components/primitive/Section";
+import { BlogArchive } from "@data/components/sections/BlogArchive";
+import { ParentCardLink } from "@data/components/sections/ParentCardLink";
 import BaseLayout from "@layouts/BaseLayout.astro";
-import { getCollection } from "astro:content";
-
-const data = (await getCollection("blog")).sort((a, b) => {
-  return Number(b.id.replace("entry", "")) - Number(a.id.replace("entry", ""));
-});
 ---
 
 <BaseLayout
-  titleShort="こーげんやさいブログ"
+  titleShort="のなさばどっとねっとブログ"
   titleSuffix=""
   pageType="blog"
-  description="こーげんやさいブログ 記事一覧"
+  description="のなさばどっとねっとブログ 記事一覧"
 >
-  <nav>
-    <div class="container">
-      <p>
-        <a href="/">こーげんやさい</a> > ブログ
-      </p>
-    </div>
-  </nav>
-  <main id="content" class="container">
-    <div class="content">
-      <h2>ブログ記事一覧</h2>
-      <p>上の方ほど新しいです</p>
-      {JSON.stringify(data)}
-    </div>
-  </main>
+  <Section>
+    <Breadcrumb
+      variant="underline"
+      items={[{ title: "のなさばどっとねっと", url: "/" }, { title: "ブログ" }]}
+    />
+  </Section>
+  <BlogArchive />
+  <Section>
+    <ParentCardLink title="トップへ" href="/" />
+  </Section>
 </BaseLayout>

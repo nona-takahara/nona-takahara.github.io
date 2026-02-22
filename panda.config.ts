@@ -84,6 +84,15 @@ export default defineConfig({
             }
           },
 
+          bg: {
+            default: {
+              value: {
+                _light: "{colors.gray.1}",
+                _dark: "{colors.gray.1}"
+              }
+            }
+          },
+
           border: {
             value: {
               _light: "{colors.gray.4}",

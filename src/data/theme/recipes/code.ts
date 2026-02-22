@@ -8,7 +8,6 @@ export const code = defineRecipe({
     borderRadius: 'l2',
     display: 'inline-flex',
     fontVariantNumeric: 'tabular-nums',
-    fontWeight: 'medium',
     fontFamily: 'code',
     gap: '1',
     lineHeight: '1',

@@ -4,5 +4,5 @@ export const borderWidths = defineTokens.borderWidths({
     thin: { value: '2px' },
     medium: { value: '3px' },
     thick: { value: '4px' },
-    ultraTick: { value: '8px' }
+    ultraThick: { value: '8px' }
 })

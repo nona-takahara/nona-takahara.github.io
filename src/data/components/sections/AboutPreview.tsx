@@ -5,9 +5,9 @@ import { Heading, Text } from "@data/components/ui";
 export function AboutPreview() {
     return (
         <Section>
-            <Stack gap="4" maxW="2xl">
-                <Heading as="h2">
-                    About
+            <Stack gap="2" maxW="2xl">
+                <Heading as="h2" fontSize="2xl">
+                    ここはなに - About
                 </Heading>
 
                 <Text>

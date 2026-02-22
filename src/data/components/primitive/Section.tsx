@@ -22,7 +22,7 @@ export const SectionStyle = cva({
             },
 
             quick: {
-                bg: "accent.subtle"
+                bg: "colorPalette.surface.bg"
             }
         }
     },

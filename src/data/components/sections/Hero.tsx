@@ -1,20 +1,19 @@
+import { Stack } from "@/styled-system/jsx";
 import { Section } from "@data/components/primitive/Section";
-import { Button, Heading, Text } from "@data/components/ui";
+import { Heading, Text } from "@data/components/ui";
 
 export function Hero() {
     return (
         <Section tone="hero">
-            <Heading as="h1">
-                低いレイヤから、手で組み上げる。
-            </Heading>
+            <Stack gap="2">
+                <Heading as="h1" fontSize="2xl">
+                    のなさばどっとねっと - nonasaba.net
+                </Heading>
 
-            <Text>
-                個人制作のツールとソフトウェアを公開しています。
-            </Text>
-
-            <Button variant="surface" asChild>
-                <a href="#works">制作物を見る</a>
-            </Button>
+                <Text>
+                    ソフトもハードも作って遊ぼう。
+                </Text>
+            </Stack>
         </Section>
     )
 }

@@ -22,6 +22,8 @@ const appCollection = defineCollection({
       iconPixelated: z.boolean().optional(),
       short: z.string(),
       order: z.number(),
+      top: z.boolean().optional(),
+      quick: z.boolean().optional(),
       category: z.array(z.string()),
       latest: z.object({
         dateiso: z.string().or(z.date()).optional(),
