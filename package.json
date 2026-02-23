@@ -33,10 +33,10 @@
     "node": ">=18"
   },
   "scripts": {
-    "prepare": "panda codegen",
+    "prepare": "panda codegen && git fetch --unshallow",
     "dev": "astro dev",
     "start": "astro dev",
-    "prebuild": "node scripts/cache-link-banners.mjs && git fetch --unshallow",
+    "prebuild": "node scripts/cache-link-banners.mjs",
     "build": "astro build",
     "preview": "astro preview"
   },
