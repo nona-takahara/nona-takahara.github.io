@@ -49,13 +49,14 @@ export const card = defineSlotRecipe({
       elevated: {
         root: {
           bg: 'gray.surface.bg',
-          boxShadow: 'lg',
+          borderBottomWidth: 'thick'
         },
       },
       outline: {
         root: {
           bg: 'gray.surface.bg',
           borderWidth: 'thin',
+          borderBottomWidth: 'thick'
         },
       },
       subtle: {

@@ -14,7 +14,6 @@
     "astro": "^5.17.3",
     "class-variance-authority": "^0.7.1",
     "gitlog": "^5.1.0",
-    "lucide-react": "^0.575.0",
     "mdast-util-gfm-strikethrough": "^2.0.0",
     "mdast-util-gfm-table": "^2.0.0",
     "micromark-extension-gfm-strikethrough": "^2.1.0",

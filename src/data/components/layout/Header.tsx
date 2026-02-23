@@ -1,4 +1,4 @@
-import { Heading, Image, Link } from '@data/components/ui'
+import { ColorModeImage, Heading, Link } from '@data/components/ui'
 import { PageContainer } from './PageContainer'
 import { styled } from 'styled-system/jsx'
 
@@ -15,16 +15,14 @@ export function Header() {
             <PageContainer>
                 <Heading as="h1" fontSize="2xl" fontWeight="bold" height="20" display="flex" alignItems="center">
                     <Link href="/">
-                        <picture>
-                            <source srcSet="/image/nonasaba-net-dark.svg" media="(prefers-color-scheme: dark)" />
-                            <Image
-                                src="/image/nonasaba-net.svg"
-                                alt="のなさばどっとねっと"
-                                height="16"
-                                decoding="async"
-                                loading="lazy"
-                            />
-                        </picture>
+                        <ColorModeImage
+                            src="/image/nonasaba-net.svg"
+                            darkSrc="/image/nonasaba-net-dark.svg"
+                            alt="のなさばどっとねっと"
+                            height="16"
+                            decoding="async"
+                            loading="lazy"
+                        />
                     </Link>
                 </Heading>
             </PageContainer>

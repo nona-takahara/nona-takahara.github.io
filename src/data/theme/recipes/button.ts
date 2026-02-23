@@ -72,6 +72,7 @@ export const button = defineRecipe({
       },
       outline: {
         borderWidth: 'thin',
+        borderBottomWidth: 'thick',
         borderColor: 'colorPalette.outline.border',
         color: 'colorPalette.outline.fg',
         _hover: {
