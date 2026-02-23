@@ -15,13 +15,16 @@ export function Header() {
             <PageContainer>
                 <Heading as="h1" fontSize="2xl" fontWeight="bold" height="20" display="flex" alignItems="center">
                     <Link href="/">
-                        <Image
-                            src="/image/nonasaba-net.svg"
-                            alt="のなさばどっとねっと"
-                            height="16"
-                            decoding="async"
-                            loading="lazy"
-                        />
+                        <picture>
+                            <source srcSet="/image/nonasaba-net-dark.svg" media="(prefers-color-scheme: dark)" />
+                            <Image
+                                src="/image/nonasaba-net.svg"
+                                alt="のなさばどっとねっと"
+                                height="16"
+                                decoding="async"
+                                loading="lazy"
+                            />
+                        </picture>
                     </Link>
                 </Heading>
             </PageContainer>
