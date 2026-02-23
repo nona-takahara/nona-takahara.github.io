@@ -8,7 +8,8 @@ const CodePre = styled("pre", {
         py: '2',
         my: '4',
         borderRadius: 'l2',
-        fontVariantNumeric: 'tabular-nums'
+        fontVariantNumeric: 'tabular-nums',
+        overflowX: 'auto'
     },
 })
 
