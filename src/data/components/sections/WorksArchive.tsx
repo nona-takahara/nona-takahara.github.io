@@ -11,7 +11,7 @@ export async function WorksArchive() {
     return (
         <Section id="works">
             <Stack gap="2">
-                <Heading as="h2" fontSize="2xl">つくったもの - Works</Heading>
+                <Heading as="h1" fontSize="3xl">つくったもの - Works</Heading>
                 <WorksGrid works={works} />
             </Stack>
         </Section>

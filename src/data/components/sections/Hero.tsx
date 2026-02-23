@@ -6,7 +6,7 @@ export function Hero() {
     return (
         <Section tone="hero">
             <Stack gap="2">
-                <Heading as="h1" fontSize="2xl">
+                <Heading as="h1" fontSize="3xl">
                     のなさばどっとねっと - nonasaba.net
                 </Heading>
 

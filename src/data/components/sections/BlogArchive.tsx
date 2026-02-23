@@ -16,7 +16,7 @@ export async function BlogArchive() {
   return (
     <Section id="blog">
       <Stack gap="2">
-        <Heading as="h2" fontSize="2xl">
+        <Heading as="h1" fontSize="3xl">
           ブログ記事一覧 - Blog
         </Heading>
         <Text>上の方ほど新しいです</Text>

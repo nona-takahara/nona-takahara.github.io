@@ -1,14 +1,16 @@
 ---
-import { Breadcrumb } from "@data/components/layout/Breadcrumb";
+import { ListItem, UnorderedList } from "@data/components/primitive/List";
 import { Section } from "@data/components/primitive/Section";
+import { LinksGrid } from "@data/components/sections/LinksGrid";
 import { ParentCardLink } from "@data/components/sections/ParentCardLink";
+import { Heading, Link, Text } from "@data/components/ui";
 import { getResolvedLinks } from "@data/links/get-resolved-links.js";
 import BaseLayout from "@layouts/BaseLayout.astro";
 
 const links = await getResolvedLinks();
 const interLinks = links.filter((item) => item.inter);
 const otherLinks = links.filter((item) => !item.inter);
-const siteBannerUrl = "https://nona-takahara.github.io/image/banner_234x60.png";
+const siteBannerUrl = ["/image/banner_234x60.png", "/image/banner_200x40.png"];
 ---
 
 <BaseLayout
@@ -17,81 +19,58 @@ const siteBannerUrl = "https://nona-takahara.github.io/image/banner_234x60.png";
   pageType="article"
 >
   <Section>
-    <h2>リンク集</h2>
+    <Heading as="h1" fontSize="3xl">リンク集</Heading>
+    <Text>のなさばどっとねっととリンクしているサイトです。</Text>
   </Section>
 
   {
     interLinks.length > 0 && (
       <Section>
-        <h2>相互リンク</h2>
-        <ul>
-          {interLinks.map((item) => (
-            <li>
-              <a href={item.url} rel="external noopener noreferrer">
-                {item.title}
-              </a>
-              {item.banner && (
-                <div>
-                  <a href={item.url} rel="external noopener noreferrer">
-                    <img
-                      src={item.banner}
-                      alt={`${item.title} banner`}
-                      loading="lazy"
-                      decoding="async"
-                    />
-                  </a>
-                </div>
-              )}
-            </li>
-          ))}
-        </ul>
+        <Heading fontSize="2xl">相互リンク</Heading>
+        <LinksGrid links={interLinks} />
       </Section>
     )
   }
-
   {
     otherLinks.length > 0 && (
       <Section>
-        <h2>その他のリンク</h2>
-        <ul>
-          {otherLinks.map((item) => (
-            <li>
-              <a href={item.url} rel="external noopener noreferrer">
-                {item.title}
-              </a>
-              {item.banner && (
-                <div>
-                  <a href={item.url} rel="external noopener noreferrer">
-                    <img
-                      src={item.banner}
-                      alt={`${item.title} banner`}
-                      loading="lazy"
-                      decoding="async"
-                    />
-                  </a>
-                </div>
-              )}
-            </li>
-          ))}
-        </ul>
+        <Heading fontSize="2xl">その他のリンク</Heading>
+        <LinksGrid links={otherLinks} />
       </Section>
     )
   }
 
   <Section>
-    <h2>このサイトへのリンクについて</h2>
-    <p>この「のなさばどっとねっと」はリンクフリーです。</p>
-    <p>
+    <Heading fontSize="2xl">このサイトへのリンクについて</Heading>
+    <Text>この「のなさばどっとねっと」はリンクフリーです。</Text>
+    <Text>
       また、バナーが
-      <a href={siteBannerUrl}>{siteBannerUrl}</a>
-      にありますので、必要な方はご利用ください。気まぐれに更新するため、直リンやそれに準ずる方法を推奨しています。
-    </p>
-    <img
-      src={siteBannerUrl}
-      alt="のなさばどっとねっと バナー"
-      loading="lazy"
-      decoding="async"
-    />
+      {
+        siteBannerUrl.map((v) => (
+          <Link key={v} href={v} mx="1">
+            {v}
+          </Link>
+        ))
+      }
+      にありますので、必要な方はご利用ください。
+      <UnorderedList>
+        {
+          siteBannerUrl.map((v) => (
+            <ListItem key={v}>
+              <img
+                src={v}
+                alt="のなさばどっとねっと バナー"
+                loading="lazy"
+                decoding="async"
+              />
+            </ListItem>
+          ))
+        }
+      </UnorderedList>
+    </Text>
+    <Text>
+      気まぐれに更新するため、直リンやそれに準ずる方法を推奨しています。
+    </Text>
   </Section>
 
   <Section>
