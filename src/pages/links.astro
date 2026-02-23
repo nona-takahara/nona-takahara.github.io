@@ -1,11 +1,14 @@
 ---
-//import links from "src/data/links/links.js";
-import BaseLayout from "@layouts/BaseLayout.astro";
+import { Breadcrumb } from "@data/components/layout/Breadcrumb";
 import { Section } from "@data/components/primitive/Section";
 import { ParentCardLink } from "@data/components/sections/ParentCardLink";
+import { getResolvedLinks } from "@data/links/get-resolved-links.js";
+import BaseLayout from "@layouts/BaseLayout.astro";
 
-//const interlink = links.filter((item) => item.inter);
-//const otherlink = links.filter((item) => !item.inter);
+const links = await getResolvedLinks();
+const interLinks = links.filter((item) => item.inter);
+const otherLinks = links.filter((item) => !item.inter);
+const siteBannerUrl = "https://nona-takahara.github.io/image/banner_234x60.png";
 ---
 
 <BaseLayout
@@ -17,18 +20,81 @@ import { ParentCardLink } from "@data/components/sections/ParentCardLink";
     <h2>リンク集</h2>
   </Section>
 
+  {
+    interLinks.length > 0 && (
+      <Section>
+        <h2>相互リンク</h2>
+        <ul>
+          {interLinks.map((item) => (
+            <li>
+              <a href={item.url} rel="external noopener noreferrer">
+                {item.title}
+              </a>
+              {item.banner && (
+                <div>
+                  <a href={item.url} rel="external noopener noreferrer">
+                    <img
+                      src={item.banner}
+                      alt={`${item.title} banner`}
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </a>
+                </div>
+              )}
+            </li>
+          ))}
+        </ul>
+      </Section>
+    )
+  }
+
+  {
+    otherLinks.length > 0 && (
+      <Section>
+        <h2>その他のリンク</h2>
+        <ul>
+          {otherLinks.map((item) => (
+            <li>
+              <a href={item.url} rel="external noopener noreferrer">
+                {item.title}
+              </a>
+              {item.banner && (
+                <div>
+                  <a href={item.url} rel="external noopener noreferrer">
+                    <img
+                      src={item.banner}
+                      alt={`${item.title} banner`}
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </a>
+                </div>
+              )}
+            </li>
+          ))}
+        </ul>
+      </Section>
+    )
+  }
+
   <Section>
     <h2>このサイトへのリンクについて</h2>
     <p>この「のなさばどっとねっと」はリンクフリーです。</p>
     <p>
-      また、バナーが <a
-        href="https://nona-takahara.github.io/image/banner_234x60.png"
-        >https://nona-takahara.github.io/image/banner_234x60.png</a
-      > にありますので、必要な方はご利用ください。気まぐれに更新するため、直リンやそれに準ずる方法を推奨しています。
+      また、バナーが
+      <a href={siteBannerUrl}>{siteBannerUrl}</a>
+      にありますので、必要な方はご利用ください。気まぐれに更新するため、直リンやそれに準ずる方法を推奨しています。
     </p>
-    <img src="/image/banner_234x60.png" alt="のなさばどっとねっと バナー" />
-    <Section>
-      <ParentCardLink title="トップへ" href="/" />
-    </Section>
+    <img
+      src={siteBannerUrl}
+      alt="のなさばどっとねっと バナー"
+      loading="lazy"
+      decoding="async"
+    />
+  </Section>
+
+  <Section>
+    <ParentCardLink title="トップへ" href="/" />
   </Section>
 </BaseLayout>

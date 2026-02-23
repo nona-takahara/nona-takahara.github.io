@@ -36,7 +36,7 @@
     "prepare": "panda codegen",
     "dev": "astro dev",
     "start": "astro dev",
-    "prebuild": "git fetch --unshallow",
+    "prebuild": "node scripts/cache-link-banners.mjs && git fetch --unshallow",
     "build": "astro build",
     "preview": "astro preview"
   },

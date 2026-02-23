@@ -4,6 +4,8 @@ temp/
 node_modules/
 stock*.md
 .astro/
+public/image/links-cache/
+src/data/links/banner-cache.generated.json
 
 ## Panda
 styled-system
