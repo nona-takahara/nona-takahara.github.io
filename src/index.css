@@ -1,4 +1,5 @@
 @import "remixicon/fonts/remixicon.css";
+@import "../node_modules/@wooorm/starry-night/style/high-contrast.css";
 
 @layer reset, base, tokens, recipes, utilities;
 

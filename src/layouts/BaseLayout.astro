@@ -5,6 +5,7 @@ import "../index.css";
 import type { OgPageType } from "./Og";
 import KaTeX from "@layouts/KaTeX.astro";
 import { Main } from "@data/components/layout/Main";
+import highlighterScript from "../scripts/highlighter.ts?url";
 
 interface Props {
   katex?: boolean;
@@ -60,7 +61,7 @@ const {
       <slot />
     </Main>
     <Footer />
-    {highlight && <script type="module" src="/highlighter.js" defer />}
+    {highlight && <script type="module" src={highlighterScript} />}
     <script>
       document.addEventListener("DOMContentLoaded", () => {
         document.querySelectorAll("img").forEach((img) => {
