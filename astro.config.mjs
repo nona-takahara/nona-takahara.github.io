@@ -8,7 +8,7 @@ import mdx from '@astrojs/mdx';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://nona-takahara.github.io',
+  site: 'https://nonasaba.net',
 
   build: {
     format: 'preserve',
