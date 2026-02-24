@@ -75,7 +75,7 @@ export function AboutPreview() {
                         </HorizonalStack>
 
                         <Text>
-                            <Link href="links.html">リンク集のページ</Link>を分けました。バナーなどはリンク集からどうぞ。リンクフリーです。
+                            <Link href="/links">リンク集のページ</Link>を分けました。バナーなどはリンク集からどうぞ。リンクフリーです。
                         </Text>
                     </Stack>
                 </HorizonalStack>

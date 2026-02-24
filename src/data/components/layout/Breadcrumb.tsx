@@ -1,5 +1,6 @@
 import { Fragment, forwardRef, type ReactNode } from 'react'
 import { Breadcrumb as StyledBreadcrumb } from '@data/components/ui'
+import { normalizeSiteHref } from '@data/url-policy'
 
 export interface BreadcrumbProps extends StyledBreadcrumb.RootProps {
     items: Array<{ title: ReactNode; url?: string }>
@@ -21,7 +22,7 @@ export const Breadcrumb = forwardRef<HTMLDivElement, BreadcrumbProps>(
                             <Fragment key={index}>
                                 <StyledBreadcrumb.Item>
                                     {item.url ? (
-                                        <StyledBreadcrumb.Link href={item.url}>{item.title}</StyledBreadcrumb.Link>
+                                        <StyledBreadcrumb.Link href={normalizeSiteHref(item.url)}>{item.title}</StyledBreadcrumb.Link>
                                     ) : (
                                         item.title
                                     )}

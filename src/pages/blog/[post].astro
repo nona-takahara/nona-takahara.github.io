@@ -146,7 +146,7 @@ const { Content } = await render(content);
       <>
         <Section>
           <DisqusArea
-            baseName={content.id + ".html"}
+            path={`/blog/${content.id}`}
             originalTitle={content.data.originalTitle || content.data.title}
           />
         </Section>
