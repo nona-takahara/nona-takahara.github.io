@@ -25,7 +25,7 @@ export function BlogPostNavigation({
     >
       {
         prevPost ? (
-          <Link href={`/blog/${prevPost.id}`} variant="plain" display="block">
+          <Link href={`/blog/${prevPost.id}/`} variant="plain" display="block">
             <Card.Root h="full">
               <Card.Header>
                 <Card.Description>← 新しい記事</Card.Description>
@@ -46,7 +46,7 @@ export function BlogPostNavigation({
         )
       }
 
-      <Link href="/blog" variant="plain" display="block">
+      <Link href="/blog/" variant="plain" display="block">
         <Card.Root h="full">
           <Card.Header>
             <Card.Description>ブログ</Card.Description>
@@ -57,7 +57,7 @@ export function BlogPostNavigation({
 
       {
         nextPost ? (
-          <Link href={`/blog/${nextPost.id}`} variant="plain" display="block">
+          <Link href={`/blog/${nextPost.id}/`} variant="plain" display="block">
             <Card.Root h="full">
               <Card.Header>
                 <Card.Description>古い記事 →</Card.Description>

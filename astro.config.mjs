@@ -11,10 +11,11 @@ export default defineConfig({
   site: 'https://nona-takahara.github.io',
 
   build: {
-    format: 'preserve',
+    format: 'directory',
     inlineStylesheets: 'never',
     assets: 'assets'
   },
+  trailingSlash: 'always',
 
   markdown: {
     remarkPlugins: [
