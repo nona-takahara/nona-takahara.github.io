@@ -14,7 +14,7 @@ export async function WorksPreview() {
                 <Heading as="h2" fontSize="2xl">つくったもの - Works</Heading>
                 <WorksGrid works={works} />
             </Stack>
-            <Link href="/works/">もっと見る &gt;</Link>
+            <Link href="/works">もっと見る &gt;</Link>
         </Section>
     );
 }

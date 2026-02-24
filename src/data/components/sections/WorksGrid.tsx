@@ -24,7 +24,7 @@ export function WorksGrid(props: { works: CollectionEntry<"applist">[] }) {
                 const outlineStyle = { WebkitTextStroke: `${border} ${bg}`, paintOrder: "stroke", textUnderlineOffset: `${offset}` }
 
                 return (
-                    <Link variant="plain" key={w.id} href={"/works/" + w.id + "/"} display="block" w="full">
+                    <Link variant="plain" key={w.id} href={"/works/" + w.id} display="block" w="full">
                         <Card.Root
                             style={backgroundStyle}
                             minH="8rem"

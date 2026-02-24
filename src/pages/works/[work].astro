@@ -73,7 +73,7 @@ const { Content } = await render(content);
       variant="underline"
       items={[
         { title: "のなさばどっとねっと", url: "/" },
-        { title: "つくったもの", url: "/works/" },
+        { title: "つくったもの", url: "/works" },
         { title: content.data.title },
       ]}
     />
@@ -114,6 +114,6 @@ const { Content } = await render(content);
     <Content components={MdxComponents} />
   </Section>
   <Section>
-    <ParentCardLink title="つくったものへ" href="/works/" />
+    <ParentCardLink title="つくったものへ" href="/works" />
   </Section>
 </BaseLayout>
