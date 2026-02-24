@@ -14,7 +14,7 @@ export function WorksGrid(props: { works: CollectionEntry<"applist">[] }) {
 
                 const backgroundStyle = hasBackground
                     ? {
-                        backgroundImage: `linear-gradient(115deg in oklch, ${bg} 30%, transparent 55%), url("${w.data.icon?.src}")`,
+                        backgroundImage: `linear-gradient(115deg in oklch, ${bg} 25%, transparent 65%), url("${w.data.icon?.src}")`,
                         backgroundSize: "cover",
                         backgroundPosition: "right",
                         backgroundRepeat: "no-repeat",
