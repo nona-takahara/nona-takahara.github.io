@@ -2,28 +2,47 @@
   "main": "./index.js",
   "type": "module",
   "dependencies": {
+    "@ark-ui/react": "^5.31.0",
     "@astrojs/check": "^0.9.4",
+    "@astrojs/mdx": "^4.3.13",
+    "@astrojs/react": "^4.4.2",
     "@js-temporal/polyfill": "^0.4.4",
+    "@pandacss/studio": "^1.8.2",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
     "@wooorm/starry-night": "^3.4.0",
-    "astro": "^5.13.1",
+    "astro": "^5.17.3",
+    "class-variance-authority": "^0.7.1",
     "gitlog": "^5.1.0",
+    "hast-util-to-dom": "^4.0.1",
+    "mdast-util-gfm-strikethrough": "^2.0.0",
+    "mdast-util-gfm-table": "^2.0.0",
+    "micromark-extension-gfm-strikethrough": "^2.1.0",
+    "micromark-extension-gfm-table": "^2.1.1",
+    "micromark-util-combine-extensions": "^2.0.1",
     "normalize-scss": "^8.0.0",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
     "remark-gfm": "^4.0.0",
     "remark-math": "^6.0.0",
     "remixicon": "^4.6.0",
-    "typescript": "^5.5.3"
+    "typescript": "^5.5.3",
+    "unist-util-is": "^6.0.1",
+    "unist-util-visit": "^5.1.0"
   },
   "engines": {
     "node": ">=18"
   },
   "scripts": {
+    "prepare": "panda codegen && git fetch --unshallow",
     "dev": "astro dev",
     "start": "astro dev",
-    "prebuild": "git fetch --unshallow",
+    "prebuild": "node scripts/cache-link-banners.mjs",
     "build": "astro build",
     "preview": "astro preview"
   },
   "devDependencies": {
+    "@pandacss/dev": "^1.8.2",
     "sass": "^1.77.8"
   }
 }

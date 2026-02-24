@@ -41,6 +41,7 @@ function petitcomKey(node) {
 
     node.type = 'columnbox';
     node.data = {
+        hName: 'petitcom-public-key',
         hProperties: {
             className: ['petitcom-key']
         },
@@ -65,8 +66,10 @@ function petitcomKey(node) {
 function callout(node) {
     node.type = 'columnbox';
     node.data = {
+        hName: 'mdn-callout',
         hProperties: {
-            className: ['callout']
+            className: ['callout'],
+            'data-variant': 'callout'
         }
     };
     node.children[0].children = node.children[0].children.slice(1);
@@ -76,8 +79,10 @@ function note(node, type) {
     const typename = type.replace(":", "").toLowerCase();
     node.type = 'columnbox';
     node.data = {
+        hName: 'mdn-callout',
         hProperties: {
-            className: ['callout', typename]
+            className: ['callout', typename],
+            'data-variant': typename
         }
     };
     const emoji = {
@@ -85,4 +90,20 @@ function note(node, type) {
         "note": "メモ："
     }
     node.children[0].children[0].children[0].value = emoji[typename] || type;
+}
+
+export function remarkCodeLanguage() {
+    return (tree) => {
+        visit(tree, ['code', 'inline-code', 'math', 'inlineMath'], (node) => {
+            node.data = node.data || {};
+            node.data.hProperties = node.data.hProperties || {};
+            const cls = node.data.hProperties?.className;
+            const idx = cls && cls.findIndex((v) => v.includes("language-"));
+            if (node.type == "code") {
+                node.data.hProperties['data-lang'] = `language-${String(node.lang)}`;
+            } else if (idx !== -1) {
+                node.data.hProperties['data-lang'] = cls[idx];
+            }
+        });
+    };
 }

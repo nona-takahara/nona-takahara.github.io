@@ -1,3 +1,4 @@
+/* バナーは自動キャッシュされるので、とにかく最新のを指定しておけばOK */
 export default [
   {
     title: "カービィ★KIRBYの家",
@@ -14,13 +15,13 @@ export default [
   {
     title: "yude.jp",
     url: "https://yude.jp/",
-    //banner: "https://www.yude.jp/assets/images/banner_new.png",
+    banner: "https://www.yude.jp/_astro/banner.DxaPBYQs_Z1wVLSr.webp",
     inter: true,
   },
   {
     title: "Arakawa Laboratory",
     url: "https://arkw.net/",
-    banner: "./image/arkw_net_logo.png",
+    banner: "https://arkw.net/_nuxt/image/be6e55.png",
     inter: true,
   },
   {

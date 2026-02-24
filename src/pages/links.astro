@@ -1,36 +1,79 @@
 ---
-import links from "src/data/links/links.js";
+import { ListItem, UnorderedList } from "@data/components/primitive/List";
+import { Section } from "@data/components/primitive/Section";
+import { LinksGrid } from "@data/components/sections/LinksGrid";
+import { ParentCardLink } from "@data/components/sections/ParentCardLink";
+import { Heading, Link, Text } from "@data/components/ui";
+import { getResolvedLinks } from "@data/links/get-resolved-links.js";
 import BaseLayout from "@layouts/BaseLayout.astro";
-import LinkList from "@components/LinkList.astro";
 
-const interlink = links.filter((item) => item.inter);
-const otherlink = links.filter((item) => !item.inter);
+const links = await getResolvedLinks();
+const interLinks = links.filter((item) => item.inter);
+const otherLinks = links.filter((item) => !item.inter);
+const siteBannerUrl = ["/image/banner_234x60.png", "/image/banner_200x40.png"];
 ---
 
 <BaseLayout
   titleShort="リンク集"
-  description="こーげんやさいとリンクしているサイトです"
+  description="のなさばどっとねっととリンクしているサイトです"
   pageType="article"
 >
-  <main id="content" class="container">
-    <div class="content">
-      <section>
-        <h2>リンク集</h2>
-        <LinkList heading="相互リンク" props={interlink} />
-        <LinkList heading="その他のリンク" props={otherlink} />
-      </section>
-      <section>
-        <h2>このサイトへのリンクについて</h2>
-        <p>この「こーげんやさい」はリンクフリーです。</p>
-        <p>
-          また、バナーが <a
-            href="https://nona-takahara.github.io/image/banner_234x60.png"
-            >https://nona-takahara.github.io/image/banner_234x60.png</a
-          > にありますので、必要な方はご利用ください。気まぐれに更新するため、直リンやそれに準ずる方法を推奨しています。
-        </p>
-        <img src="/image/banner_234x60.png" alt="こーげんやさい バナー" />
-        <p><a href="/">[トップに戻る]</a></p>
-      </section>
-    </div>
-  </main>
+  <Section>
+    <Heading as="h1" fontSize="3xl">リンク集</Heading>
+    <Text>のなさばどっとねっととリンクしているサイトです。</Text>
+  </Section>
+
+  {
+    interLinks.length > 0 && (
+      <Section>
+        <Heading fontSize="2xl">相互リンク</Heading>
+        <LinksGrid links={interLinks} />
+      </Section>
+    )
+  }
+  {
+    otherLinks.length > 0 && (
+      <Section>
+        <Heading fontSize="2xl">その他のリンク</Heading>
+        <LinksGrid links={otherLinks} />
+      </Section>
+    )
+  }
+
+  <Section>
+    <Heading fontSize="2xl">このサイトへのリンクについて</Heading>
+    <Text>この「のなさばどっとねっと」はリンクフリーです。</Text>
+    <Text>
+      また、バナーが
+      {
+        siteBannerUrl.map((v) => (
+          <Link key={v} href={v} mx="1">
+            {v}
+          </Link>
+        ))
+      }
+      にありますので、必要な方はご利用ください。
+      <UnorderedList>
+        {
+          siteBannerUrl.map((v) => (
+            <ListItem key={v}>
+              <img
+                src={v}
+                alt="のなさばどっとねっと バナー"
+                loading="lazy"
+                decoding="async"
+              />
+            </ListItem>
+          ))
+        }
+      </UnorderedList>
+    </Text>
+    <Text>
+      気まぐれに更新するため、直リンやそれに準ずる方法を推奨しています。
+    </Text>
+  </Section>
+
+  <Section>
+    <ParentCardLink title="トップへ" href="/" />
+  </Section>
 </BaseLayout>

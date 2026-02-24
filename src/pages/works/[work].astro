@@ -1,9 +1,16 @@
 ---
-//@ts-ignore
-import path from "path";
-import WorkDetail from "@components/WorkDetail.astro";
+import { Intl, Temporal } from "@js-temporal/polyfill";
 import BaseLayout from "@layouts/BaseLayout.astro";
+import { MdxComponents } from "@data/components/layout/MdxComponents";
 import { getCollection, render } from "astro:content";
+import { Section } from "@data/components/primitive/Section";
+import { Breadcrumb } from "@data/components/layout/Breadcrumb";
+import { Link, Text } from "@data/components/ui";
+import { Stack } from "@data/components/primitive/Stack";
+import { ListItem, UnorderedList } from "@data/components/primitive/List";
+import { Time } from "@data/components/primitive/Time";
+import { ArticleHeading } from "@data/components/sections/ArticleHeading";
+import { ParentCardLink } from "@data/components/sections/ParentCardLink";
 
 export async function getStaticPaths() {
   const data = await getCollection("applist");
@@ -16,25 +23,97 @@ export async function getStaticPaths() {
   });
 }
 
+const formatOptions: Intl.DateTimeFormatOptions = {
+  timeZone: "Asia/Tokyo",
+  dateStyle: "long",
+};
+const buildDate = Temporal.Now.plainDateISO("Asia/Tokyo");
+
+function dateStringToPlainDate(date: string) {
+  if (!date) {
+    return undefined;
+  }
+
+  try {
+    return Temporal.PlainDate.from(date.split("T")?.[0] || date);
+  } catch {
+    return undefined;
+  }
+}
+
+function getUpdateDate(dateIso: string | Date | undefined) {
+  if (!dateIso) {
+    return undefined;
+  }
+
+  if (dateIso === "today") {
+    return buildDate;
+  }
+
+  if (dateIso instanceof Date) {
+    return dateStringToPlainDate(dateIso.toISOString());
+  }
+
+  return dateStringToPlainDate(dateIso);
+}
+
 const content = Astro.props;
+const updateDate = getUpdateDate(content.data.latest.dateiso);
 const { Content } = await render(content);
 ---
 
 <BaseLayout
   titleShort={content.data.title}
-  titleSuffix=" | こーげんやさい"
+  titleSuffix=" | のなさばどっとねっと"
   description={content.data.short}
   pageType="article"
 >
-  <nav>
-    <div class="container">
-      <p>
-        <a href="/">こーげんやさい</a> >
-        <a href="/works/">つくったもの</a> > {content.data.title}
-      </p>
-    </div>
-  </nav>
-  <main id="content" class="container blog">
-    <WorkDetail props={content}><Content /></WorkDetail>
-  </main>
+  <Section>
+    <Breadcrumb
+      variant="underline"
+      items={[
+        { title: "のなさばどっとねっと", url: "/" },
+        { title: "つくったもの", url: "/works" },
+        { title: content.data.title },
+      ]}
+    />
+  </Section>
+  <Section>
+    <ArticleHeading
+      title={content.data.title}
+      categories={content.data.category}
+    >
+      {
+        updateDate && (
+          <Text textAlign="right">
+            {content.data.latest.version
+              ? `${content.data.latest.version}（`
+              : ""}
+            最終更新
+            <Time temporal={updateDate} formatOptions={formatOptions} />
+            {content.data.latest.version ? "）" : ""}
+          </Text>
+        )
+      }
+    </ArticleHeading>
+    {
+      content.data.links.length > 0 && (
+        <Stack as="nav" aria-label="関連リンク">
+          <UnorderedList>
+            {content.data.links.map((item) => (
+              <ListItem>
+                <Link href={item.url}>
+                  {item.text || item.label || item.url}
+                </Link>
+              </ListItem>
+            ))}
+          </UnorderedList>
+        </Stack>
+      )
+    }
+    <Content components={MdxComponents} />
+  </Section>
+  <Section>
+    <ParentCardLink title="つくったものへ" href="/works" />
+  </Section>
 </BaseLayout>

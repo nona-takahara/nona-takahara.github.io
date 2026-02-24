@@ -1,97 +1,19 @@
 ---
-import WorkList from "@components/WorkList.astro";
-import contacts from "src/data/contacts/contacts.json";
-import { Image } from "astro:assets";
-import BaseBody from "@components/BaseBody.astro";
-import BaseHeader from "@components/BaseHeader.astro";
-import Html from "@components/Html.astro";
-import links from "src/data/links/links.js";
-import LinkList from "@components/LinkList.astro";
-import BlogList from "@components/BlogList.astro";
-import { getCollection } from "astro:content";
-import nonaIcon from "./../images/nona-takahara.png";
-import "remixicon/fonts/remixicon.css";
-import IconButton from "@components/IconButton.astro";
-
-const interlink = links.filter((item) => item.inter);
-const otherlink = links.filter((item) => !item.inter);
-
-const workItems = (await getCollection("applist")).sort(
-  (a, b) => a.data.order - b.data.order
-);
-
-const blogdata = (await getCollection("blog"))
-  .sort((a, b) => {
-    const af = Number(a.id.match(/\d+/g));
-    const bf = Number(b.id.match(/\d+/g));
-    return bf - af;
-  })
-  .slice(0, 3);
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { Hero } from "@data/components/sections/Hero";
+import { QuickAccess } from "@data/components/sections/QuickAccess";
+import { WorksPreview } from "@data/components/sections/WorksPreview";
+import { AboutPreview } from "@data/components/sections/AboutPreview";
 ---
 
-<Html>
-  <BaseHeader
-    titleShort=""
-    titleSuffix="こーげんやさい"
-    description=""
-    pageType="website"
-  />
-  <BaseBody>
-    <main id="content" class="container">
-      <div class="card">
-        <div class="card-content">
-          <Image
-            src={nonaIcon}
-            alt="高原のな プロフィール画像"
-            class="profile-icon float-l"
-            width="160"
-            height="160"
-            densities={[1, 2, 3]}
-            decoding="async"
-            loading="lazy"
-          />
-          <div>
-            <h3>
-              <ruby>高原<rp>（</rp><rt>たかはら</rt><rp>）</rp></ruby>のな
-            </h3>
-            <p>ゲームを作ります。動画も作っていたりしたらしい。</p>
-            <div class="card-link-list">
-              {
-                contacts.map((item) => (
-                  <IconButton
-                    icon={item.icon}
-                    image={item.image}
-                    href={item.href}
-                    text={item.text}
-                    image_dark={item["image-dark"]}
-                  />
-                ))
-              }
-            </div>
-          </div>
-        </div>
-      </div>
-      <section id="list-of-content">
-        <h2 class="article-title">つくったもの</h2>
-        <WorkList items={workItems} />
-      </section>
-      <section>
-        <h2>最近のブログ記事</h2>
-        <BlogList props={blogdata} haveContinue={true} />
-      </section>
-      <section>
-        <h2>リンク</h2>
-        <LinkList heading="相互リンク" props={interlink} />
-        <LinkList heading="その他のリンク" props={otherlink} />
-        <h3>リンクについて</h3>
-        <p>当サイトは全部のページがリンクフリーです。</p>
-        <p>
-          バナーが <a
-            href="https://nona-takahara.github.io/image/banner_234x60.png"
-            >https://nona-takahara.github.io/image/banner_234x60.png</a
-          > にありますので、必要な方はご利用ください。気まぐれに更新するため、直リンやそれに準ずる方法を推奨しています。
-        </p>
-      </section>
-    </main>
-  </BaseBody>
-</Html>
+<BaseLayout
+  titleShort=""
+  titleSuffix="のなさばどっとねっと"
+  description=""
+  pageType="website"
+>
+  <Hero />
+  <QuickAccess />
+  <WorksPreview />
+  <AboutPreview />
+</BaseLayout>
