@@ -1,4 +1,9 @@
+# www → apex（あなたの方針：apex正規）
 https://www.nonasaba.net/* https://nonasaba.net/:splat 301
- /links.html      /links/
+
+# works/*.html → works/*/
+#/works/foo.html  => /works/foo/
  /works/*.html    /works/:splat/ 301
+
+# blog/*.html → blog/*/
  /blog/*.html     /blog/:splat/ 301
