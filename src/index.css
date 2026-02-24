@@ -26,3 +26,33 @@ kbd,
 samp {
   font-family: var(--font-mono);
 }
+
+div.three-ds {
+  display: block;
+  overflow: auto;
+}
+div.three-ds div {
+  display: inline-block;
+  margin: auto;
+  border-radius: 8px;
+}
+div.three-ds div p {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  margin: 12px;
+  padding: 0;
+}
+div.three-ds div img:nth-child(1) {
+  width: 400px;
+  position: relative;
+  left: 0px;
+  margin: 0;
+}
+div.three-ds div img:nth-child(2) {
+  width: 320px;
+  position: relative;
+  left: 40px;
+  margin: 0;
+  margin-top: 16px;
+}

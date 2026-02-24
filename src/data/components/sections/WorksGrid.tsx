@@ -5,7 +5,7 @@ import { token } from "styled-system/tokens";
 
 export function WorksGrid(props: { works: CollectionEntry<"applist">[] }) {
     return (
-        <Grid gap="6" gridTemplateColumns={{ base: "1fr", md: "1fr 1fr" }}>
+        <Grid gap="3" gridTemplateColumns={{ base: "1fr", md: "1fr 1fr" }}>
             {props.works.map((w) => {
                 const bg = token.var("colors.bg.default");
                 const border = token.var("borderWidths.thick");
@@ -14,7 +14,7 @@ export function WorksGrid(props: { works: CollectionEntry<"applist">[] }) {
 
                 const backgroundStyle = hasBackground
                     ? {
-                        backgroundImage: `linear-gradient(115deg in oklch, ${bg} 25%, transparent 65%), url("${w.data.icon?.src}")`,
+                        backgroundImage: `linear-gradient(115deg in oklch, ${bg} 25%, transparent 65%), url("${w.data.bg?.src}")`,
                         backgroundSize: "cover",
                         backgroundPosition: "right",
                         backgroundRepeat: "no-repeat",

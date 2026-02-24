@@ -24,7 +24,7 @@ export async function BlogArchive() {
           {
             posts.map((post) => (
               <li key={post.id}>
-                <Link variant="plain" href={`/blog/${post.id}`} display="block">
+                <Link variant="plain" href={`/blog/${post.id}.html`} display="block">
                   <Card.Root>
                     <Card.Header>
                       <Card.Title>{post.data.title}</Card.Title>

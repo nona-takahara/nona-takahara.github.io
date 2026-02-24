@@ -19,6 +19,7 @@ const appCollection = defineCollection({
       title: z.string(),
       id: z.string(),
       icon: image().optional(),
+      bg: image().optional(),
       iconPixelated: z.boolean().optional(),
       short: z.string(),
       order: z.number(),
@@ -34,7 +35,6 @@ const appCollection = defineCollection({
           text: z.string().optional(),
           label: z.string().optional(),
           url: z.string(),
-          main: z.boolean().optional(),
           icon: z.string().optional(),
           image: z.string().optional(),
           imageDark: z.string().optional()

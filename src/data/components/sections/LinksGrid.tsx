@@ -26,7 +26,7 @@ export function LinksGrid(props: {
                     target="_blank"
                     w="fit-content"
                     minH="100px"
-                    minW="240px"
+                    minW="266px"
                 >
                     {!item.banner ? (
                         item.title

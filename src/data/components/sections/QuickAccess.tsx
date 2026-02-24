@@ -14,7 +14,7 @@ export async function QuickAccess() {
                 <HorizonalStack gap="2" flexWrap="wrap">
                     {works.map((w) =>
                         <Button key={w.id} variant="outline" fontSize="md" asChild>
-                            <Link href={w.data.links[0]?.url} variant="plain">{w.data.title}</Link>
+                            <Link href={w.data.links[0]?.url} variant="plain">{w.data.links[0]?.label}</Link>
                         </Button>
                     )
                     }
