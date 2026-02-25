@@ -75,9 +75,9 @@ async function main() {
     try {
       const cachedPath = await cacheBanner(bannerSource, index);
       manifest[link.url] = cachedPath;
-      console.log(`cached: ${link.title} -> ${cachedPath}`);
+      console.log(`cached: ${link.url} (${link.title}) -> ${cachedPath}`);
     } catch (error) {
-      console.warn(`cache failed: ${link.title} (${bannerSource})`);
+      console.warn(`cache failed: ${link.url} (${link.title}) (${bannerSource})`);
       console.warn(error instanceof Error ? error.message : String(error));
     }
   }
