@@ -26,6 +26,7 @@
     "remark-gfm": "^4.0.0",
     "remark-math": "^6.0.0",
     "remixicon": "^4.6.0",
+    "sharp": "^0.34.5",
     "typescript": "^5.5.3",
     "unist-util-is": "^6.0.1",
     "unist-util-visit": "^5.1.0"
