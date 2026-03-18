@@ -1,7 +1,7 @@
 ---
 import gitlog from "gitlog";
 import BaseLayout from "@layouts/BaseLayout.astro";
-import DisqusArea from "@layouts/DisqusArea.astro";
+//import DisqusArea from "@layouts/DisqusArea.astro";
 //@ts-ignore
 import path from "node:path";
 import { Intl, Temporal } from "@js-temporal/polyfill";
@@ -140,17 +140,4 @@ const { Content } = await render(content);
   <Section>
     <BlogPostNavigation prevPost={prevPostLink} nextPost={nextPostLink} />
   </Section>
-
-  {
-    useDisqus && (
-      <>
-        <Section>
-          <DisqusArea
-            path={`/blog/${content.id}`}
-            originalTitle={content.data.originalTitle || content.data.title}
-          />
-        </Section>
-      </>
-    )
-  }
 </BaseLayout>
