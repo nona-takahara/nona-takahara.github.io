@@ -29,4 +29,9 @@ export default [
     url: "https://myanosasa.github.io/",
     inter: true,
   },
+  {
+    title: "しょうゆさんの個人ページ",
+    url: "https://n-sauce.com/",
+    inter: true
+  }
 ];
