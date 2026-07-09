@@ -25,7 +25,7 @@ jobs:
           node-version: 22.x
           cache: "pnpm"
       - name: Install dependancies
-        run: pnpm install --frozen-lockfile
+        run: pnpm install --frozen-lockfile --allow-scripts
       - name: Build website
         run: pnpm build
       - uses: actions/upload-pages-artifact@v3
