@@ -1,6 +1,7 @@
 {
   "main": "./index.js",
   "type": "module",
+  "packageManager": "pnpm@10.33.0",
   "dependencies": {
     "@ark-ui/react": "^5.31.0",
     "@astrojs/check": "^0.9.4",
@@ -45,5 +46,12 @@
   "devDependencies": {
     "@pandacss/dev": "^1.8.2",
     "sass": "^1.77.8"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "@parcel/watcher",
+      "esbuild",
+      "sharp"
+    ]
   }
 }
