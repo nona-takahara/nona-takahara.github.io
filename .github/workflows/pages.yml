@@ -24,7 +24,6 @@ jobs:
         with:
           node-version: 22.x
           cache: "pnpm"
-      - run: pnpm approve-builds
       - name: Install dependancies
         run: pnpm install --frozen-lockfile
       - name: Build website
