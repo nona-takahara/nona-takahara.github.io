@@ -12,7 +12,7 @@
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
     "@wooorm/starry-night": "^3.4.0",
-    "astro": "^6.4.6",
+    "astro": "^7.1.0",
     "class-variance-authority": "^0.7.1",
     "gitlog": "^5.1.0",
     "hast-util-to-dom": "^4.0.1",
