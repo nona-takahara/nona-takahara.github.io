@@ -62,9 +62,6 @@ importers:
       micromark-util-combine-extensions:
         specifier: ^2.0.1
         version: 2.0.1
-      normalize-scss:
-        specifier: ^8.0.0
-        version: 8.0.0
       react:
         specifier: ^19.2.4
         version: 19.2.4
@@ -96,9 +93,6 @@ importers:
       '@pandacss/dev':
         specifier: ^1.8.2
         version: 1.8.2(typescript@5.9.3)
-      sass:
-        specifier: ^1.77.8
-        version: 1.97.3
 
 packages:
 
@@ -2923,9 +2917,6 @@ packages:
   normalize-path@3.0.0:
     resolution: {integrity: sha512-6eZs5Ls3WtCisHWp9S2GUy8dqkpGi4BVSz3GaqiE6ezub0512ESztXUwUB6C6IKbQkY2Pnb/mD4WYojCRwcwLA==}
     engines: {node: '>=0.10.0'}
-
-  normalize-scss@8.0.0:
-    resolution: {integrity: sha512-C6GXIxQ2LOYWrde27xWbONavmybobxp+V6TY8BiBJw5M+yMNEg2R0WjaeDtmP5JsunFYKvFOvgMAIC0/OxZuJQ==}
 
   nth-check@2.1.1:
     resolution: {integrity: sha512-lqjrjmaOoAnWfMmBPL+XNnynZh2+swxiX3WUE0s4yEHI6m+AwrK2UZOimIRl3X/4QctVqS8AiZjFqyOGrMXb/w==}
@@ -7194,7 +7185,8 @@ snapshots:
     dependencies:
       safer-buffer: 2.1.2
 
-  immutable@5.1.4: {}
+  immutable@5.1.4:
+    optional: true
 
   import-meta-resolve@4.2.0: {}
 
@@ -7887,8 +7879,6 @@ snapshots:
 
   normalize-path@3.0.0: {}
 
-  normalize-scss@8.0.0: {}
-
   nth-check@2.1.1:
     dependencies:
       boolbase: 1.0.0
@@ -8387,6 +8377,7 @@ snapshots:
       source-map-js: 1.2.1
     optionalDependencies:
       '@parcel/watcher': 2.5.6
+    optional: true
 
   sax@1.6.0: {}
 

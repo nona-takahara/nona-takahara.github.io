@@ -1,7 +1,6 @@
 ---
 import gitlog from "gitlog";
 import BaseLayout from "@layouts/BaseLayout.astro";
-//import DisqusArea from "@layouts/DisqusArea.astro";
 //@ts-ignore
 import path from "node:path";
 import { Temporal } from "@js-temporal/polyfill";
@@ -91,7 +90,6 @@ const prevPostLink = prevPost
 const nextPostLink = nextPost
   ? { id: nextPost.id, title: nextPost.data.title }
   : undefined;
-const useDisqus = !filepath.includes("stock");
 const { Content } = await render(content);
 ---
 

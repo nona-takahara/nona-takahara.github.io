@@ -1,5 +1,7 @@
 import { defineTokens } from '@pandacss/dev'
 
+// 現時点でコンポーネント側からの参照は無い。
+// skipLink は本文スキップリンクを可視化する際に使う予定のため残している。
 export const zIndex = defineTokens.zIndex({
   hide: {
     value: -1,

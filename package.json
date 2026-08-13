@@ -21,7 +21,6 @@
     "micromark-extension-gfm-strikethrough": "^2.1.0",
     "micromark-extension-gfm-table": "^2.1.1",
     "micromark-util-combine-extensions": "^2.0.1",
-    "normalize-scss": "^8.0.0",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
     "remark-gfm": "^4.0.0",
@@ -41,11 +40,11 @@
     "start": "astro dev",
     "prebuild": "node scripts/cache-link-banners.mjs",
     "build": "astro build",
-    "preview": "astro preview"
+    "preview": "astro preview",
+    "studio": "panda studio"
   },
   "devDependencies": {
-    "@pandacss/dev": "^1.8.2",
-    "sass": "^1.77.8"
+    "@pandacss/dev": "^1.8.2"
   },
   "pnpm": {
     "onlyBuiltDependencies": [

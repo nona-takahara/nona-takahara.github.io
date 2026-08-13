@@ -1,5 +1,8 @@
 import { defineTextStyles } from '@pandacss/dev'
 
+// 呼び出し側からの直接利用は無く、button / code / breadcrumb / card の
+// size バリアントが内部で参照している。見出しと本文のサイズ体系を
+// これらに寄せる整理は別途行う予定。
 export const textStyles = defineTextStyles({
   xs: { value: { fontSize: 'xs', lineHeight: '1.125rem' } },
   sm: { value: { fontSize: 'sm', lineHeight: '1.25rem' } },
