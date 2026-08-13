@@ -1,5 +1,5 @@
 @import "remixicon/fonts/remixicon.css";
-@import "../node_modules/@wooorm/starry-night/style/high-contrast.css";
+@import "@wooorm/starry-night/style/high-contrast";
 
 /* Panda の注入ポイント。ここより後にレイヤー外のルールを書くと
    Panda が出力する全レイヤーに無条件で勝ってしまうので注意すること。

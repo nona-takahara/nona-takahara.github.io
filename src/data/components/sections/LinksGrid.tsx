@@ -1,14 +1,16 @@
 import { Grid, Stack } from "styled-system/jsx";
 import { Button, Link } from "@data/components/ui";
 
-export function LinksGrid(props: {
-    links: {
-        title: string;
-        url: string;
-        inter: boolean;
-        banner?: any;
-    }[]
-}) {
+// banner は links.js に書かれた URL か、ビルド時にキャッシュされた
+// ローカルパスのいずれか（get-resolved-links.js が解決する）。
+export type ResolvedLink = {
+    title: string;
+    url: string;
+    inter: boolean;
+    banner?: string | undefined;
+};
+
+export function LinksGrid(props: { links: ResolvedLink[] }) {
     return (
         <Grid
             gap="2"

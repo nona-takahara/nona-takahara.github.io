@@ -1,15 +1,15 @@
 import type { ReactNode } from "react";
-import { HStack, Stack } from "styled-system/jsx";
+import { HStack, Stack, type StackProps } from "styled-system/jsx";
 import { Heading } from "@data/components/ui";
 
 type ArticleHeadingProps = {
   title: string;
   categories?: string[];
   children?: ReactNode;
-  mb?: string;
+  mb?: StackProps["mb"];
 };
 
-export function ArticleHeading({ title, categories = [], children, mb = "" }: ArticleHeadingProps) {
+export function ArticleHeading({ title, categories = [], children, mb }: ArticleHeadingProps) {
   return (
     <Stack gap="2" mb={mb}>
       <HStack
