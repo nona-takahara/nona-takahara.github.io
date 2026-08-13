@@ -9,7 +9,7 @@ export const green = defineSemanticTokens.colors({
   '6': { value: { _light: '#adddc0', _dark: '#20573e' } },
   '7': { value: { _light: '#8eceaa', _dark: '#28684a' } },
   '8': { value: { _light: '#5bb98b', _dark: '#2f7c57' } },
-  '9': { value: '#30a46c' },
+  '9': { value: { _light: '#30a46c', _dark: '#30a46c' } },
   '10': { value: { _light: '#2b9a66', _dark: '#33b074' } },
   '11': { value: { _light: '#218358', _dark: '#3dd68c' } },
   '12': { value: { _light: '#193b2d', _dark: '#b1f1cb' } },
