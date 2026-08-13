@@ -1,12 +1,12 @@
 @import "remixicon/fonts/remixicon.css";
 @import "@wooorm/starry-night/style/high-contrast";
 
-/* Panda の注入ポイント。ここより後にレイヤー外のルールを書くと
-   Panda が出力する全レイヤーに無条件で勝ってしまうので注意すること。
-   フォント・配色・スクロール挙動は panda.config.ts のトークンと
-   src/data/theme/global-css.ts に集約している。 */
+/* Panda CSSが出力するスタイルの注入ポイント
+   [WARN]: この後にCSS Layer外のルールを書くと
+           Panda CSSによって出力されるスタイルを無条件で上書きする */
 @layer reset, base, tokens, recipes, utilities;
 
+/* TODO: Panda CSSエコシステム内に含める方法を検討 */
 div.three-ds {
   display: block;
   overflow: auto;
