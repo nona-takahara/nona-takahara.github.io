@@ -13,7 +13,7 @@ export function Header() {
     return (
         <Root>
             <PageContainer>
-                <Heading as="h1" fontSize="2xl" fontWeight="bold" height="20" display="flex" alignItems="center">
+                <Heading as="h1" fontSize="2xl" height="20" display="flex" alignItems="center">
                     <Link href="/">
                         <ColorModeImage
                             src="/image/nonasaba-net.svg"

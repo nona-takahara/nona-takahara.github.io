@@ -1,4 +1,4 @@
-import { Intl, Temporal } from "@js-temporal/polyfill";
+import type { Intl, Temporal } from "@js-temporal/polyfill";
 
 type TemporalValue =
   | Temporal.PlainDate

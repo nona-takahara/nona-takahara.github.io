@@ -11,9 +11,6 @@ importers:
       '@ark-ui/react':
         specifier: ^5.31.0
         version: 5.31.0(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
-      '@astrojs/check':
-        specifier: ^0.9.4
-        version: 0.9.6(prettier@3.8.1)(typescript@5.9.3)
       '@astrojs/mdx':
         specifier: ^4.3.13
         version: 4.3.13(astro@6.4.6(lightningcss@1.30.2)(rollup@4.62.2)(sass@1.97.3)(yaml@2.8.2))
@@ -23,15 +20,6 @@ importers:
       '@js-temporal/polyfill':
         specifier: ^0.4.4
         version: 0.4.4
-      '@pandacss/studio':
-        specifier: ^1.8.2
-        version: 1.8.2(@types/react-dom@19.2.3(@types/react@19.2.14))(@types/react@19.2.14)(lightningcss@1.30.2)(rollup@4.62.2)(sass@1.97.3)(typescript@5.9.3)(yaml@2.8.2)
-      '@types/react':
-        specifier: ^19.2.14
-        version: 19.2.14
-      '@types/react-dom':
-        specifier: ^19.2.3
-        version: 19.2.3(@types/react@19.2.14)
       '@wooorm/starry-night':
         specifier: ^3.4.0
         version: 3.9.0
@@ -62,9 +50,6 @@ importers:
       micromark-util-combine-extensions:
         specifier: ^2.0.1
         version: 2.0.1
-      normalize-scss:
-        specifier: ^8.0.0
-        version: 8.0.0
       react:
         specifier: ^19.2.4
         version: 19.2.4
@@ -80,12 +65,6 @@ importers:
       remixicon:
         specifier: ^4.6.0
         version: 4.9.1
-      sharp:
-        specifier: ^0.34.5
-        version: 0.34.5
-      typescript:
-        specifier: ^5.5.3
-        version: 5.9.3
       unist-util-is:
         specifier: ^6.0.1
         version: 6.0.1
@@ -93,12 +72,27 @@ importers:
         specifier: ^5.1.0
         version: 5.1.0
     devDependencies:
+      '@astrojs/check':
+        specifier: ^0.9.4
+        version: 0.9.6(prettier@3.8.1)(typescript@5.9.3)
       '@pandacss/dev':
         specifier: ^1.8.2
         version: 1.8.2(typescript@5.9.3)
-      sass:
-        specifier: ^1.77.8
-        version: 1.97.3
+      '@pandacss/studio':
+        specifier: ^1.8.2
+        version: 1.8.2(@types/react-dom@19.2.3(@types/react@19.2.14))(@types/react@19.2.14)(lightningcss@1.30.2)(rollup@4.62.2)(sass@1.97.3)(typescript@5.9.3)(yaml@2.8.2)
+      '@types/react':
+        specifier: ^19.2.14
+        version: 19.2.14
+      '@types/react-dom':
+        specifier: ^19.2.3
+        version: 19.2.3(@types/react@19.2.14)
+      sharp:
+        specifier: ^0.34.5
+        version: 0.34.5
+      typescript:
+        specifier: ^5.5.3
+        version: 5.9.3
 
 packages:
 
@@ -2924,9 +2918,6 @@ packages:
     resolution: {integrity: sha512-6eZs5Ls3WtCisHWp9S2GUy8dqkpGi4BVSz3GaqiE6ezub0512ESztXUwUB6C6IKbQkY2Pnb/mD4WYojCRwcwLA==}
     engines: {node: '>=0.10.0'}
 
-  normalize-scss@8.0.0:
-    resolution: {integrity: sha512-C6GXIxQ2LOYWrde27xWbONavmybobxp+V6TY8BiBJw5M+yMNEg2R0WjaeDtmP5JsunFYKvFOvgMAIC0/OxZuJQ==}
-
   nth-check@2.1.1:
     resolution: {integrity: sha512-lqjrjmaOoAnWfMmBPL+XNnynZh2+swxiX3WUE0s4yEHI6m+AwrK2UZOimIRl3X/4QctVqS8AiZjFqyOGrMXb/w==}
 
@@ -5191,7 +5182,7 @@ snapshots:
       detect-libc: 2.1.2
       is-glob: 4.0.3
       node-addon-api: 7.1.1
-      picomatch: 4.0.3
+      picomatch: 4.0.5
     optionalDependencies:
       '@parcel/watcher-android-arm64': 2.5.6
       '@parcel/watcher-darwin-arm64': 2.5.6
@@ -7194,7 +7185,8 @@ snapshots:
     dependencies:
       safer-buffer: 2.1.2
 
-  immutable@5.1.4: {}
+  immutable@5.1.4:
+    optional: true
 
   import-meta-resolve@4.2.0: {}
 
@@ -7887,8 +7879,6 @@ snapshots:
 
   normalize-path@3.0.0: {}
 
-  normalize-scss@8.0.0: {}
-
   nth-check@2.1.1:
     dependencies:
       boolbase: 1.0.0
@@ -8387,6 +8377,7 @@ snapshots:
       source-map-js: 1.2.1
     optionalDependencies:
       '@parcel/watcher': 2.5.6
+    optional: true
 
   sax@1.6.0: {}
 
