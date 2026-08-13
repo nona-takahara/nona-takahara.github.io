@@ -8,6 +8,7 @@ const blogCollection = defineCollection({
     short: z.string(),
     katex: z.boolean().optional(),
     highlight: z.boolean().optional(),
+    originalTitle: z.string().optional(),
   }),
 });
 
@@ -16,8 +17,10 @@ const appCollection = defineCollection({
   schema: ({ image }) =>
     z.object({
       title: z.string(),
+      id: z.string(),
       icon: image().optional(),
       bg: image().optional(),
+      iconPixelated: z.boolean().optional(),
       short: z.string(),
       order: z.number(),
       top: z.boolean().optional(),
