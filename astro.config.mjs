@@ -1,4 +1,5 @@
 import { defineConfig } from 'astro/config';
+import { fileURLToPath } from 'node:url';
 
 import { remarkGfm } from './nonagfm.mjs'
 import { underLine, MDNblock, remarkCodeLanguage } from './markparse.mjs';
@@ -25,5 +26,16 @@ export default defineConfig({
 
   integrations: [react(), mdx({
     extendMarkdownConfig: true
-  })]
+  })],
+
+  vite: {
+    resolve: {
+      alias: [
+        {
+          find: /^styled-system\/(.*)$/,
+          replacement: fileURLToPath(new URL('./styled-system/$1', import.meta.url)),
+        },
+      ],
+    },
+  },
 });

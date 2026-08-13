@@ -1,10 +1,6 @@
-import { readFile } from "node:fs/promises";
 import links from "./links.js";
 import cacheManifest from "./banner-cache.generated.json";
-
-function isExternalUrl(value) {
-  return typeof value === "string" && /^https?:\/\//.test(value);
-}
+import { isExternalUrl } from "@data/url-policy";
 
 function normalizeLocalPath(value) {
   if (!value || isExternalUrl(value)) {

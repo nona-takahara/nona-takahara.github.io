@@ -20,7 +20,7 @@ export const PetitcomPublicKey = styled("div", {
       paddingY: "0.5",
       paddingX: "2.5",
       display: "inline-block",
-      fontFamily: "var(--font-mono)",
+      fontFamily: "mono",
       fontSize: "xl",
       fontWeight: "bold",
       bg: "gray.1",

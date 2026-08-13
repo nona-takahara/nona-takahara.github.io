@@ -3,6 +3,9 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
+      "styled-system/*": [
+        "styled-system/*"
+      ],
       "@data/*": [
         "src/data/*"
       ],

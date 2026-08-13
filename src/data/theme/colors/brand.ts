@@ -27,43 +27,43 @@ export const brand = defineSemanticTokens.colors({
     a12: { value: { _light: '#002863f7', _dark: '#cce2ff' } },
     solid: {
         bg: {
-            DEFAULT: { value: { _light: '{colors.brand.9}', _dark: '{colors.brand.9}' } },
-            hover: { value: { _light: '{colors.brand.10}', _dark: '{colors.brand.10}' } },
+            DEFAULT: { value: '{colors.brand.9}' },
+            hover: { value: '{colors.brand.10}' },
         },
-        fg: { DEFAULT: { value: { _light: 'white', _dark: 'white' } } },
+        fg: { DEFAULT: { value: 'white' } },
     },
     subtle: {
         bg: {
-            DEFAULT: { value: { _light: '{colors.brand.a3}', _dark: '{colors.brand.a3}' } },
-            hover: { value: { _light: '{colors.brand.a4}', _dark: '{colors.brand.a4}' } },
-            active: { value: { _light: '{colors.brand.a5}', _dark: '{colors.brand.a5}' } },
+            DEFAULT: { value: '{colors.brand.a3}' },
+            hover: { value: '{colors.brand.a4}' },
+            active: { value: '{colors.brand.a5}' },
         },
-        fg: { DEFAULT: { value: { _light: '{colors.brand.a11}', _dark: '{colors.brand.a11}' } } },
+        fg: { DEFAULT: { value: '{colors.brand.a11}' } },
     },
     surface: {
         bg: {
-            DEFAULT: { value: { _light: '{colors.brand.a2}', _dark: '{colors.brand.a2}' } },
-            active: { value: { _light: '{colors.brand.a3}', _dark: '{colors.brand.a3}' } },
+            DEFAULT: { value: '{colors.brand.a2}' },
+            active: { value: '{colors.brand.a3}' },
         },
         border: {
-            DEFAULT: { value: { _light: '{colors.brand.a6}', _dark: '{colors.brand.a6}' } },
-            hover: { value: { _light: '{colors.brand.a7}', _dark: '{colors.brand.a7}' } },
+            DEFAULT: { value: '{colors.brand.a6}' },
+            hover: { value: '{colors.brand.a7}' },
         },
-        fg: { DEFAULT: { value: { _light: '{colors.brand.a11}', _dark: '{colors.brand.a11}' } } },
+        fg: { DEFAULT: { value: '{colors.brand.a11}' } },
     },
     outline: {
         bg: {
-            hover: { value: { _light: '{colors.brand.a2}', _dark: '{colors.brand.a2}' } },
-            active: { value: { _light: '{colors.brand.a3}', _dark: '{colors.brand.a3}' } },
+            hover: { value: '{colors.brand.a2}' },
+            active: { value: '{colors.brand.a3}' },
         },
-        border: { DEFAULT: { value: { _light: '{colors.brand.a7}', _dark: '{colors.brand.a7}' } } },
-        fg: { DEFAULT: { value: { _light: '{colors.brand.a11}', _dark: '{colors.brand.a11}' } } },
+        border: { DEFAULT: { value: '{colors.brand.a7}' } },
+        fg: { DEFAULT: { value: '{colors.brand.a11}' } },
     },
     plain: {
         bg: {
-            hover: { value: { _light: '{colors.brand.a3}', _dark: '{colors.brand.a3}' } },
-            active: { value: { _light: '{colors.brand.a4}', _dark: '{colors.brand.a4}' } },
+            hover: { value: '{colors.brand.a3}' },
+            active: { value: '{colors.brand.a4}' },
         },
-        fg: { DEFAULT: { value: { _light: '{colors.brand.a11}', _dark: '{colors.brand.a11}' } } },
+        fg: { DEFAULT: { value: '{colors.brand.a11}' } },
     },
 })

@@ -1,17 +1,11 @@
 import { getCollection } from "astro:content";
 import { Section } from "../primitive/Section";
 import { Card, Heading, Link, Text } from "../ui";
-import { Stack } from "@/styled-system/jsx";
-
-function getBlogOrder(id: string) {
-  const value = Number(id.replace("entry", ""));
-  return Number.isFinite(value) ? value : -1;
-}
+import { Stack } from "styled-system/jsx";
+import { sortBlogPostsByNewest } from "@data/blog/order";
 
 export async function BlogArchive() {
-  const posts = (await getCollection("blog")).sort(
-    (a, b) => getBlogOrder(b.id) - getBlogOrder(a.id),
-  );
+  const posts = sortBlogPostsByNewest(await getCollection("blog"));
 
   return (
     <Section id="blog">

@@ -1,32 +1,12 @@
 @import "remixicon/fonts/remixicon.css";
-@import "../node_modules/@wooorm/starry-night/style/high-contrast.css";
+@import "@wooorm/starry-night/style/high-contrast";
 
+/* Panda CSSが出力するスタイルの注入ポイント
+   [WARN]: この後にCSS Layer外のルールを書くと
+           Panda CSSによって出力されるスタイルを無条件で上書きする */
 @layer reset, base, tokens, recipes, utilities;
 
-:root {
-  --font-sans:
-    "Red Hat Text", "Zen Kaku Gothic New", system-ui, -apple-system,
-    BlinkMacSystemFont, sans-serif;
-  --font-mono: "Inconsolata", Consolas, "Zen Kaku Gothic New", monospace;
-}
-
-/* fallback */
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  font-family: var(--font-sans);
-}
-
-code,
-pre,
-kbd,
-samp {
-  font-family: var(--font-mono);
-}
-
+/* TODO: Panda CSSエコシステム内に含める方法を検討 */
 div.three-ds {
   display: block;
   overflow: auto;

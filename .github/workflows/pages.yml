@@ -26,6 +26,8 @@ jobs:
           cache: "pnpm"
       - name: Install dependancies
         run: pnpm install --frozen-lockfile
+      - name: Type check
+        run: pnpm check
       - name: Build website
         run: pnpm build
       - uses: actions/upload-pages-artifact@v3

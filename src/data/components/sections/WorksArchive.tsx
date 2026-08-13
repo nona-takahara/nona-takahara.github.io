@@ -1,7 +1,7 @@
 import { getCollection } from "astro:content";
 import { WorksGrid } from "./WorksGrid";
 import { Section } from "../primitive/Section";
-import { Stack } from "@/styled-system/jsx";
+import { Stack } from "styled-system/jsx";
 import { Heading } from "../ui";
 
 export async function WorksArchive() {

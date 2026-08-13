@@ -1,4 +1,5 @@
-import { styled } from "@/styled-system/jsx";
+import type { ComponentProps } from "react";
+import { styled } from "styled-system/jsx";
 
 const CodePre = styled("pre", {
     base: {
@@ -13,15 +14,6 @@ const CodePre = styled("pre", {
     },
 })
 
-export const MdxPre = (props: any) => {
-    const codeProps = props.children?.props?.value;
-    if (codeProps?.includes("data-lang")) {
-        return (
-            <CodePre {...props} />
-        )
-    }
-
-    return (
-        <pre {...props} />
-    );
-};
+// 記事中の <pre> はフェンス付きコードブロックからしか生成されないため、
+// 常にコードブロックとして装飾する。
+export const MdxPre = (props: ComponentProps<"pre">) => <CodePre {...props} />;

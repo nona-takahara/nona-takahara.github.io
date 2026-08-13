@@ -8,10 +8,15 @@ export const globalCss = {
     },
     html: {
       colorPalette: 'brand',
+      scrollBehavior: 'smooth',
     },
     body: {
       background: 'bg.default',
       color: 'fg.default',
+      fontFamily: 'sans',
+    },
+    'code, pre, kbd, samp': {
+      fontFamily: 'mono',
     },
   },
 }
