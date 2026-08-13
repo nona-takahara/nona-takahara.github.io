@@ -1,6 +1,5 @@
-import { Stack } from "@/styled-system/jsx";
+import { Grid, Stack } from "styled-system/jsx";
 import { Button, Link } from "@data/components/ui";
-import { Grid } from "../primitive/Grid";
 
 export function LinksGrid(props: {
     links: {

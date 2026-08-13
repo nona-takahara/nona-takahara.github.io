@@ -61,51 +61,21 @@ export default defineConfig({
 
       semanticTokens: {
         colors: {
+          // 参照先の gray / red スケールがモードごとに切り替わるため、
+          // エイリアス側は _light / _dark を分けずに 1 つの値で足りる。
           fg: {
-            default: {
-              value: {
-                _light: "{colors.gray.12}",
-                _dark: "{colors.gray.12}"
-              }
-            },
-
-            muted: {
-              value: {
-                _light: "{colors.gray.11}",
-                _dark: "{colors.gray.11}"
-              }
-            },
-
-            subtle: {
-              value: {
-                _light: "{colors.gray.10}",
-                _dark: "{colors.gray.10}"
-              }
-            }
+            default: { value: "{colors.gray.12}" },
+            muted: { value: "{colors.gray.11}" },
+            subtle: { value: "{colors.gray.10}" }
           },
 
           bg: {
-            default: {
-              value: {
-                _light: "{colors.gray.1}",
-                _dark: "{colors.gray.1}"
-              }
-            }
+            default: { value: "{colors.gray.1}" }
           },
 
-          border: {
-            value: {
-              _light: "{colors.gray.4}",
-              _dark: "{colors.gray.4}"
-            }
-          },
+          border: { value: "{colors.gray.4}" },
 
-          error: {
-            value: {
-              _light: "{colors.red.9}",
-              _dark: "{colors.red.9}"
-            }
-          },
+          error: { value: "{colors.red.9}" },
 
           gray: neutral,
           red: red,

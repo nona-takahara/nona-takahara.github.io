@@ -1,4 +1,4 @@
-import { Grid } from "@data/components/primitive/Grid";
+import { Grid } from "styled-system/jsx";
 import { Card, Link } from "@data/components/ui";
 import type { CollectionEntry } from "astro:content";
 import { token } from "styled-system/tokens";

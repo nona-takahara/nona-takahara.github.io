@@ -1,4 +1,4 @@
-import { HorizonalStack } from "@data/components/primitive/HorizonalStack";
+import { HStack } from "styled-system/jsx";
 import { Section } from "@data/components/primitive/Section";
 import { getCollection } from "astro:content";
 import { Button, Heading, Link } from "../ui";
@@ -9,17 +9,17 @@ export async function QuickAccess() {
     );
     return (
         <Section tone="quick">
-            <HorizonalStack gap="3">
+            <HStack gap="3">
                 <Heading as="h2" fontSize="2xl">Quick Access</Heading>
-                <HorizonalStack gap="2" flexWrap="wrap">
+                <HStack gap="2" flexWrap="wrap">
                     {works.map((w) =>
                         <Button key={w.id} variant="outline" fontSize="md" asChild>
                             <Link href={w.data.links[0]?.url} variant="plain">{w.data.links[0]?.label}</Link>
                         </Button>
                     )
                     }
-                </HorizonalStack>
-            </HorizonalStack>
+                </HStack>
+            </HStack>
         </Section >
     )
 }

@@ -24,6 +24,11 @@ export const siteUrlPolicy = {
   },
 };
 
+// http/https の絶対URLかどうかを判定する。
+export function isExternalUrl(value: unknown): value is string {
+  return typeof value === "string" && /^https?:\/\//.test(value);
+}
+
 // 末尾セグメントに拡張子が付いているかを判定する。
 function hasFileExtension(pathname: string) {
   return /\/[^/]+\.[^/]+$/.test(pathname);

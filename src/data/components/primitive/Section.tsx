@@ -1,7 +1,7 @@
 import { styled } from 'styled-system/jsx'
 import { PageContainer } from '../layout/PageContainer'
 import type { ReactNode } from 'react'
-import { cva, type RecipeVariantProps } from '@/styled-system/css'
+import { cva, type RecipeVariantProps } from 'styled-system/css'
 
 const Root = styled('section', {
     base: {

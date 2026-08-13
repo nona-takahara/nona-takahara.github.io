@@ -1,31 +1,11 @@
 @import "remixicon/fonts/remixicon.css";
 @import "../node_modules/@wooorm/starry-night/style/high-contrast.css";
 
+/* Panda の注入ポイント。ここより後にレイヤー外のルールを書くと
+   Panda が出力する全レイヤーに無条件で勝ってしまうので注意すること。
+   フォント・配色・スクロール挙動は panda.config.ts のトークンと
+   src/data/theme/global-css.ts に集約している。 */
 @layer reset, base, tokens, recipes, utilities;
-
-:root {
-  --font-sans:
-    "Red Hat Text", "Zen Kaku Gothic New", system-ui, -apple-system,
-    BlinkMacSystemFont, sans-serif;
-  --font-mono: "Inconsolata", Consolas, "Zen Kaku Gothic New", monospace;
-}
-
-/* fallback */
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  font-family: var(--font-sans);
-}
-
-code,
-pre,
-kbd,
-samp {
-  font-family: var(--font-mono);
-}
 
 div.three-ds {
   display: block;

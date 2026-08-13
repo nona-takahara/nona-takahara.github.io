@@ -9,7 +9,7 @@ export const green = defineSemanticTokens.colors({
   '6': { value: { _light: '#adddc0', _dark: '#20573e' } },
   '7': { value: { _light: '#8eceaa', _dark: '#28684a' } },
   '8': { value: { _light: '#5bb98b', _dark: '#2f7c57' } },
-  '9': { value: { _light: '#30a46c', _dark: '#30a46c' } },
+  '9': { value: '#30a46c' },
   '10': { value: { _light: '#2b9a66', _dark: '#33b074' } },
   '11': { value: { _light: '#218358', _dark: '#3dd68c' } },
   '12': { value: { _light: '#193b2d', _dark: '#b1f1cb' } },
@@ -27,43 +27,43 @@ export const green = defineSemanticTokens.colors({
   a12: { value: { _light: '#002616e6', _dark: '#bbffd7f0' } },
   solid: {
     bg: {
-      DEFAULT: { value: { _light: '{colors.green.9}', _dark: '{colors.green.9}' } },
-      hover: { value: { _light: '{colors.green.10}', _dark: '{colors.green.10}' } },
+      DEFAULT: { value: '{colors.green.9}' },
+      hover: { value: '{colors.green.10}' },
     },
-    fg: { DEFAULT: { value: { _light: 'white', _dark: 'white' } } },
+    fg: { DEFAULT: { value: 'white' } },
   },
   subtle: {
     bg: {
-      DEFAULT: { value: { _light: '{colors.green.a3}', _dark: '{colors.green.a3}' } },
-      hover: { value: { _light: '{colors.green.a4}', _dark: '{colors.green.a4}' } },
-      active: { value: { _light: '{colors.green.a5}', _dark: '{colors.green.a5}' } },
+      DEFAULT: { value: '{colors.green.a3}' },
+      hover: { value: '{colors.green.a4}' },
+      active: { value: '{colors.green.a5}' },
     },
-    fg: { DEFAULT: { value: { _light: '{colors.green.a11}', _dark: '{colors.green.a11}' } } },
+    fg: { DEFAULT: { value: '{colors.green.a11}' } },
   },
   surface: {
     bg: {
-      DEFAULT: { value: { _light: '{colors.green.a2}', _dark: '{colors.green.a2}' } },
-      active: { value: { _light: '{colors.green.a3}', _dark: '{colors.green.a3}' } },
+      DEFAULT: { value: '{colors.green.a2}' },
+      active: { value: '{colors.green.a3}' },
     },
     border: {
-      DEFAULT: { value: { _light: '{colors.green.a6}', _dark: '{colors.green.a6}' } },
-      hover: { value: { _light: '{colors.green.a7}', _dark: '{colors.green.a7}' } },
+      DEFAULT: { value: '{colors.green.a6}' },
+      hover: { value: '{colors.green.a7}' },
     },
-    fg: { DEFAULT: { value: { _light: '{colors.green.a11}', _dark: '{colors.green.a11}' } } },
+    fg: { DEFAULT: { value: '{colors.green.a11}' } },
   },
   outline: {
     bg: {
-      hover: { value: { _light: '{colors.green.a2}', _dark: '{colors.green.a2}' } },
-      active: { value: { _light: '{colors.green.a3}', _dark: '{colors.green.a3}' } },
+      hover: { value: '{colors.green.a2}' },
+      active: { value: '{colors.green.a3}' },
     },
-    border: { DEFAULT: { value: { _light: '{colors.green.a7}', _dark: '{colors.green.a7}' } } },
-    fg: { DEFAULT: { value: { _light: '{colors.green.a11}', _dark: '{colors.green.a11}' } } },
+    border: { DEFAULT: { value: '{colors.green.a7}' } },
+    fg: { DEFAULT: { value: '{colors.green.a11}' } },
   },
   plain: {
     bg: {
-      hover: { value: { _light: '{colors.green.a3}', _dark: '{colors.green.a3}' } },
-      active: { value: { _light: '{colors.green.a4}', _dark: '{colors.green.a4}' } },
+      hover: { value: '{colors.green.a3}' },
+      active: { value: '{colors.green.a4}' },
     },
-    fg: { DEFAULT: { value: { _light: '{colors.green.a11}', _dark: '{colors.green.a11}' } } },
+    fg: { DEFAULT: { value: '{colors.green.a11}' } },
   },
 })

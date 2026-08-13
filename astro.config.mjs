@@ -1,4 +1,5 @@
 import { defineConfig } from 'astro/config';
+import { fileURLToPath } from 'node:url';
 
 import { remarkGfm } from './nonagfm.mjs'
 import { underLine, MDNblock, remarkCodeLanguage } from './markparse.mjs';
@@ -25,5 +26,20 @@ export default defineConfig({
 
   integrations: [react(), mdx({
     extendMarkdownConfig: true
-  })]
+  })],
+
+  vite: {
+    resolve: {
+      // `styled-system/*` を Panda の生成物へ明示的に向ける。
+      // Astro は tsconfig の baseUrl による bare specifier 解決を
+      // deprecated なフォールバックとして提供しているだけで、
+      // 素の Vite はこれを解決しない。
+      alias: [
+        {
+          find: /^styled-system\/(.*)$/,
+          replacement: fileURLToPath(new URL('./styled-system/$1', import.meta.url)),
+        },
+      ],
+    },
+  },
 });

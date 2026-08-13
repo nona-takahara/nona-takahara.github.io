@@ -1,4 +1,4 @@
-import { Stack } from "@/styled-system/jsx";
+import { Stack } from "styled-system/jsx";
 import { Section } from "@data/components/primitive/Section";
 import { Heading, Text } from "@data/components/ui";
 

@@ -3,6 +3,11 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
+      // Panda の生成物。baseUrl 単独の解決に頼らず明示する
+      // （Astro の baseUrl フォールバックは deprecated 扱いのため）
+      "styled-system/*": [
+        "styled-system/*"
+      ],
       "@data/*": [
         "src/data/*"
       ],

@@ -4,7 +4,9 @@ import BaseLayout from "@layouts/BaseLayout.astro";
 //import DisqusArea from "@layouts/DisqusArea.astro";
 //@ts-ignore
 import path from "node:path";
-import { Intl, Temporal } from "@js-temporal/polyfill";
+import { Temporal } from "@js-temporal/polyfill";
+import { dateTimeFormatOptions, instantToPlainDate } from "src/TemporalWrap";
+import { sortBlogPostsByNewest } from "@data/blog/order";
 import ignoreHashes from "src/data/blog/ignore-hashes";
 import { MdxComponents } from "@data/components/layout/MdxComponents";
 import { getCollection, render } from "astro:content";
@@ -71,29 +73,12 @@ function gitlogLibDateToISODate(gitlibdate: string) {
   );
 }
 
-const formatOptions: Intl.DateTimeFormatOptions = {
-  timeZone: "Asia/Tokyo",
-  dateStyle: "long",
-  timeStyle: "medium",
-};
-
-function instantToPlainDate(date: Temporal.Instant | undefined) {
-  return date?.toZonedDateTimeISO("Asia/Tokyo").toPlainDate();
-}
-
-function getBlogOrder(id: string) {
-  const value = Number(id.replace("entry", ""));
-  return Number.isFinite(value) ? value : -1;
-}
-
 const content = Astro.props;
 const filepath = content.filePath || "src/data/blog/" + content.id + ".md";
 const date = await findFirstAndLatestTimeStamp(filepath);
 const postDate = instantToPlainDate(date.first_commit);
 const updateDate = instantToPlainDate(date.latest_commit);
-const posts = (await getCollection("blog")).sort(
-  (a, b) => getBlogOrder(b.id) - getBlogOrder(a.id),
-);
+const posts = sortBlogPostsByNewest(await getCollection("blog"));
 const currentIndex = posts.findIndex((post) => post.id === content.id);
 const prevPost = currentIndex > 0 ? posts[currentIndex - 1] : undefined;
 const nextPost =
@@ -131,8 +116,8 @@ const { Content } = await render(content);
   <Section>
     <ArticleHeading title={content.data.title} mb="4">
       <Text textAlign="right">
-        投稿 <Time temporal={postDate} formatOptions={formatOptions} /> / 最終更新
-        <Time temporal={updateDate} formatOptions={formatOptions} />
+        投稿 <Time temporal={postDate} formatOptions={dateTimeFormatOptions} /> / 最終更新
+        <Time temporal={updateDate} formatOptions={dateTimeFormatOptions} />
       </Text>
     </ArticleHeading>
     <Content components={MdxComponents} />
