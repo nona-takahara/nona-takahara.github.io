@@ -10,7 +10,7 @@ export function WorksGrid(props: { works: CollectionEntry<"applist">[] }) {
                 const bg = token.var("colors.bg.default");
                 const border = token.var("borderWidths.thick");
                 const offset = token.var("borderWidths.thick");
-                const hasBackground = Boolean(w.data.icon?.src);
+                const hasBackground = Boolean(w.data.bg?.src);
 
                 const backgroundStyle = hasBackground
                     ? {

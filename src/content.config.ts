@@ -17,7 +17,6 @@ const appCollection = defineCollection({
   schema: ({ image }) =>
     z.object({
       title: z.string(),
-      id: z.string(),
       icon: image().optional(),
       bg: image().optional(),
       iconPixelated: z.boolean().optional(),
