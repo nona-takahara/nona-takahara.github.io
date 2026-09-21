@@ -5,7 +5,7 @@ export const code = defineRecipe({
   jsx: ['Code', 'InlineCode'],
   base: {
     alignItems: 'center',
-    borderRadius: 'l2',
+    borderRadius: 'l1',
     display: 'inline-flex',
     fontVariantNumeric: 'tabular-nums',
     fontFamily: 'mono',
@@ -22,20 +22,9 @@ export const code = defineRecipe({
         bg: 'colorPalette.solid.bg',
         color: 'colorPalette.solid.fg',
       },
-      surface: {
-        bg: 'colorPalette.surface.bg',
-        borderWidth: '1px',
-        borderColor: 'colorPalette.surface.border',
-        color: 'colorPalette.surface.fg',
-      },
       subtle: {
         bg: 'colorPalette.subtle.bg',
         color: 'colorPalette.subtle.fg',
-      },
-      outline: {
-        borderWidth: '1px',
-        borderColor: 'colorPalette.outline.border',
-        color: 'colorPalette.outline.fg',
       },
       plain: {
         color: 'colorPalette.plain.fg',
