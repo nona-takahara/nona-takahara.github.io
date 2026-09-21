@@ -1,12 +1,4 @@
 import { styled } from "styled-system/jsx";
+import { horizontalRule } from "styled-system/recipes";
 
-export const HorizontalRule = styled("hr", {
-  base: {
-    border: "none",
-    borderTopWidth: "thin",
-    borderTopStyle: "solid",
-    borderTopColor: "colorPalette.outline.border",
-    marginBlock: "6",
-  },
-});
-
+export const HorizontalRule = styled("hr", horizontalRule);
