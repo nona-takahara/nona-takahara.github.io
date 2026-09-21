@@ -17,7 +17,7 @@ export const button = defineRecipe({
     outline: '0',
     position: 'relative',
     transition: 'colors',
-    transitionProperty: 'background-color, border-color, color, box-shadow',
+    transitionProperty: 'background-color, border-color, color',
     userSelect: 'none',
     verticalAlign: 'middle',
     whiteSpace: 'nowrap',
@@ -41,6 +41,9 @@ export const button = defineRecipe({
         _hover: {
           bg: 'colorPalette.solid.bg.hover',
         },
+        _active: {
+          bg: 'colorPalette.11',
+        },
       },
       surface: {
         bg: 'colorPalette.surface.bg',
@@ -48,6 +51,7 @@ export const button = defineRecipe({
         borderColor: 'colorPalette.surface.border',
         color: 'colorPalette.surface.fg',
         _hover: {
+          bg: 'colorPalette.surface.bg.hover',
           borderColor: 'colorPalette.surface.border.hover',
         },
         _active: {

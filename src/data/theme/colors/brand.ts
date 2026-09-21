@@ -43,7 +43,8 @@ export const brand = defineSemanticTokens.colors({
     surface: {
         bg: {
             DEFAULT: { value: '{colors.brand.a2}' },
-            active: { value: '{colors.brand.a3}' },
+            hover: { value: '{colors.brand.a3}' },
+            active: { value: '{colors.brand.a4}' },
         },
         border: {
             DEFAULT: { value: '{colors.brand.a6}' },

@@ -54,8 +54,8 @@ export const neutral = defineSemanticTokens.colors({
   },
   outline: {
     bg: {
-      hover: { value: '{colors.gray.a2}' },
-      active: { value: '{colors.gray.a3}' },
+      hover: { value: '{colors.gray.a3}' },
+      active: { value: '{colors.gray.a4}' },
     },
     border: { DEFAULT: { value: '{colors.gray.6}' } },
     fg: { DEFAULT: { value: '{colors.gray.12}' } },
