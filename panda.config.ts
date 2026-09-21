@@ -4,7 +4,6 @@ import { neutral } from "@data/theme/colors/neutral";
 import { brand } from "@data/theme/colors/brand";
 import { animationStyles } from "@data/theme/animation-styles";
 import { zIndex } from "@data/theme/tokens/z-index";
-import { shadows } from "@data/theme/tokens/shadows";
 import { durations } from "@data/theme/tokens/durations";
 import { colors } from "@data/theme/tokens/colors";
 import { textStyles } from "@data/theme/text-styles";
@@ -80,8 +79,6 @@ export default defineConfig({
           green: green,
           brand: brand
         },
-
-        shadows: shadows,
 
         radii: {
           l1: {
