@@ -8,6 +8,11 @@ import { link } from "./link";
 import { card } from "./card";
 import { text } from "./text";
 import { heading } from "./heading";
+import { callout } from "./callout";
+import { blockquote } from "./blockquote";
+import { unorderedList, orderedList, listItem } from "./list";
+import { horizontalRule } from "./horizontal-rule";
+import { codeBlock } from "./code-block";
 export const recipes = {
   heading,
   text,
@@ -18,6 +23,13 @@ export const recipes = {
   absoluteCenter,
   spinner,
   code,
+  callout,
+  blockquote,
+  unorderedList,
+  orderedList,
+  listItem,
+  horizontalRule,
+  codeBlock,
 }
 export const slotRecipes = {
   breadcrumb

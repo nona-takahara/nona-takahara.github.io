@@ -101,5 +101,20 @@ export default defineConfig({
   outdir: "styled-system",
 
   globalCss: globalCss,
-  conditions: conditions
+  conditions: conditions,
+
+  // Panda emits a recipe's CSS only where it finds JSX that uses the recipe. These recipes are used
+  // through references that are not JSX (MdxComponents maps element names to components; Callout
+  // reaches its recipe through a component with another name), so their CSS is listed here.
+  staticCss: {
+    recipes: {
+      callout: ['*'],
+      blockquote: ['*'],
+      unorderedList: ['*'],
+      orderedList: ['*'],
+      listItem: ['*'],
+      horizontalRule: ['*'],
+      codeBlock: ['*'],
+    },
+  },
 });
