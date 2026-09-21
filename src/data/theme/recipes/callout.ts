@@ -14,11 +14,13 @@ export const callout = defineRecipe({
     marginBlock: '4',
     paddingInline: '4',
     paddingBlock: '3',
+    // Panda always emits utilities after recipes, so a recipe cannot override the `mt="1"` that every
+    // article paragraph carries (MdxComponents). `!important` is what lets these two rules win.
     '& p': {
-      marginBlock: '0',
+      marginBlock: '0 !important',
     },
     '& p + p': {
-      marginTop: '2',
+      marginTop: '2 !important',
     },
   },
   defaultVariants: {
