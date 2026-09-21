@@ -32,8 +32,8 @@ const Root = styled("aside", {
         bg: "colorPalette.2",
       },
       warning: {
-        borderColor: "error.7",
-        bg: "error.2",
+        borderColor: "red.7",
+        bg: "red.2",
       },
     },
   },
