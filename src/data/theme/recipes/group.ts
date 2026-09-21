@@ -45,14 +45,14 @@ export const group = defineRecipe({
       css: {
         '& > *:first-child': {
           borderEndRadius: '0',
-          marginEnd: '-1px',
+          marginEnd: '-2px',
         },
         '& > *:last-child': {
           borderStartRadius: '0',
         },
         '& > *:not(:first-child):not(:last-child)': {
           borderRadius: '0',
-          marginEnd: '-1px',
+          marginEnd: '-2px',
         },
       },
     },
@@ -62,14 +62,14 @@ export const group = defineRecipe({
       css: {
         '& > *:first-child': {
           borderBottomRadius: '0',
-          marginBottom: '-1px',
+          marginBottom: '-2px',
         },
         '& > *:last-child': {
           borderTopRadius: '0',
         },
         '& > *:not(:first-child):not(:last-child)': {
           borderRadius: '0',
-          marginBottom: '-1px',
+          marginBottom: '-2px',
         },
       },
     },
