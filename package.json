@@ -10,7 +10,7 @@
     "@astrojs/react": "^6.0.2",
     "@js-temporal/polyfill": "^0.4.4",
     "@wooorm/starry-night": "^3.4.0",
-    "astro": "^7.1.1",
+    "astro": "^7.2.8",
     "class-variance-authority": "^0.7.1",
     "gitlog": "^5.1.0",
     "hast-util-to-dom": "^4.0.1",
@@ -46,7 +46,7 @@
     "@pandacss/studio": "^1.8.2",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
-    "sharp": "^0.35.0",
+    "sharp": "^0.35.4",
     "typescript": "^5.5.3"
   },
   "pnpm": {
